@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utilities;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
@@ -8,18 +9,24 @@ public class Movement : MonoBehaviour
 
     //Assignables
     private Rigidbody2D rb;
+    private Animator animator;
 
     //Stats
     [Header("Stats")]
     [SerializeField] private float speed = 8f;
-    [SerializeField] private float acceleration = 0.07f;
+    [SerializeField] private float acceleration = 0.09f;
     private Vector2 velocity;
 
-    private void Awake() => rb = GetComponent<Rigidbody2D>();
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
         InputAxis = Input.GetAxisRaw("Horizontal");
+        transform.Flip(InputAxis, false);
     }
 
     private void FixedUpdate() => Move();
