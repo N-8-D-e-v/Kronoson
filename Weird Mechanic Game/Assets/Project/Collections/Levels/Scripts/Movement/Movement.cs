@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Input_Axis = Input.GetAxisRaw("Horizontal");
-        transform.Flip(Input_Axis, false);
+        transform.Flip(Input_Axis);
     }
 
     private void FixedUpdate() => Move();

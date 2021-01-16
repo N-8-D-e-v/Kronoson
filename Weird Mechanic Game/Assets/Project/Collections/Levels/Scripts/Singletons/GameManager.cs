@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     //Time Scale
     [Header("Time Scale")]
     [Range(0.01f, 1f)] [SerializeField] private float timeScaleSmoothing = 0.2f;
-    private float velocity;
+    private float velocity = 0f;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private void UpdateTimeScale()
     {
         float _timeScale = MicrophoneLevelToTimeScale.GetTimeScaleFromMicLevel(MicrophoneData.MicrophoneLevel);
-        Time.timeScale = Mathf.SmoothDamp(Time.timeScale, _timeScale, ref velocity, timeScaleSmoothing);
+        // Time.timeScale = Mathf.SmoothDamp(Time.timeScale, _timeScale, ref velocity, timeScaleSmoothing);
     }
 }
 
