@@ -1,11 +1,8 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Movement), typeof(Jumping))]
-public class Controls_Movement : MonoBehaviour
+public class Controls_Movement : Controls
 {
-    //Public Fields
-    public bool IsEnabled = true;
-
     //Assignables
     private Movement movement;
     private Jumping jumping;
@@ -15,18 +12,16 @@ public class Controls_Movement : MonoBehaviour
         movement = GetComponent<Movement>();
         jumping = GetComponent<Jumping>();
     }
-    
-    private void Update()
+
+    protected override void Enabled()
     {
-        if (!IsEnabled)
-        {
-            movement.Input_Axis = 0f;
-            jumping.Input_Up = false;
-        }
-        else
-        {
-            movement.Input_Axis = Input.GetAxisRaw("Horizontal");
-            jumping.Input_Up = Input.GetAxisRaw("Vertical") > 0;
-        }
+        movement.Input_Axis = Input.GetAxisRaw("Horizontal");
+        jumping.Input_Up = Input.GetAxisRaw("Vertical") > 0;
+    }
+
+    protected override void NotEnabled()
+    {
+        movement.Input_Axis = 0f;
+        jumping.Input_Up = false;
     }
 }
