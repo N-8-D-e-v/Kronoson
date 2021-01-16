@@ -23,11 +23,7 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        Input_Axis = Input.GetAxisRaw("Horizontal");
-        transform.Flip(Input_Axis);
-    }
+    private void Update() => transform.Flip(Input_Axis);
 
     private void FixedUpdate() => Move();
 

@@ -34,7 +34,7 @@ public class Jumping : MonoBehaviour
 
     private void CheckInput()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input_Up)
             jumpTimer = jumpForgiveness;
         else
             jumpTimer = Mathf.Clamp(jumpTimer - Time.deltaTime, 0f, jumpForgiveness);
