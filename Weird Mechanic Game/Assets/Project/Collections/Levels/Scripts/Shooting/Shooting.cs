@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Shooting : MonoBehaviour
+public class Shooting : CollisionSensor
 {
     //Input
     public bool Input_Shoot {set; private get;} = false;
@@ -9,8 +9,7 @@ public class Shooting : MonoBehaviour
     //Assignables
     private Animator animator;
 
-    //Gun Stats
-    [Header("Gun Stats")]
+    //Gun
     [SerializeField] private Gun gun;
     private bool canShoot = true;
 
@@ -18,11 +17,16 @@ public class Shooting : MonoBehaviour
     private const string SHOOT = "shoot";
 
     private void Awake() => animator = GetComponent<Animator>();
-    
+
     private void Update()
     {
-        if (Input_Shoot && canShoot)
+        if (CanShoot())
             Shoot();
+    }
+
+    private bool CanShoot()
+    {
+        return Input_Shoot && canShoot && !Colliding();
     }
 
     private void Shoot()
@@ -30,7 +34,7 @@ public class Shooting : MonoBehaviour
         animator.Play(SHOOT);
         for (int i = 0; i < gun.Shots; i++)
         {
-            Rigidbody2D _bullet = Instantiate(gun.Bullet, gun.GunTip, transform.rotation);
+            Rigidbody2D _bullet = Instantiate(gun.Bullet, gun.GunTip.position, Quaternion.identity);
             _bullet.AddForce(transform.up * gun.Range, ForceMode2D.Impulse);
         }
         canShoot = false;
@@ -44,7 +48,7 @@ public class Shooting : MonoBehaviour
 public struct Gun
 {
     public Rigidbody2D Bullet;
-    public Vector3 GunTip;
+    public Transform GunTip;
     public float Range;
     public float FireRate;
     public int Shots;
