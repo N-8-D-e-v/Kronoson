@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     //Assignables
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
     
     //Follow Speed
     [Header("Follow Speed")]

@@ -13,7 +13,7 @@ TextureImporter:
     second: circle_thin_topper
   - first:
       213: -2188727648268321703
-    second: misc_bar
+    second: gun
   - first:
       213: -4484064563768324399
     second: misc_star_simple
@@ -106,7 +106,7 @@ TextureImporter:
     second: player_foot_right
   - first:
       213: 6709167944621196206
-    second: player_head
+    second: projectile
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -331,15 +331,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: misc_bar
+      name: gun
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 54
+        y: 53
+        width: 3
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -977,6 +977,27 @@ TextureImporter:
       bones: []
       spriteID: 9d14aafbbfedc6be0800000000000000
       internalID: -1482565004477972007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: projectile
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 55
+        width: 2
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3859de2b0cb1d50800000000000000
+      internalID: 6709167944621196206
       vertices: []
       indices: 
       edges: []
