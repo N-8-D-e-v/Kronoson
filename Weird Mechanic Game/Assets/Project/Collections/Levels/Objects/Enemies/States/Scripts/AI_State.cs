@@ -6,7 +6,10 @@ public abstract class AI_State : MonoBehaviour
     public Rigidbody2D Rigidbody {set; get;}
     public Transform Transform {set; get;}
     
-    public abstract void LateAwake();
+    public virtual void LateAwake()
+    {
+        //OVERRIDE THIS IF NECESSARY
+    }
     
     public abstract bool Condition();
 
