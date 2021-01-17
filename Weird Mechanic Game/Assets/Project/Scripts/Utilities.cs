@@ -6,7 +6,7 @@ namespace Utilities
     {
         public static class Transformf
         { 
-            public static T[] InitializeHierarchy<T>(this Transform _root)
+            public static T[] InitializeHierarchy<T>(this Transform _root) where T : Component
             {
                 int _numberOfComponents = _root.GetComponentsInChildren<T>().Length;
                 T[] _components = new T[_numberOfComponents];
@@ -54,6 +54,19 @@ namespace Utilities
                 Vector3 _dir = Camera.main.ScreenToWorldPoint(_mousePos) - _transform.position;
                 float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
                 return _angle;
+            }
+        }
+    }
+
+    namespace GameObjectf
+    {
+        public static class GameObjectf
+        {
+            public static void RequireComponents<T>(this GameObject _gameObject, int _components) where T : Component
+            {
+                int _currentComponents = _gameObject.GetComponents<T>().Length;
+                for (int i = 0; i < _components - _currentComponents; i++)
+                    _gameObject.AddComponent<T>();
             }
         }
     }
