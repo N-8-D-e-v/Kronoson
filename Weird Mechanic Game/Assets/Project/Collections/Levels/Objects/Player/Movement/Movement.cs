@@ -1,11 +1,10 @@
 using UnityEngine;
-using Utilities.Transformf;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
     //Input
-    public float Input_Axis {set; private get;} = 0f;
+    public float Input_Axis {set; get;} = 0f;
 
     //Assignables
     private Rigidbody2D rb;
@@ -22,8 +21,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    private void Update() => transform.Flip(Input_Axis);
 
     private void FixedUpdate() => Move();
 

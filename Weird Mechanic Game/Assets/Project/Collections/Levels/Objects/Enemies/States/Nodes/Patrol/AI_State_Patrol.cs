@@ -1,8 +1,10 @@
 using UnityEngine;
 
-[System.Serializable]
 public class AI_State_Patrol : AI_State
 {   
+    //Assignables
+    private Movement movement;
+    
     //Layers
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
@@ -15,15 +17,11 @@ public class AI_State_Patrol : AI_State
     [SerializeField] private float floorDistance = 2f;
 
     //Movement
-    [Header("Movement")]
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float accelerationTime = 0.1f;
     private Vector2 direction;
-    private Vector2 velocity;
-
 
     public override void LateAwake()
     {
+        movement = GetComponentInParent<Movement>();
         direction.x = Transform.localScale.x;
     }
 
@@ -35,9 +33,7 @@ public class AI_State_Patrol : AI_State
     public override void Behaviour()
     {   
         //Move
-        Vector3 _move = direction * speed;
-        _move.y = Rigidbody.velocity.y;
-        Rigidbody.velocity = Vector2.SmoothDamp(Rigidbody.velocity, _move, ref velocity, accelerationTime);
+        movement.Input_Axis = direction.x;
 
         //Check if there is a wall in front of us, or if we are about to walk off of the ground
         bool _floor = Physics2D.Raycast(raycastCheck.position, Vector2.down, floorDistance, groundLayer);

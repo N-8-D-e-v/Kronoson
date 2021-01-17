@@ -83,4 +83,3 @@ MonoBehaviour:
   raycastCheck: {fileID: 2019481882}
   wallDistance: 2
   floorDistance: 2
-  speed: 3

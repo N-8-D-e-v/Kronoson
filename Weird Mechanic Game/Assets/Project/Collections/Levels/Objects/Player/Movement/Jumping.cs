@@ -4,7 +4,7 @@ using UnityEngine;
 public class Jumping : MonoBehaviour
 {
     //Input
-    public bool Input_Up {set; private get;} = false;
+    public bool Input_Up {set; get;} = false;
 
     //Assignables
     private Rigidbody2D rb;
