@@ -6,6 +6,25 @@ namespace Utilities
     {
         public static class Transformf
         { 
+            public static T[] InitializeHierarchy<T>(this Transform _root)
+            {
+                int _numberOfComponents = _root.GetComponentsInChildren<T>().Length;
+                T[] _components = new T[_numberOfComponents];
+                int _c = 0;
+                
+                for (int i = 0; i < _root.childCount; i++)
+                {
+                    if (_root.GetChild(i).TryGetComponent<T>(out T _component))
+                    {
+                        _components[_c] = _component;
+                        _c ++;
+                    }
+
+                }
+
+                return _components;
+            }
+            
             public static void Flip(this Transform _transform, float _dir, bool _isLocal)
             {
                 Vector3 _rot = _isLocal ? _transform.localEulerAngles : _transform.eulerAngles;
