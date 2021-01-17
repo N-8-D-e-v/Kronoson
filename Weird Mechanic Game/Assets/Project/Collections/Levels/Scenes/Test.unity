@@ -365,9 +365,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 792915187
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2188727648268321703, guid: b4a00a32327f4e549bd7b74587015fca, type: 3}
   m_Color: {r: 0.6, g: 0.45882353, b: 0.46666667, a: 1}
   m_FlipX: 0
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 923871563}
   m_Layer: 6
   m_Name: Tilemap_World
-  m_TagString: Untagged
+  m_TagString: Blocking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1633,7 +1633,7 @@ GameObject:
   - component: {fileID: 1206017272}
   - component: {fileID: 1206017273}
   - component: {fileID: 1206017278}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1819,7 +1819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325640974}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Gun_Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2071,9 +2071,9 @@ GameObject:
   - component: {fileID: 1798558474}
   - component: {fileID: 1798558475}
   - component: {fileID: 1798558476}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2176,7 +2176,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   groundedForgiveness: 0.2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
 --- !u!114 &1798558476
 MonoBehaviour:
   m_ObjectHideFlags: 0
