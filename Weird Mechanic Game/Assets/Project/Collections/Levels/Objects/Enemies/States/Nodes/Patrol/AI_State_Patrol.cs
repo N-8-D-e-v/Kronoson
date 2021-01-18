@@ -1,22 +1,21 @@
 using UnityEngine;
-using Utilities.GameObjectf;
+using Utilities.Componentf;
 
 public class AI_State_Patrol : AI_State
 {   
     //Assignables
-    [Header("Assignables")]
+    private Movement movement;
+
+    //Raycasts
+    [Header("Raycasts")]
     [SerializeField] private ObstacleCheck wallCheck;
     [SerializeField] private ObstacleCheck floorCheck;
-    private Movement movement;
 
     //Movement
     private Vector2 direction;
 
-    private void Reset()
-    {
-        gameObject.RequireComponents<ObstacleCheck>(2);
-    }
-    
+    private void Reset() => gameObject.RequireComponentsOnParent<Movement>(1);
+
     public override void LateAwake()
     {
         movement = GetComponentInParent<Movement>();

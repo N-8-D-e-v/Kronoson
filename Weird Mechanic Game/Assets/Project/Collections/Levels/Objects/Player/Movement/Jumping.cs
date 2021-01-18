@@ -12,7 +12,7 @@ public class Jumping : MonoBehaviour
 
     //Jump Stats
     [Header("Jump Stats")]
-    [SerializeField] private float jumpForce = 100f;
+    [SerializeField] private float jumpForce = 6f;
 
     //Jump Forgiveness
     [Header("Jump Forgiveness")]

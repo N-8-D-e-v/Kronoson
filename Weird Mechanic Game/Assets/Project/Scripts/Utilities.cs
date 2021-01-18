@@ -55,18 +55,31 @@ namespace Utilities
                 float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
                 return _angle;
             }
+
+            public static Vector2 GetDirectionToTarget(this Transform _transform, Transform _target)
+            {
+                Vector2 _dir = _target.position - _transform.position;
+                _dir = _dir.normalized;
+                return _dir;
+            }
         }
     }
 
-    namespace GameObjectf
+    namespace Componentf
     {
-        public static class GameObjectf
+        public static class Componentf
         {
             public static void RequireComponents<T>(this GameObject _gameObject, int _components) where T : Component
             {
                 int _currentComponents = _gameObject.GetComponents<T>().Length;
                 for (int i = 0; i < _components - _currentComponents; i++)
                     _gameObject.AddComponent<T>();
+            }
+
+            public static void RequireComponentsOnParent<T>(this GameObject _gameObject, int _components) where T : Component
+            {
+                GameObject _parent = _gameObject.transform.parent.gameObject;
+                RequireComponents<T>(_parent, _components);
             }
         }
     }

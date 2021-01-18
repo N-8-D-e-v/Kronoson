@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class ObstacleCheck : MonoBehaviour
+[System.Serializable]
+public class ObstacleCheck
 { 
     //Layers
     [Header("Layers")]

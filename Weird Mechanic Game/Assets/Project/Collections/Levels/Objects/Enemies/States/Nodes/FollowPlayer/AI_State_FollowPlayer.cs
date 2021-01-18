@@ -1,25 +1,30 @@
 using UnityEngine;
-using Utilities.GameObjectf;
+using Utilities.Transformf;
+using Utilities.Componentf;
 
 public class AI_State_FollowPlayer : AI_State
 {
     //Assignables
-    [Header("Assignables")]
-    [SerializeField] private ObstacleCheck obstacleCheck;
-    [SerializeField] private ObstacleCheck floorCheck;
     private Movement movement;
     private Jumping jumping;
 
-    //Stopping
-    [Header("Stopping")]
-    [SerializeField] private float stopRadius = 3f;
+    //Raycasts
+    [Header("Raycasts")]
+    [SerializeField] private ObstacleCheck obstacleCheck;
+    [SerializeField] private ObstacleCheck floorCheck;
+
+    //Following
+    [Header("Following")]
+    [SerializeField] private float sightDistance = 10f;
+    [SerializeField] private float stoppingDistance = 3f;
 
     //Direction
     private Vector2 direction;
 
-    void Reset()
+    private void Reset()
     {
-        gameObject.RequireComponents<ObstacleCheck>(2);
+        gameObject.RequireComponentsOnParent<Movement>(1);
+        gameObject.RequireComponentsOnParent<Jumping>(1);
     }
 
     public override void LateAwake()
@@ -31,14 +36,14 @@ public class AI_State_FollowPlayer : AI_State
 
     public override bool Condition()
     {
-        return true;
+        return transform.parent.GetDirectionToTarget(Player.Transform).sqrMagnitude <= sightDistance * sightDistance;
     }
 
     public override void Behaviour()
     {
-        if (transform.parent.position.x < Player.Transform.position.x - stopRadius)
+        if (transform.parent.position.x < Player.Transform.position.x - stoppingDistance)
             direction = Vector2.right;
-        else if (transform.parent.position.x > Player.Transform.position.x + stopRadius)
+        else if (transform.parent.position.x > Player.Transform.position.x + stoppingDistance)
             direction = Vector2.left;
         else
             direction = Vector2.zero;
@@ -48,7 +53,7 @@ public class AI_State_FollowPlayer : AI_State
         bool _obstacle = obstacleCheck.CheckObstacle(direction);
         bool _floor = floorCheck.CheckObstacle(Vector2.down);
 
-        if (_obstacle || _floor)
+        if (_obstacle || !_floor)
             jumping.Input_Up = true;
         else
             jumping.Input_Up = false;
