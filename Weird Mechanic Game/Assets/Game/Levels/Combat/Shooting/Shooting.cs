@@ -10,6 +10,7 @@ namespace Game.Levels.Combat
         public bool Input_Shoot {set; private get;} = false;
 
         //Assignables
+        private new Transform transform;
         private Animator animator;
 
         //Gun
@@ -19,7 +20,11 @@ namespace Game.Levels.Combat
         //Animation
         private const string SHOOT = "shoot";
 
-        private void Awake() => animator = GetComponent<Animator>();
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+            animator = GetComponent<Animator>();
+        }
 
         private void Update()
         {
@@ -27,10 +32,7 @@ namespace Game.Levels.Combat
                 Shoot();
         }
 
-        private bool CanShoot()
-        {
-            return Input_Shoot && canShoot && !Colliding();
-        }
+        private bool CanShoot() => Input_Shoot && canShoot && !Colliding();
 
         private void Shoot()
         {

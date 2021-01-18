@@ -10,6 +10,7 @@ namespace Game.Levels.Movement
         public bool IsGrounded {private set; get;} = false;
         
         //Assignables
+        private new Transform transform;
         private Collider2D col;
 
         //Grounded
@@ -23,7 +24,11 @@ namespace Game.Levels.Movement
         [Header("Layers")]
         [SerializeField] private LayerMask groundLayer;
 
-        private void Awake() => col = GetComponent<Collider2D>();
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+            col = GetComponent<Collider2D>();
+        }
 
         private void Update()
         {

@@ -7,9 +7,14 @@ namespace Game.Levels.Movement
     public class FlipDirection : MonoBehaviour
     {
         //Assignables
+        private new Transform transform;
         private SmoothMovement movement;
 
-        private void Awake() => movement = GetComponent<SmoothMovement>();
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+            movement = GetComponent<SmoothMovement>();
+        }
 
         private void Update() => transform.Flip(movement.Input_Axis);
     }

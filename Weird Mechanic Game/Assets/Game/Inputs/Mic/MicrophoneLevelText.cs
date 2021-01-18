@@ -11,9 +11,6 @@ namespace Game.Inputs.Mic
 
         private void Awake() => micLevelText = GetComponent<TextMeshProUGUI>();
         
-        private void Update()
-        {
-            micLevelText.text = MicrophoneData.MicrophoneLevel.ToString();
-        }
+        private void Update() => micLevelText.text = MicrophoneData.MicrophoneLevel.ToString();
     }
 }

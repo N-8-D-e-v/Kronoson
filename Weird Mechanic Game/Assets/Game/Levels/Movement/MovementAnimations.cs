@@ -21,9 +21,6 @@ namespace Game.Levels.Movement
             rb = GetComponent<Rigidbody2D>();
         }
 
-        private void FixedUpdate()
-        {
-            animator.SetBool(MOVE, Mathf.Abs(rb.velocity.x) > movingAnimDelta);
-        }
+        private void FixedUpdate() => animator.SetBool(MOVE, Mathf.Abs(rb.velocity.x) > movingAnimDelta);
     }
 }

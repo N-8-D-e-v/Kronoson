@@ -26,28 +26,24 @@ namespace Game.Levels.Objects.AI
             direction.x = transform.parent.localScale.x;
         }
 
-        public override bool Condition()
-        {
-            return true;
-        }
+        public override bool Condition() => true;
 
         public override void Behaviour()
         {   
-            //Move
             movement.Input_Axis = direction.x;
+            print(direction);
 
-            //Check if there is a wall in front of us, or if we are about to walk off of the ground
-            bool _floor = floorCheck.CheckObstacle(Vector2.down);
-            bool _wall = wallCheck.CheckObstacle(direction);
+            bool _isFloor = floorCheck.CheckObstacle(Vector2.down);
+            bool _isWall = wallCheck.CheckObstacle(direction);
 
-            //if there is no floor or there is a wall, turn around
-            if (!_floor || _wall)
-            {
-                direction *= -1;
-                Vector3 _scale = transform.parent.localScale;
-                _scale.x = direction.x;
-                transform.parent.localScale = _scale;
-            }
+            if (!_isFloor || _isWall)
+                TurnAround();
+        }
+
+        private void TurnAround()
+        {
+            direction *= -1;
+            movement.Input_Axis = direction.x;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Game.Levels.Sensors
     public abstract class CollisionSensor : MonoBehaviour
     {
         //Public Fields
-        public int Overlaps {private set; get;} = 0;
+        private int Overlaps = 0;
 
         //Tag
         private const string BLOCKING = "Blocking";
@@ -35,9 +35,6 @@ namespace Game.Levels.Sensors
                 Overlaps --;
         }
 
-        protected bool Colliding()
-        {
-            return Overlaps > 0;
-        }
+        public bool Colliding() => Overlaps > 0;
     }
 }

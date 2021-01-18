@@ -5,9 +5,14 @@ namespace Game.Levels.Combat
 {
     public class LookAtMouse : MonoBehaviour
     {
+        //Assignables
+        private new Transform transform;
+        
         //Offset
         [SerializeField] private float offset = 0f;
         [SerializeField] private float smoothing = 10f;
+
+        private void Awake() => transform = GetComponent<Transform>();
         
         private void Update()
         {

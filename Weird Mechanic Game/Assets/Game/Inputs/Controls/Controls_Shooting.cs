@@ -11,14 +11,8 @@ namespace Game.Inputs.Controls
 
         private void Awake() => shooting = GetComponent<Shooting>();
 
-        protected override void Enabled()
-        {
-            shooting.Input_Shoot = Input.GetMouseButtonDown(0);
-        }
+        protected override void Enabled() => shooting.Input_Shoot = Input.GetMouseButtonDown(0);
 
-        protected override void NotEnabled()
-        {
-            shooting.Input_Shoot = false;
-        }
+        protected override void NotEnabled() => shooting.Input_Shoot = false;
     }
 }

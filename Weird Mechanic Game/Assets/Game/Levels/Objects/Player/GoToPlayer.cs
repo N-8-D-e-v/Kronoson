@@ -7,9 +7,6 @@ namespace Game.Levels.Objects.Player
         //Offset
         [SerializeField] private Vector3 offset;
         
-        private void LateUpdate()
-        {
-            transform.position = PlayerData.Transform.position + offset;
-        }
+        private void LateUpdate() => transform.position = PlayerData.Transform.position + offset;
     }
 }

@@ -10,6 +10,7 @@ namespace Game.Levels.Objects.AI
     public class AI_State_FollowPlayer : AI_State
     {
         //Assignables
+        private Transform parent;
         private SmoothMovement movement;
         private Jumping jumping;
 
@@ -34,6 +35,7 @@ namespace Game.Levels.Objects.AI
 
         public override void LateAwake()
         {
+            parent = GetComponentInParent<Transform>();
             movement = GetComponentInParent<SmoothMovement>();
             jumping = GetComponentInParent<Jumping>();
             direction.x = transform.parent.localScale.x;
@@ -41,14 +43,14 @@ namespace Game.Levels.Objects.AI
 
         public override bool Condition()
         {
-            return transform.parent.GetDirectionToTarget(PlayerData.Transform).sqrMagnitude <= sightDistance * sightDistance;
+            return parent.GetDirectionToTarget(PlayerData.Transform).sqrMagnitude <= sightDistance * sightDistance;
         }
 
         public override void Behaviour()
         {
-            if (transform.parent.position.x < PlayerData.Transform.position.x - stoppingDistance)
+            if (parent.position.x < PlayerData.Transform.position.x - stoppingDistance)
                 direction = Vector2.right;
-            else if (transform.parent.position.x > PlayerData.Transform.position.x + stoppingDistance)
+            else if (parent.position.x > PlayerData.Transform.position.x + stoppingDistance)
                 direction = Vector2.left;
             else
                 direction = Vector2.zero;

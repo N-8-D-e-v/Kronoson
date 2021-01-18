@@ -15,10 +15,7 @@ namespace Game.Levels.Objects.AI
             shooting = GetComponent<Shooting>();
         }
 
-        public override bool Condition()
-        {
-            return base.Condition();
-        }
+        public override bool Condition() => base.Condition();
 
         public override void Behaviour()
         {
