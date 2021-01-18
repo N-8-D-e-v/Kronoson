@@ -40,7 +40,7 @@ TextureImporter:
     second: entity_3
   - first:
       213: -790320180959589711
-    second: entity_2
+    second: enemy_1
   - first:
       213: -3181537871033172420
     second: player_body
@@ -107,6 +107,12 @@ TextureImporter:
   - first:
       213: 6709167944621196206
     second: projectile
+  - first:
+      213: 592179512948351116
+    second: enemy_1_leg_left
+  - first:
+      213: -4338122834804208805
+    second: enemy_1_leg_right
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -520,13 +526,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: entity_2
+      name: enemy_1
       rect:
         serializedVersion: 2
         x: 69
-        y: 34
+        y: 36
         width: 6
-        height: 12
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -998,6 +1004,48 @@ TextureImporter:
       bones: []
       spriteID: ea3859de2b0cb1d50800000000000000
       internalID: 6709167944621196206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_1_leg_left
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 33
+        width: 2
+        height: 2
+      alignment: 9
+      pivot: {x: 0.25, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80ec882128d73800800000000000000
+      internalID: 592179512948351116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_1_leg_right
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 33
+        width: 2
+        height: 2
+      alignment: 9
+      pivot: {x: 0.25, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b0c7f1444ebc3c0800000000000000
+      internalID: -4338122834804208805
       vertices: []
       indices: 
       edges: []
