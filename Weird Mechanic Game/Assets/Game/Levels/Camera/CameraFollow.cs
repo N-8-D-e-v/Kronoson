@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.Levels.General.Player;
+using Game.Levels.Objects.Player;
 
 namespace Game.Levels.Camera
 {

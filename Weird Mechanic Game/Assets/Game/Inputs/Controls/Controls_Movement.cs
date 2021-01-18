@@ -1,18 +1,18 @@
 using UnityEngine;
-using Game.Levels.General.Physics_2D.Movement;
+using Game.Levels.Movement;
 
 namespace Game.Inputs.Controls
 {
-    [RequireComponent(typeof(Movement), typeof(Jumping))]
+    [RequireComponent(typeof(SmoothMovement), typeof(Jumping))]
     public class Controls_Movement : Controls
     {
         //Assignables
-        private Movement movement;
+        private SmoothMovement movement;
         private Jumping jumping;
 
         private void Awake()
         {
-            movement = GetComponent<Movement>();
+            movement = GetComponent<SmoothMovement>();
             jumping = GetComponent<Jumping>();
         }
 

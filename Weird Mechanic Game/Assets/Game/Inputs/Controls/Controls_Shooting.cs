@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Levels.Combat;
 
 namespace Game.Inputs.Controls
 {
