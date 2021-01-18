@@ -9,6 +9,6 @@ namespace Game.Levels.Combat
         
         private void Awake() => Destroy(gameObject, destroyTime);
         
-        private void OnTriggerEnter2D(Collider2D _col) => Destroy(gameObject);
+        private void OnCollisionEnter2D(Collision2D _col) => Destroy(gameObject);
     }
 }

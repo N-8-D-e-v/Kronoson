@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5410371248979115795}
   - component: {fileID: 4603538172994410480}
   - component: {fileID: 958367845523075751}
+  - component: {fileID: 8557392579035052281}
   m_Layer: 0
   m_Name: AI_State_ShootPlayer
   m_TagString: Untagged
@@ -177,6 +178,18 @@ MonoBehaviour:
     Range: 10
     FireRate: 2
     Shots: 1
+--- !u!114 &8557392579035052281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230197709946511789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a7ae1a3747d034abf06b96bb502d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9051975033103001646
 GameObject:
   m_ObjectHideFlags: 0
