@@ -24,7 +24,7 @@ namespace Game.General.TimeManagement
 
         //Mic Level
         [Header("Mic Level")]
-        [SerializeField] private float slowMotionMicThreshold = -65f;
+        [SerializeField] private float slowMotionMicThreshold = -75f;
 
         //Animations
         private const string SLOW_MOTION = "slow_motion";
@@ -48,7 +48,7 @@ namespace Game.General.TimeManagement
 
         private void UpdateTimeScale()
         {
-            bool _slowMotion = MicrophoneData.MicrophoneLevel >= slowMotionMicThreshold;
+            bool _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
             animator.SetBool(SLOW_MOTION, _slowMotion);
             targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
         }
