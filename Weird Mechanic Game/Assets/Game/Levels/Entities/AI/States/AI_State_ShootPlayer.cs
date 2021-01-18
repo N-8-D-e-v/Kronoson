@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Levels.General.AI.States
+namespace Game.Levels.Entities.AI.States
 {
     [RequireComponent(typeof(Shooting))]
     public class AI_State_ShootPlayer : AI_State_FollowPlayer

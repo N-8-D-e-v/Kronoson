@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public abstract class Controls : MonoBehaviour
+namespace Game.Inputs.Controls
 {
-    //Public Fields
-    public bool IsEnabled = true;
-
-    private void Update()
+    public abstract class Controls : MonoBehaviour
     {
-        if (IsEnabled)
-            Enabled();
-        else
-            NotEnabled();
+        //Public Fields
+        public bool IsEnabled = true;
+
+        private void Update()
+        {
+            if (IsEnabled)
+                Enabled();
+            else
+                NotEnabled();
+        }
+
+        protected abstract void Enabled();
+
+        protected abstract void NotEnabled();
     }
-
-    protected abstract void Enabled();
-
-    protected abstract void NotEnabled();
 }

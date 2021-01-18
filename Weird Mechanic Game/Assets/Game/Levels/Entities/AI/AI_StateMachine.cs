@@ -1,7 +1,7 @@
 using UnityEngine;
-using Utilities.Transformf;
+using Game.General.Utilities.Transformf;
 
-namespace Game.Levels.General.AI
+namespace Game.Levels.Entities.AI
 {
     [RequireComponent(typeof(Animator))]
     public class AI_StateMachine : MonoBehaviour

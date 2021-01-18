@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utilities
+namespace Game.General.Utilities
 {
     namespace Transformf
     {

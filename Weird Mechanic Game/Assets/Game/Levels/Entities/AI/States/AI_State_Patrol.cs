@@ -1,9 +1,9 @@
 using UnityEngine;
-using Utilities.Componentf;
+using Game.General.Utilities.Componentf;
 using Game.Levels.General.Physics_2D.Movement;
 using Game.Levels.General.Physics_2D.Raycasts;
 
-namespace Game.Levels.General.AI.States
+namespace Game.Levels.Entities.AI.States
 {
     public class AI_State_Patrol : AI_State
     {   

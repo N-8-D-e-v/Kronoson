@@ -1,9 +1,9 @@
 using UnityEngine;
 using Game.Levels.General.Player;
 
-namespace Game.Levels.General.CameraControls
+namespace Game.Levels.Camera
 {
-    [RequireComponent(typeof(Camera), typeof(Rigidbody2D))]
+    [RequireComponent(typeof(UnityEngine.Camera), typeof(Rigidbody2D))]
     public class CameraFollow : MonoBehaviour
     {
         //Assignables

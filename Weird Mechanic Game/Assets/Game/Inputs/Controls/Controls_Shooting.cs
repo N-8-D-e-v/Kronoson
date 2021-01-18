@@ -1,20 +1,23 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Shooting))]
-public class Controls_Shooting : Controls
+namespace Game.Inputs.Controls
 {
-    //Assignables
-    private Shooting shooting;
-
-    private void Awake() => shooting = GetComponent<Shooting>();
-
-    protected override void Enabled()
+    [RequireComponent(typeof(Shooting))]
+    public class Controls_Shooting : Controls
     {
-        shooting.Input_Shoot = Input.GetMouseButtonDown(0);
-    }
+        //Assignables
+        private Shooting shooting;
 
-    protected override void NotEnabled()
-    {
-        shooting.Input_Shoot = false;
+        private void Awake() => shooting = GetComponent<Shooting>();
+
+        protected override void Enabled()
+        {
+            shooting.Input_Shoot = Input.GetMouseButtonDown(0);
+        }
+
+        protected override void NotEnabled()
+        {
+            shooting.Input_Shoot = false;
+        }
     }
 }

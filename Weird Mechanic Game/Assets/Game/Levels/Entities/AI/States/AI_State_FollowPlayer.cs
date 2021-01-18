@@ -1,11 +1,11 @@
 using UnityEngine;
-using Utilities.Transformf;
-using Utilities.Componentf;
+using Game.General.Utilities.Transformf;
+using Game.General.Utilities.Componentf;
 using Game.Levels.General.Physics_2D.Movement;
 using Game.Levels.General.Physics_2D.Raycasts;
 using Game.Levels.General.Player;
 
-namespace Game.Levels.General.AI.States
+namespace Game.Levels.Entities.AI.States
 {
     public class AI_State_FollowPlayer : AI_State
     {

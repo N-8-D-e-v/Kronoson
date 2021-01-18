@@ -1,16 +1,19 @@
 using UnityEngine;
 using TMPro;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class MicrophoneLevelText : MonoBehaviour
+namespace Game.Inputs.Microphone
 {
-    //Assignables
-    private TextMeshProUGUI micLevelText;
-
-    private void Awake() => micLevelText = GetComponent<TextMeshProUGUI>();
-    
-    private void Update()
+    [RequireComponent(typeof(TextMeshProUGUI))]
+    public class MicrophoneLevelText : MonoBehaviour
     {
-        micLevelText.text = MicrophoneData.MicrophoneLevel.ToString();
+        //Assignables
+        private TextMeshProUGUI micLevelText;
+
+        private void Awake() => micLevelText = GetComponent<TextMeshProUGUI>();
+        
+        private void Update()
+        {
+            micLevelText.text = MicrophoneData.MicrophoneLevel.ToString();
+        }
     }
 }

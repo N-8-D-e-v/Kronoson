@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Levels.General.AI
+namespace Game.Levels.Entities.AI
 {
     public abstract class AI_State : MonoBehaviour
     {
