@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.General.Utilities.Transformf;
+using Game.General.Utilities.Vector3f;
 
 namespace Game.Levels.Objects.Player
 {
@@ -12,7 +12,8 @@ namespace Game.Levels.Objects.Player
         
         private void LateUpdate()
         {
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, transform.GetDirectionToTarget(PlayerData.Transform));
+            Vector3 _dir = transform.position.GetDirectionToTarget(PlayerData.GetPlayerPosition());
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, _dir);
         }
     }
 }

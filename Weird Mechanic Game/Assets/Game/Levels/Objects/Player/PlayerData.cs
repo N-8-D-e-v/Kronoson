@@ -7,8 +7,8 @@ namespace Game.Levels.Objects.Player
         //Singleton
         private static PlayerData Instance;
 
-        //Components
-        public static Transform Transform;
+        //Assignables
+        private new static Transform transform;
 
         private void Awake()
         {
@@ -17,7 +17,9 @@ namespace Game.Levels.Objects.Player
             else if (Instance != this)
                 Destroy(gameObject);
 
-            Transform = transform;
+            transform = GetComponent<Transform>();
         }
+
+        public static Vector3 GetPlayerPosition() => transform.position;
     }
 }

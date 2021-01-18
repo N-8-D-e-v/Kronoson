@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.General.Utilities.Transformf;
+using Game.General.Utilities.Vector3f;
 using Game.General.Utilities.Componentf;
 using Game.Levels.Movement;
 using Game.Levels.Objects.Player;
@@ -38,19 +38,20 @@ namespace Game.Levels.Objects.AI
             parent = GetComponentInParent<Transform>();
             movement = GetComponentInParent<SmoothMovement>();
             jumping = GetComponentInParent<Jumping>();
-            direction.x = transform.parent.localScale.x;
+            direction.x = parent.localScale.x;
         }
 
         public override bool Condition()
         {
-            return parent.GetDirectionToTarget(PlayerData.Transform).sqrMagnitude <= sightDistance * sightDistance;
+            Vector3 _dir = parent.position.GetDirectionToTarget(PlayerData.GetPlayerPosition());
+            return _dir.sqrMagnitude <= sightDistance * sightDistance;
         }
 
         public override void Behaviour()
         {
-            if (parent.position.x < PlayerData.Transform.position.x - stoppingDistance)
+            if (parent.position.x < PlayerData.GetPlayerPosition().x - stoppingDistance)
                 direction = Vector2.right;
-            else if (parent.position.x > PlayerData.Transform.position.x + stoppingDistance)
+            else if (parent.position.x > PlayerData.GetPlayerPosition().x + stoppingDistance)
                 direction = Vector2.left;
             else
                 direction = Vector2.zero;

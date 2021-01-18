@@ -31,7 +31,6 @@ namespace Game.Levels.Objects.AI
         public override void Behaviour()
         {   
             movement.Input_Axis = direction.x;
-            print(direction);
 
             bool _isFloor = floorCheck.CheckObstacle(Vector2.down);
             bool _isWall = wallCheck.CheckObstacle(direction);

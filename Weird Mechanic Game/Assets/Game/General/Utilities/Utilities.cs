@@ -55,10 +55,16 @@ namespace Game.General.Utilities
                 float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
                 return _angle;
             }
+        }
+    }
 
-            public static Vector2 GetDirectionToTarget(this Transform _transform, Transform _target)
+    namespace Vector3f
+    {
+        public static class Vector3f
+        {
+            public static Vector2 GetDirectionToTarget(this Vector3 _pos, Vector3 _targetPos)
             {
-                Vector2 _dir = _target.position - _transform.position;
+                Vector2 _dir = _targetPos - _pos;
                 _dir = _dir.normalized;
                 return _dir;
             }

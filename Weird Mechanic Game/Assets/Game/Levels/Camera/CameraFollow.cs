@@ -26,7 +26,7 @@ namespace Game.Levels.Camera
 
         private void FixedUpdate()
         {
-            Vector3 _target = PlayerData.Transform.position;
+            Vector3 _target = PlayerData.GetPlayerPosition();
             _target.x = Mathf.Clamp(_target.x, xBounds.x, xBounds.y);
             _target.y = Mathf.Clamp(_target.y, yBounds.x, yBounds.y);
             _target.z = Z_POS;
