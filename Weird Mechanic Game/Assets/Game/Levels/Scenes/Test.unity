@@ -1395,11 +1395,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206017270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8010bf4fc8aeff945953b6923ea79ae4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bd87176a4821d444b3cadedd4539bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: -90
-  smoothing: 15
+  gun:
+    Bullet: {fileID: 2464018874992180214, guid: 2fc5a8ae6e774cf44bac9d844abf707e, type: 3}
+    GunTip: {fileID: 1325640974}
+    Range: 10
+    FireRate: 0.2
+    Shots: 1
 --- !u!114 &1206017273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,15 +1413,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206017270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574aea36bcf0957438082e1c493b6478, type: 3}
+  m_Script: {fileID: 11500000, guid: fdea2efa4a2c1fa419753e6cafef5dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun:
-    Bullet: {fileID: 2464018874992180214, guid: 2fc5a8ae6e774cf44bac9d844abf707e, type: 3}
-    GunTip: {fileID: 1325640974}
-    Range: 30
-    FireRate: 0.2
-    Shots: 1
+  offset: -90
+  smoothing: 10
 --- !u!114 &1206017274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343c69f60f231ee49a4868a965de2d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDistance: 0.085
+  groundDistance: 0.09
   groundedForgiveness: 0.2
   groundLayer:
     serializedVersion: 2

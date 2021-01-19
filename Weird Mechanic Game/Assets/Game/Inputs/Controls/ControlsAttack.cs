@@ -9,7 +9,7 @@ namespace Game.Inputs.Controls
         //Assignables
         private IAttack attack;
 
-        private void Awake() => attack = GetComponent<Shooting>();
+        private void Awake() => attack = GetComponent<IAttack>();
 
         protected override void Enabled() => attack.InputAttack = Input.GetMouseButtonDown(0);
 

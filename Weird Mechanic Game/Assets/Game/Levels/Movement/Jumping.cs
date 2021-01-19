@@ -13,12 +13,12 @@ namespace Game.Levels.Movement
         private GroundCheck groundCheck;
 
         //Jump Stats
-        [Header("Jump Stats")] [SerializeField]
-        private float jumpForce = 6f;
+        [Header("Jump Stats")] 
+        [SerializeField] private float jumpForce = 6f;
 
         //Jump Forgiveness
-        [Header("Jump Forgiveness")] [SerializeField]
-        private float jumpForgiveness = 0.2f;
+        [Header("Jump Forgiveness")] 
+        [SerializeField] private float jumpForgiveness = 0.2f;
 
         private float jumpTimer = 0f;
 
@@ -35,7 +35,10 @@ namespace Game.Levels.Movement
                 Jump();
         }
 
-        private void CheckInput() => jumpTimer = InputUp ? jumpForgiveness : jumpTimer -= Time.deltaTime;
+        private void CheckInput()
+        {
+            jumpTimer = InputUp ? jumpForgiveness : Mathf.Max(0, jumpTimer - Time.deltaTime); 
+        }
 
         private void Jump()
         {

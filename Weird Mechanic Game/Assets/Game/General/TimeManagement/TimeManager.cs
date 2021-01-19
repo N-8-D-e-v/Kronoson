@@ -41,14 +41,14 @@ namespace Game.General.TimeManagement
 
         private void Update()
         {
-            Time.timeScale = Mathf.SmoothDamp(Time.timeScale, targetTimeScale, ref velocity, timeScaleSmoothing);
+            //Time.timeScale = Mathf.SmoothDamp(Time.timeScale, targetTimeScale, ref velocity, timeScaleSmoothing);
             UpdateTimeScale();
         }
 
         private void UpdateTimeScale()
         {
             bool _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
-            animator.SetBool(SLOW_MOTION, _slowMotion);
+            //animator.SetBool(SLOW_MOTION, _slowMotion);
             targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
         }
     }

@@ -3,17 +3,17 @@ using Game.Levels.Movement;
 
 namespace Game.Inputs.Controls
 {
-    [RequireComponent(typeof(IMovement), typeof(Jumping))]
+    [RequireComponent(typeof(IMovement), typeof(IJumping))]
     public class ControlsMovement : Controls
     {
         //Assignables
         private IMovement movement;
-        private Jumping jumping;
+        private IJumping jumping;
 
         private void Awake()
         {
             movement = GetComponent<IMovement>();
-            jumping = GetComponent<Jumping>();
+            jumping = GetComponent<IJumping>();
         }
 
         protected override void Enabled()

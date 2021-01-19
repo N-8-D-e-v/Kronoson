@@ -14,13 +14,15 @@ namespace Game.Levels.Movement
         private Collider2D col;
 
         //Grounded
-        [Header("Grounded")] [SerializeField] private float groundDistance = 0.085f;
+        [Header("Grounded")] 
+        [SerializeField] private float groundDistance = 0.085f;
         [SerializeField] private float groundedForgiveness = 0.2f;
         private float groundTimer = 0f;
         private bool canCheckGround = true;
 
         //Layers
-        [Header("Layers")] [SerializeField] private LayerMask groundLayer;
+        [Header("Layers")] 
+        [SerializeField] private LayerMask groundLayer;
 
         private void Awake()
         {
