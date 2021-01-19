@@ -3,7 +3,7 @@ using Game.Levels.Player;
 
 namespace Game.Levels.CameraControls
 {
-    [RequireComponent(typeof(Camera), typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class CameraFollow : MonoBehaviour
     {
         //Assignables
