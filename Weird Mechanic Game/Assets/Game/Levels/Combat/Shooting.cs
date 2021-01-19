@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Levels.Sensors;
+using Game.Levels.CameraControls;
 
 namespace Game.Levels.Combat
 {
@@ -20,7 +21,7 @@ namespace Game.Levels.Combat
         //Animation
         private const string SHOOT = "shoot";
 
-        private void Awake()
+        protected virtual void Awake()
         {
             transform = GetComponent<Transform>();
             animator = GetComponent<Animator>();
@@ -37,7 +38,7 @@ namespace Game.Levels.Combat
             return InputAttack && canShoot && !Colliding();
         }
 
-        private void Shoot()
+        protected virtual void Shoot()
         {
             animator.Play(SHOOT);
             for (int _i = 0; _i < gun.Shots; _i++)
@@ -45,7 +46,6 @@ namespace Game.Levels.Combat
                 Rigidbody2D _bullet = Instantiate(gun.Bullet, gun.GunTip.position, Quaternion.identity);
                 _bullet.AddForce(transform.up * gun.Range, ForceMode2D.Impulse);
             }
-
             canShoot = false;
             Invoke(nameof(Reload), gun.FireRate);
         }

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 2607943120300620781}
   - component: {fileID: 4386143877975072697}
   - component: {fileID: 1893613603}
+  - component: {fileID: 1882499047796560193}
   m_Layer: 7
   m_Name: Enemy_1
   m_TagString: Untagged
@@ -339,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8985f350abb4ac2981c34dee4125618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
+  startHealth: 300
 --- !u!114 &1893613603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +353,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14e189811bb48598b884b9db2f8d808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1882499047796560193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990074880933625824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d453ff5818b042d994367e2bbebfe065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraShakeSettings:
+    duration: 0.1
+    intensity: 0.2
+    damping: 1
+    decay: 0.8
 --- !u!1 &9086597271217005415
 GameObject:
   m_ObjectHideFlags: 0
