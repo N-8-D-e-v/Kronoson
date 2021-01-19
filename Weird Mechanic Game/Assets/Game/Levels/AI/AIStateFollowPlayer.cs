@@ -11,7 +11,7 @@ namespace Game.Levels.AI
         //Assignables
         private Transform parent;
         private IMovement movement;
-        private Jumping jumping;
+        private IJumping jumping;
 
         //Raycasts
         [Header("Raycasts")] [SerializeField] private ObstacleCheck obstacleCheck;
@@ -28,7 +28,7 @@ namespace Game.Levels.AI
         {
             parent = GetComponentInParent<Transform>();
             movement = GetComponentInParent<SmoothMovement>();
-            jumping = GetComponentInParent<Jumping>();
+            jumping = GetComponentInParent<IJumping>();
             direction.x = parent.localScale.x;
         }
 

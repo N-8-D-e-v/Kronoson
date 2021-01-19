@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game.Levels.Movement
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(GroundCheck))]
-    public class Jumping : MonoBehaviour
+    public class Jumping : MonoBehaviour, IJumping
     {
         //Input
         public bool InputUp { set; get; } = false;
@@ -35,13 +35,7 @@ namespace Game.Levels.Movement
                 Jump();
         }
 
-        private void CheckInput()
-        {
-            if (InputUp)
-                jumpTimer = jumpForgiveness;
-            else
-                jumpTimer = Mathf.Clamp(jumpTimer - Time.deltaTime, 0f, jumpForgiveness);
-        }
+        private void CheckInput() => jumpTimer = InputUp ? jumpForgiveness : jumpTimer -= Time.deltaTime;
 
         private void Jump()
         {

@@ -6,7 +6,7 @@ namespace Game.General.TimeManagement
     public class TimeManager : MonoBehaviour
     {
         //Singleton
-        private static TimeManager Instance;
+        private static TimeManager instance;
 
         //Assignables
         private Animator animator;
@@ -26,13 +26,13 @@ namespace Game.General.TimeManagement
         [Header("Mic Level")] [SerializeField] private float slowMotionMicThreshold = -75f;
 
         //Animations
-        private const string SLOW_MOTION = "slow_motion";
+        private static readonly int SLOW_MOTION = Animator.StringToHash("slow_motion");
 
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
-            else if (Instance != this)
+            if (!instance)
+                instance = this;
+            else if (instance != this)
                 Destroy(gameObject);
             DontDestroyOnLoad(gameObject);
 
@@ -51,11 +51,5 @@ namespace Game.General.TimeManagement
             animator.SetBool(SLOW_MOTION, _slowMotion);
             targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
         }
-    }
-
-    public enum GameState
-    {
-        Play,
-        Pause
     }
 }
