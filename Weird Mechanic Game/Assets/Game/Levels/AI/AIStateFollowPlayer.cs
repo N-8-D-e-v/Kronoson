@@ -34,6 +34,8 @@ namespace Game.Levels.AI
             direction.x = parent.localScale.x;
         }
 
+        protected override void OnDisable() => movement.InputAxis = 0f;
+
         public override bool Condition()
         {
             Vector3 _dir = parent.position.GetDirectionToTarget(PlayerData.GetPlayerPosition());

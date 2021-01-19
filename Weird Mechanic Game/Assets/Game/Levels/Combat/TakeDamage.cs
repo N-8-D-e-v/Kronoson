@@ -1,23 +1,25 @@
-﻿using Game.Levels.Animation;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Levels.Combat
 {
-    [RequireComponent(typeof(IKillable), typeof(IAnimation))]
+    [RequireComponent(typeof(Animator), typeof(IKillable))]
     public class TakeDamage : MonoBehaviour, IDamageable
     {
         //Assignables
+        private Animator animator;
         private IKillable killable;
-        private IAnimation hurtAnimation;
-        
+
         //Health
         [SerializeField] private int startHealth = 100;
         private int health = 0;
+        
+        //Animation
+        private static readonly int HURT = Animator.StringToHash("hurt");
 
         private void Awake()
         {
+            animator = GetComponent<Animator>();
             killable = GetComponent<IKillable>();
-            hurtAnimation = GetComponent<IAnimation>();
             health = startHealth;
         }
 
@@ -26,9 +28,10 @@ namespace Game.Levels.Combat
         public void Damage(int _damage)
         {
             health = Mathf.Max(0, health - _damage);
-            hurtAnimation.Play();
             if (health <= 0)
                 killable.Kill();
+            else
+                animator.Play(HURT);
         }
     }
 }

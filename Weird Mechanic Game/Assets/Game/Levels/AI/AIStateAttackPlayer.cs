@@ -15,6 +15,12 @@ namespace Game.Levels.AI
             attack = GetComponent<Shooting>();
         }
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            attack.InputAttack = false;
+        }
+
         public override void Behaviour()
         {
             base.Behaviour();

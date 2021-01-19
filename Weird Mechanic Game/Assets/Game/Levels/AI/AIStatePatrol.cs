@@ -22,10 +22,9 @@ namespace Game.Levels.AI
             direction.x = transform.parent.localScale.x;
         }
 
-        public override bool Condition()
-        {
-            return true;
-        }
+        protected override void OnDisable() => movement.InputAxis = 0f;
+
+        public override bool Condition() => true;
 
         public override void Behaviour()
         {
