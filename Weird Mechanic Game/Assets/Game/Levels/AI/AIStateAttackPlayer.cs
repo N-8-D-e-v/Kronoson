@@ -3,22 +3,22 @@ using Game.Levels.Combat;
 
 namespace Game.Levels.AI
 {
-    [RequireComponent(typeof(Shooting))]
-    public class AIStateShootPlayer : AIStateFollowPlayer
+    [RequireComponent(typeof(IAttack))]
+    public class AIStateAttackPlayer : AIStateFollowPlayer
     {
         //Assignables
-        private Shooting shooting;
+        private IAttack attack;
 
         public override void LateAwake()
         {
             base.LateAwake();
-            shooting = GetComponent<Shooting>();
+            attack = GetComponent<Shooting>();
         }
 
         public override void Behaviour()
         {
             base.Behaviour();
-            shooting.Input_Shoot = true;
+            attack.InputAttack = true;
         }
     }
 }

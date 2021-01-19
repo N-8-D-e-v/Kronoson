@@ -4,10 +4,10 @@ using Game.Levels.Sensors;
 namespace Game.Levels.Combat
 {
     [RequireComponent(typeof(Animator))]
-    public class Shooting : CollisionSensor
+    public class Shooting : CollisionSensor, IAttack
     {
         //Input
-        public bool Input_Shoot { set; private get; } = false;
+        public bool InputAttack { set; get; } = false;
 
         //Assignables
         private new Transform transform;
@@ -34,13 +34,13 @@ namespace Game.Levels.Combat
 
         private bool CanShoot()
         {
-            return Input_Shoot && canShoot && !Colliding();
+            return InputAttack && canShoot && !Colliding();
         }
 
         private void Shoot()
         {
             animator.Play(SHOOT);
-            for (int i = 0; i < gun.Shots; i++)
+            for (int _i = 0; _i < gun.Shots; _i++)
             {
                 Rigidbody2D _bullet = Instantiate(gun.Bullet, gun.GunTip.position, Quaternion.identity);
                 _bullet.AddForce(transform.up * gun.Range, ForceMode2D.Impulse);
