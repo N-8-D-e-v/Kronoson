@@ -172,12 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd87176a4821d444b3cadedd4539bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun:
-    Bullet: {fileID: 2464018874992180214, guid: adc3f1e0fb1d6bf4e8043a8112cc9d22, type: 3}
-    GunTip: {fileID: 6230197709946511784}
-    Range: 10
-    FireRate: 1.5
-    Shots: 1
+  gun: {fileID: 11400000, guid: 76da78e91f8aa7c4d8e617573baa21cc, type: 2}
+  gunTip: {fileID: 6230197709946511784}
 --- !u!114 &8557392579035052281
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Levels.Combat
+namespace Game.Levels.Combat.Shooting
 {
     public class BulletDamage : Damage
     {

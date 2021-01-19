@@ -2,7 +2,7 @@ using UnityEngine;
 using Game.Levels.Sensors;
 using Game.Levels.CameraControls;
 
-namespace Game.Levels.Combat
+namespace Game.Levels.Combat.Shooting
 {
     [RequireComponent(typeof(Animator))]
     public class Shooting : CollisionSensor, IAttack
@@ -16,6 +16,7 @@ namespace Game.Levels.Combat
 
         //Gun
         [SerializeField] private Gun gun;
+        [SerializeField] private Transform gunTip;
         private bool canShoot = true;
 
         //Animation
@@ -43,7 +44,7 @@ namespace Game.Levels.Combat
             animator.Play(SHOOT);
             for (int _i = 0; _i < gun.Shots; _i++)
             {
-                Rigidbody2D _bullet = Instantiate(gun.Bullet, gun.GunTip.position, Quaternion.identity);
+                Rigidbody2D _bullet = Instantiate(gun.Bullet, gunTip.position, Quaternion.identity);
                 _bullet.AddForce(transform.up * gun.Range, ForceMode2D.Impulse);
             }
             canShoot = false;
@@ -55,14 +56,5 @@ namespace Game.Levels.Combat
             canShoot = true;
         }
     }
-
-    [System.Serializable]
-    public struct Gun
-    {
-        public Rigidbody2D Bullet;
-        public Transform GunTip;
-        public float Range;
-        public float FireRate;
-        public int Shots;
-    }
+    
 }

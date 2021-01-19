@@ -1,7 +1,7 @@
 using UnityEngine;
 using Game.General.Utilities.Transformf;
 
-namespace Game.Levels.Combat
+namespace Game.Inputs.Controls
 {
     public class LookAtMouse : MonoBehaviour
     {

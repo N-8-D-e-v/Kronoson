@@ -12,7 +12,7 @@ namespace Game.Levels.AI
         public override void LateAwake()
         {
             base.LateAwake();
-            attack = GetComponent<Shooting>();
+            attack = GetComponent<IAttack>();
         }
 
         protected override void OnDisable()

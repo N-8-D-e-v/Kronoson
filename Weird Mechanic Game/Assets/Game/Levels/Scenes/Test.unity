@@ -1537,12 +1537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f80586326be4c568f17a818ab574808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun:
-    Bullet: {fileID: 2464018874992180214, guid: 2fc5a8ae6e774cf44bac9d844abf707e, type: 3}
-    GunTip: {fileID: 1325640974}
-    Range: 15
-    FireRate: 0.2
-    Shots: 1
+  gun: {fileID: 11400000, guid: d1d22d80c4ce0e54d9c4a22742b3438e, type: 2}
+  gunTip: {fileID: 1325640974}
   cameraShakeSettings:
     duration: 0.1
     intensity: 0.05
