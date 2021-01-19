@@ -9,10 +9,10 @@ namespace Game.Levels.Combat
         private Animator animator;
         
         //Animation
-        private static readonly int DEATH = Animator.StringToHash("death");
+        private static readonly int KILL = Animator.StringToHash("kill");
 
         private void Awake() => animator = GetComponent<Animator>();
         
-        public void Kill() => animator.Play(DEATH);
+        public void Kill() => animator.Play(KILL);
     }
 }
