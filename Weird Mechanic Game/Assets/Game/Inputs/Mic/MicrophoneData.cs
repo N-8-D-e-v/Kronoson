@@ -6,10 +6,10 @@ namespace Game.Inputs.Mic
     {
         //Singleton
         private static MicrophoneData Instance;
-        
+
         //Global Fields
         public static float MicrophoneLevel = 0f;
-        
+
         //Mic Info
         private AudioClip micRecord;
         private string device;
@@ -21,15 +21,18 @@ namespace Game.Inputs.Mic
 
         private void Awake()
         {
-            if (!Instance)  
+            if (!Instance)
                 Instance = this;
             else if (Instance != this)
                 Destroy(gameObject);
-                
+
             InitMic();
         }
 
-        private void FixedUpdate() => UpdateMicLevel();
+        private void FixedUpdate()
+        {
+            UpdateMicLevel();
+        }
 
         private void OnApplicationFocus(bool _focusStatus)
         {
@@ -56,7 +59,7 @@ namespace Game.Inputs.Mic
         private float GetMicLevel()
         {
             float _levelMax = 0f;
-            int _micPos = UnityEngine.Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);
+            int _micPos = Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);
 
             micRecord.GetData(waveData, _micPos);
 
@@ -67,10 +70,14 @@ namespace Game.Inputs.Mic
                 if (_levelMax < _peak)
                     _levelMax = _peak;
             }
+
             float _decibels = 20 * Mathf.Log10(Mathf.Sqrt(_levelMax));
             return Mathf.Clamp(_decibels, -100f, 100f);
         }
 
-        private void UpdateMicLevel() => MicrophoneLevel = GetMicLevel();
+        private void UpdateMicLevel()
+        {
+            MicrophoneLevel = GetMicLevel();
+        }
     }
 }

@@ -20,6 +20,9 @@ namespace Game.Levels.Player
             transform = GetComponent<Transform>();
         }
 
-        public static Vector3 GetPlayerPosition() => transform.position;
+        public static Vector3 GetPlayerPosition()
+        {
+            return transform.position;
+        }
     }
 }

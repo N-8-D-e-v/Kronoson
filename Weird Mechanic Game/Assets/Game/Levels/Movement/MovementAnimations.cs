@@ -14,13 +14,16 @@ namespace Game.Levels.Movement
 
         //Animations
         private const string MOVE = "move";
-        
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
         }
 
-        private void FixedUpdate() => animator.SetBool(MOVE, Mathf.Abs(rb.velocity.x) > movingAnimDelta);
+        private void FixedUpdate()
+        {
+            animator.SetBool(MOVE, Mathf.Abs(rb.velocity.x) > movingAnimDelta);
+        }
     }
 }

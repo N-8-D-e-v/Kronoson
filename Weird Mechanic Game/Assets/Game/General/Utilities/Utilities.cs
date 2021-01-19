@@ -5,26 +5,23 @@ namespace Game.General.Utilities
     namespace Transformf
     {
         public static class Transformf
-        { 
+        {
             public static T[] InitializeHierarchy<T>(this Transform _root) where T : Component
             {
                 int _numberOfComponents = _root.GetComponentsInChildren<T>().Length;
                 T[] _components = new T[_numberOfComponents];
                 int _c = 0;
-                
-                for (int i = 0; i < _root.childCount; i++)
-                {
-                    if (_root.GetChild(i).TryGetComponent<T>(out T _component))
+
+                for (int _i = 0; _i < _root.childCount; _i++)
+                    if (_root.GetChild(_i).TryGetComponent<T>(out T _component))
                     {
                         _components[_c] = _component;
-                        _c ++;
+                        _c++;
                     }
-
-                }
 
                 return _components;
             }
-            
+
             public static void Flip(this Transform _transform, float _dir, bool _isLocal)
             {
                 Vector3 _rot = _isLocal ? _transform.localEulerAngles : _transform.eulerAngles;
@@ -67,25 +64,6 @@ namespace Game.General.Utilities
                 Vector2 _dir = _targetPos - _pos;
                 _dir = _dir.normalized;
                 return _dir;
-            }
-        }
-    }
-
-    namespace Componentf
-    {
-        public static class Componentf
-        {
-            public static void RequireComponents<T>(this GameObject _gameObject, int _components) where T : Component
-            {
-                int _currentComponents = _gameObject.GetComponents<T>().Length;
-                for (int i = 0; i < _components - _currentComponents; i++)
-                    _gameObject.AddComponent<T>();
-            }
-
-            public static void RequireComponentsOnParent<T>(this GameObject _gameObject, int _components) where T : Component
-            {
-                GameObject _parent = _gameObject.transform.parent.gameObject;
-                RequireComponents<T>(_parent, _components);
             }
         }
     }

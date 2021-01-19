@@ -6,9 +6,15 @@ namespace Game.Levels.Combat
     {
         //Destroy
         [SerializeField] private float destroyTime = 2f;
-        
-        private void Awake() => Destroy(gameObject, destroyTime);
-        
-        private void OnCollisionEnter2D(Collision2D _col) => Destroy(gameObject);
+
+        private void Awake()
+        {
+            Destroy(gameObject, destroyTime);
+        }
+
+        private void OnCollisionEnter2D(Collision2D _col)
+        {
+            Destroy(gameObject);
+        }
     }
 }

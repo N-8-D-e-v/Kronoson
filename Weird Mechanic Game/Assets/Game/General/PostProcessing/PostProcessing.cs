@@ -28,7 +28,7 @@ namespace Game.General.PostProcessing
             volume.profile.TryGet<LensDistortion>(out lensDistortion);
             volume.profile.TryGet<ColorAdjustments>(out colorAdjustments);
         }
-        
+
         private void Update()
         {
             vignette.intensity.value = vignetteIntensity;

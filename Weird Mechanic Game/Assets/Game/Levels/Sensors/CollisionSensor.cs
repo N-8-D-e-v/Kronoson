@@ -14,27 +14,30 @@ namespace Game.Levels.Sensors
         private void OnCollisionEnter2D(Collision2D _col)
         {
             if (_col.collider.CompareTag(BLOCKING))
-                Overlaps ++;
+                Overlaps++;
         }
 
         private void OnCollisionExit2D(Collision2D _col)
         {
             if (_col.collider.CompareTag(BLOCKING))
-                Overlaps --;
+                Overlaps--;
         }
 
         private void OnTriggerEnter2D(Collider2D _col)
         {
             if (_col.CompareTag(BLOCKING))
-                Overlaps ++;
+                Overlaps++;
         }
 
         private void OnTriggerExit2D(Collider2D _col)
         {
             if (_col.CompareTag(BLOCKING))
-                Overlaps --;
+                Overlaps--;
         }
 
-        public bool Colliding() => Overlaps > 0;
+        public bool Colliding()
+        {
+            return Overlaps > 0;
+        }
     }
 }

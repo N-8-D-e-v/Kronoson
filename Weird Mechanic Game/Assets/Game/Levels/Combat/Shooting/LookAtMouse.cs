@@ -7,13 +7,16 @@ namespace Game.Levels.Combat
     {
         //Assignables
         private new Transform transform;
-        
+
         //Offset
         [SerializeField] private float offset = 0f;
         [SerializeField] private float smoothing = 10f;
 
-        private void Awake() => transform = GetComponent<Transform>();
-        
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+        }
+
         private void Update()
         {
             Quaternion _rot = Quaternion.AngleAxis(transform.GetAngleToMouse(-10) + offset, Vector3.forward);

@@ -7,7 +7,7 @@ namespace Game.Levels.Combat
     public class Shooting : CollisionSensor
     {
         //Input
-        public bool Input_Shoot {set; private get;} = false;
+        public bool Input_Shoot { set; private get; } = false;
 
         //Assignables
         private new Transform transform;
@@ -32,7 +32,10 @@ namespace Game.Levels.Combat
                 Shoot();
         }
 
-        private bool CanShoot() => Input_Shoot && canShoot && !Colliding();
+        private bool CanShoot()
+        {
+            return Input_Shoot && canShoot && !Colliding();
+        }
 
         private void Shoot()
         {
@@ -42,11 +45,15 @@ namespace Game.Levels.Combat
                 Rigidbody2D _bullet = Instantiate(gun.Bullet, gun.GunTip.position, Quaternion.identity);
                 _bullet.AddForce(transform.up * gun.Range, ForceMode2D.Impulse);
             }
+
             canShoot = false;
             Invoke(nameof(Reload), gun.FireRate);
         }
 
-        private void Reload() => canShoot = true;
+        private void Reload()
+        {
+            canShoot = true;
+        }
     }
 
     [System.Serializable]

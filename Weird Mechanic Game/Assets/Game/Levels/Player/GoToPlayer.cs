@@ -6,12 +6,18 @@ namespace Game.Levels.Player
     {
         //Assignables
         private new Transform transform;
-        
+
         //Offset
         [SerializeField] private Vector3 offset;
 
-        private void Awake() => transform = GetComponent<Transform>();
-        
-        private void LateUpdate() => transform.position = PlayerData.GetPlayerPosition() + offset;
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+        }
+
+        private void LateUpdate()
+        {
+            transform.position = PlayerData.GetPlayerPosition() + offset;
+        }
     }
 }

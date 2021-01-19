@@ -6,19 +6,20 @@ namespace Game.Levels.Movement
     public class Jumping : MonoBehaviour
     {
         //Input
-        public bool Input_Up {set; get;} = false;
+        public bool InputUp { set; get; } = false;
 
         //Assignables
         private Rigidbody2D rb;
         private GroundCheck groundCheck;
 
         //Jump Stats
-        [Header("Jump Stats")]
-        [SerializeField] private float jumpForce = 6f;
+        [Header("Jump Stats")] [SerializeField]
+        private float jumpForce = 6f;
 
         //Jump Forgiveness
-        [Header("Jump Forgiveness")]
-        [SerializeField] private float jumpForgiveness = 0.2f;
+        [Header("Jump Forgiveness")] [SerializeField]
+        private float jumpForgiveness = 0.2f;
+
         private float jumpTimer = 0f;
 
         private void Awake()
@@ -36,7 +37,7 @@ namespace Game.Levels.Movement
 
         private void CheckInput()
         {
-            if (Input_Up)
+            if (InputUp)
                 jumpTimer = jumpForgiveness;
             else
                 jumpTimer = Mathf.Clamp(jumpTimer - Time.deltaTime, 0f, jumpForgiveness);

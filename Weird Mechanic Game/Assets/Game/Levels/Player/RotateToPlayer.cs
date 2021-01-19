@@ -8,8 +8,11 @@ namespace Game.Levels.Player
         //Assignables
         private new Transform transform;
 
-        private void Awake() => transform = GetComponent<Transform>();
-        
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+        }
+
         private void LateUpdate()
         {
             Vector3 _dir = transform.position.GetDirectionToTarget(PlayerData.GetPlayerPosition());

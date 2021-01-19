@@ -16,6 +16,9 @@ namespace Game.Levels.Movement
             movement = GetComponent<SmoothMovement>();
         }
 
-        private void Update() => transform.Flip(movement.Input_Axis);
+        private void Update()
+        {
+            transform.Flip(movement.InputAxis);
+        }
     }
 }

@@ -8,21 +8,24 @@ namespace Game.Levels.Camera
     {
         //Assignables
         private Rigidbody2D rb;
-        
+
         //Follow Speed
-        [Header("Follow Speed")]
-        [Range(0f, 1f)] [SerializeField] private float followTime = 0.06f;
+        [Header("Follow Speed")] [Range(0f, 1f)] [SerializeField]
+        private float followTime = 0.06f;
+
         private Vector3 velocity = new Vector3();
 
         //Bounds
-        [Header("Bounds")]
-        [SerializeField] private Vector2 xBounds = new Vector2();
+        [Header("Bounds")] [SerializeField] private Vector2 xBounds = new Vector2();
         [SerializeField] private Vector2 yBounds = new Vector2();
 
         //Constants
         private const float Z_POS = -10f;
 
-        private void Awake() => rb = GetComponent<Rigidbody2D>();
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
         private void FixedUpdate()
         {
