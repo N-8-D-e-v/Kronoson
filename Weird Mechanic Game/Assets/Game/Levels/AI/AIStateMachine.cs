@@ -13,7 +13,7 @@ namespace Game.Levels.AI
         private AIState[] states;
 
         //Animation
-        private readonly int state = Animator.StringToHash("state");
+        private static readonly int STATE = Animator.StringToHash("state");
 
         private void Awake()
         {
@@ -32,7 +32,7 @@ namespace Game.Levels.AI
                 if (!_state.Condition())
                     continue;
                 _state.Behaviour();
-                animator.SetInteger(state, _i);
+                animator.SetInteger(STATE, _i);
                 return;
             }
         }
