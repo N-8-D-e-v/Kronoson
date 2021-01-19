@@ -2,10 +2,10 @@ using UnityEngine;
 using Game.General.Utilities.Vector3f;
 using Game.General.Utilities.Componentf;
 using Game.Levels.Movement;
-using Game.Levels.Objects.Player;
+using Game.Levels.Player;
 using Game.Levels.Sensors;
 
-namespace Game.Levels.Objects.AI
+namespace Game.Levels.AI
 {
     public class AI_State_FollowPlayer : AI_State
     {

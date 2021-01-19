@@ -3,7 +3,7 @@ using Game.General.Utilities.Componentf;
 using Game.Levels.Movement;
 using Game.Levels.Sensors;
 
-namespace Game.Levels.Objects.AI
+namespace Game.Levels.AI
 {
     public class AI_State_Patrol : AI_State
     {   

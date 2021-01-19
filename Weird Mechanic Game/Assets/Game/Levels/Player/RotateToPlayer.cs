@@ -1,7 +1,7 @@
 using UnityEngine;
 using Game.General.Utilities.Vector3f;
 
-namespace Game.Levels.Objects.Player
+namespace Game.Levels.Player
 {
     public class RotateToPlayer : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Levels.Objects.Player
+namespace Game.Levels.Player
 {
     public class GoToPlayer : MonoBehaviour
     {

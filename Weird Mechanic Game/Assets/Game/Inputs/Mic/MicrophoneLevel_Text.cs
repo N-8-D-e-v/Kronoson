@@ -4,7 +4,7 @@ using TMPro;
 namespace Game.Inputs.Mic
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class MicrophoneLevelText : MonoBehaviour
+    public class MicrophoneLevel_Text : MonoBehaviour
     {
         //Assignables
         private TextMeshProUGUI micLevelText;
