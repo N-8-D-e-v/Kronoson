@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 5849354289241175537}
   - component: {fileID: 5410371248979115795}
   - component: {fileID: 4603538172994410480}
-  - component: {fileID: 958367845523075751}
+  - component: {fileID: 2188907874102266766}
   - component: {fileID: 8557392579035052281}
   m_Layer: 0
-  m_Name: AI_State_ShootPlayer
+  m_Name: AIStateAttackPlayer_Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6230197709946511789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.31, y: 1.44, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8910569983153128886}
@@ -160,7 +160,7 @@ MonoBehaviour:
     obstacleDistance: 2
   sightDistance: 10
   stoppingDistance: 3
---- !u!114 &958367845523075751
+--- !u!114 &2188907874102266766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,14 +169,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6230197709946511789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574aea36bcf0957438082e1c493b6478, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bd87176a4821d444b3cadedd4539bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gun:
     Bullet: {fileID: 2464018874992180214, guid: adc3f1e0fb1d6bf4e8043a8112cc9d22, type: 3}
     GunTip: {fileID: 6230197709946511784}
     Range: 10
-    FireRate: 2
+    FireRate: 1.5
     Shots: 1
 --- !u!114 &8557392579035052281
 MonoBehaviour:

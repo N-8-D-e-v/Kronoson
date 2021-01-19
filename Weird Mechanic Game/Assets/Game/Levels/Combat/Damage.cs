@@ -8,7 +8,7 @@ namespace Game.Levels.Combat
         //Damage
         [SerializeField] private int damage = 5;
         
-        private void OnCollisionEnter2D(Collision2D _col)
+        protected virtual void OnCollisionEnter2D(Collision2D _col)
         {
             if (!_col.collider.TryGetComponent<IDamageable>(out IDamageable _damageable))
                 return;

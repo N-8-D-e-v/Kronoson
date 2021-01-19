@@ -3,17 +3,17 @@ using Game.General.Utilities.Transformf;
 
 namespace Game.Levels.Movement
 {
-    [RequireComponent(typeof(SmoothMovement))]
+    [RequireComponent(typeof(IMovement))]
     public class FlipDirection : MonoBehaviour
     {
         //Assignables
         private new Transform transform;
-        private SmoothMovement movement;
+        private IMovement movement;
 
         private void Awake()
         {
             transform = GetComponent<Transform>();
-            movement = GetComponent<SmoothMovement>();
+            movement = GetComponent<IMovement>();
         }
 
         private void Update()

@@ -33,6 +33,7 @@ namespace Game.Levels.AI
                     continue;
                 _state.Behaviour();
                 animator.SetInteger(state, _i);
+                return;
             }
         }
     }

@@ -14,11 +14,13 @@ namespace Game.Levels.AI
         private IJumping jumping;
 
         //Raycasts
-        [Header("Raycasts")] [SerializeField] private ObstacleCheck obstacleCheck;
+        [Header("Raycasts")] 
+        [SerializeField] private ObstacleCheck obstacleCheck;
         [SerializeField] private ObstacleCheck floorCheck;
 
         //Following
-        [Header("Following")] [SerializeField] private float sightDistance = 10f;
+        [Header("Following")] 
+        [SerializeField] private float sightDistance = 10f;
         [SerializeField] private float stoppingDistance = 3f;
 
         //Direction
