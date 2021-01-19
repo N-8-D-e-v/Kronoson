@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.Weird Mechanic Game.iml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\NateDawg\Documents\Unity Projects\GitHub\Weird-Mechanic-Game\Weird Mechanic Game\.idea\.idea.Weird Mechanic Game\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
