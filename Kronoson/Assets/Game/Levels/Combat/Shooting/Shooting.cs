@@ -35,6 +35,8 @@ namespace Game.Levels.Combat.Shooting
                 Shoot();
         }
 
+        public bool IsAutomatic() => gun.IsAutomatic;
+
         private bool CanShoot() => InputAttack && !Colliding() && fireRateTimer.Time == 0;
 
         protected virtual void Shoot()

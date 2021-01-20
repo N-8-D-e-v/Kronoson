@@ -5,7 +5,7 @@ namespace Game.Inputs.Mic
     public class MicrophoneData : MonoBehaviour
     {
         //Singleton
-        private static MicrophoneData Instance;
+        private static MicrophoneData instance;
 
         //Global Fields
         public static float MicrophoneLevel = 0f;
@@ -21,9 +21,9 @@ namespace Game.Inputs.Mic
 
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
-            else if (Instance != this)
+            if (!instance)
+                instance = this;
+            else if (instance != this)
                 Destroy(gameObject);
 
             InitMic();
@@ -36,17 +36,21 @@ namespace Game.Inputs.Mic
 
         private void OnApplicationFocus(bool _focusStatus)
         {
-            if (_focusStatus && !initialized)
-                InitMic();
-            else if (!_focusStatus)
-                StopMic();
+            switch (_focusStatus)
+            {
+                case true when !initialized:
+                    InitMic();
+                    break;
+                case false:
+                    StopMic();
+                    break;
+            }
         }
 
         private void InitMic()
         {
             initialized = true;
-            if (device == null)
-                device = Microphone.devices[0];
+            device ??= Microphone.devices[0];
             micRecord = Microphone.Start(device, true, 999, 44100);
         }
 
@@ -63,9 +67,9 @@ namespace Game.Inputs.Mic
 
             micRecord.GetData(waveData, _micPos);
 
-            for (int i = 0; i < SAMPLE_WINDOW; i++)
+            for (int _i = 0; _i < SAMPLE_WINDOW; _i++)
             {
-                float _peak = waveData[i] * waveData[i];
+                float _peak = waveData[_i] * waveData[_i];
 
                 if (_levelMax < _peak)
                     _levelMax = _peak;
@@ -75,9 +79,6 @@ namespace Game.Inputs.Mic
             return Mathf.Clamp(_decibels, -100f, 100f);
         }
 
-        private void UpdateMicLevel()
-        {
-            MicrophoneLevel = GetMicLevel();
-        }
+        private void UpdateMicLevel() => MicrophoneLevel = GetMicLevel();
     }
 }

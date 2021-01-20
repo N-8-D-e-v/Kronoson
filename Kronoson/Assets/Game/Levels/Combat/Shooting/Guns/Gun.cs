@@ -9,5 +9,6 @@ namespace Game.Levels.Combat.Shooting
         public float Range = 15f;
         public float FireRate = 0.2f;
         public int Shots = 1;
+        public bool IsAutomatic = false;
     }
 }
