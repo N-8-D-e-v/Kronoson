@@ -12,18 +12,19 @@ namespace Game.General.TimeManagement
         private Animator animator;
 
         //Time Scale
-        [Header("Time Scales")] [SerializeField]
-        private float normalTimeScale = 1f;
-
+        [Header("Time Scales")] 
+        [SerializeField] private float normalTimeScale = 1f;
         [SerializeField] private float slowMotionTimeScale = 0.2f;
         private float targetTimeScale = 1f;
 
         //Smoothing
-        [Header("Smoothing")] [SerializeField] private float timeScaleSmoothing = 0.2f;
+        [Header("Smoothing")] 
+        [SerializeField] private float timeScaleSmoothing = 0.2f;
         private float velocity = 0f;
 
         //Mic Level
-        [Header("Mic Level")] [SerializeField] private float slowMotionMicThreshold = -75f;
+        [Header("Mic Level")] 
+        [SerializeField] private float slowMotionMicThreshold = -75f;
 
         //Animations
         private static readonly int SLOW_MOTION = Animator.StringToHash("slow_motion");

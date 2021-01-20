@@ -6,10 +6,12 @@ namespace Game.Levels.Sensors
     public class ObstacleCheck
     {
         //Layers
-        [Header("Layers")] [SerializeField] private LayerMask obstacleLayer;
+        [Header("Layers")] 
+        [SerializeField] private LayerMask obstacleLayer;
 
         //Raycasts
-        [Header("Raycasts")] [SerializeField] private Transform raycastCheck;
+        [Header("Raycasts")] 
+        [SerializeField] private Transform raycastCheck;
         [SerializeField] private float obstacleDistance = 2f;
 
         public bool CheckObstacle(Vector2 _dir)

@@ -13,7 +13,8 @@ namespace Game.Levels.Movement
         private Animator animator;
 
         //Stats
-        [Header("Stats")] [SerializeField] private float speed = 8f;
+        [Header("Stats")] 
+        [SerializeField] private float speed = 8f;
         [SerializeField] private float acceleration = 0.09f;
         private Vector2 velocity;
 

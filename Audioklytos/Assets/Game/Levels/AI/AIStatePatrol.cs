@@ -10,7 +10,8 @@ namespace Game.Levels.AI
         private SmoothMovement movement;
 
         //Raycasts
-        [Header("Raycasts")] [SerializeField] private ObstacleCheck wallCheck;
+        [Header("Raycasts")] 
+        [SerializeField] private ObstacleCheck wallCheck;
         [SerializeField] private ObstacleCheck floorCheck;
 
         //SmoothMovement
