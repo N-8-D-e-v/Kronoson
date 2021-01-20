@@ -2,11 +2,10 @@ using UnityEngine;
 
 namespace Game.Levels.Sensors
 {
-    [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
     public abstract class CollisionSensor : MonoBehaviour
     {
         //Public Fields
-        private int Overlaps = 0;
+        private int overlaps = 0;
 
         //Tag
         private const string BLOCKING = "Blocking";
@@ -14,30 +13,27 @@ namespace Game.Levels.Sensors
         private void OnCollisionEnter2D(Collision2D _col)
         {
             if (_col.collider.CompareTag(BLOCKING))
-                Overlaps++;
+                overlaps++;
         }
 
         private void OnCollisionExit2D(Collision2D _col)
         {
             if (_col.collider.CompareTag(BLOCKING))
-                Overlaps--;
+                overlaps--;
         }
 
         private void OnTriggerEnter2D(Collider2D _col)
         {
             if (_col.CompareTag(BLOCKING))
-                Overlaps++;
+                overlaps++;
         }
 
         private void OnTriggerExit2D(Collider2D _col)
         {
             if (_col.CompareTag(BLOCKING))
-                Overlaps--;
+                overlaps--;
         }
 
-        public bool Colliding()
-        {
-            return Overlaps > 0;
-        }
+        protected bool Colliding() => overlaps > 0;
     }
 }
