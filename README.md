@@ -4,8 +4,7 @@
 https://opengameart.org/content/1-bit-16x16-minimalist-art-pack (made by me)
 
 My interpretation of the theme was the player being able to control time with their voice
-(ex: you yell super loud and you go super fast, or you whisper and you go into slow motion)
-
+(talking brings you to normal speed, and not talking brings you into slow motion)
 I was pretty inspired by this video
 https://www.youtube.com/watch?v=j8tgV5whH0w
 
