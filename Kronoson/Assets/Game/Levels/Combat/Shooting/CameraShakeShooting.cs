@@ -15,7 +15,7 @@ namespace Game.Levels.Combat.Shooting
         protected override void Awake()
         {
             base.Awake();
-            cameraShake = Camera.main.GetComponent<CameraShake>();
+            cameraShake = CameraShake.GetMainCameraShake();
         }
 
         protected override void Shoot()

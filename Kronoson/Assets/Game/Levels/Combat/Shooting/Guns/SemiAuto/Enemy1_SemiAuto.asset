@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b924257c4e8546b1ba984e9d01cda83c, type: 3}
-  m_Name: Player_Gun
+  m_Name: Enemy1_SemiAuto
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 2464018874992180214, guid: 2fc5a8ae6e774cf44bac9d844abf707e, type: 3}
-  Range: 15
-  FireRate: 0.2
+  Bullet: {fileID: 2464018874992180214, guid: adc3f1e0fb1d6bf4e8043a8112cc9d22, type: 3}
+  Range: 10
+  FireRate: 1.5
   Shots: 1
+  IsAutomatic: 0

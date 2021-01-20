@@ -33,6 +33,8 @@ namespace Game.Levels.CameraControls
             }
         }
 
+        public static CameraShake GetMainCameraShake() => Camera.main.GetComponent<CameraShake>();
+
         public void ShakeCamera(CameraShakeSettings _cameraShake)
         {
             duration = _cameraShake.duration;
