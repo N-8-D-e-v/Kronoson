@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.Levels.Sensors;
-using Game.Levels.CameraControls;
+using Game.General.TimeManagement;
 
 namespace Game.Levels.Combat.Shooting
 {
@@ -13,11 +13,11 @@ namespace Game.Levels.Combat.Shooting
         //Assignables
         private new Transform transform;
         private Animator animator;
+        private Timer fireRateTimer = new Timer(0);
 
         //Gun
         [SerializeField] private Gun gun;
         [SerializeField] private Transform gunTip;
-        private bool canShoot = true;
 
         //Animation
         private const string SHOOT = "shoot";
@@ -30,13 +30,14 @@ namespace Game.Levels.Combat.Shooting
 
         private void Update()
         {
+            fireRateTimer.Tick(Time.deltaTime);
             if (CanShoot())
                 Shoot();
         }
 
         private bool CanShoot()
         {
-            return InputAttack && canShoot && !Colliding();
+            return InputAttack && !Colliding() && fireRateTimer.Time == 0;
         }
 
         protected virtual void Shoot()
@@ -47,13 +48,8 @@ namespace Game.Levels.Combat.Shooting
                 Rigidbody2D _bullet = Instantiate(gun.Bullet, gunTip.position, Quaternion.identity);
                 _bullet.AddForce(transform.up * gun.Range, ForceMode2D.Impulse);
             }
-            canShoot = false;
-            Invoke(nameof(Reload), gun.FireRate);
-        }
 
-        private void Reload()
-        {
-            canShoot = true;
+            fireRateTimer.Time = gun.FireRate;
         }
     }
     
