@@ -13,7 +13,7 @@ namespace Game.Levels.Combat.Shooting
         //Assignables
         private new Transform transform;
         private Animator animator;
-        private Timer fireRateTimer = new Timer(0);
+        private readonly Timer fireRateTimer = new Timer(0);
 
         //Gun
         [SerializeField] private Gun gun;
@@ -35,10 +35,7 @@ namespace Game.Levels.Combat.Shooting
                 Shoot();
         }
 
-        private bool CanShoot()
-        {
-            return InputAttack && !Colliding() && fireRateTimer.Time == 0;
-        }
+        private bool CanShoot() => InputAttack && !Colliding() && fireRateTimer.Time == 0;
 
         protected virtual void Shoot()
         {
