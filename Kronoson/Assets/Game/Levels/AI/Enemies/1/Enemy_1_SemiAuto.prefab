@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1893613603}
   - component: {fileID: 986258135}
   m_Layer: 7
-  m_Name: Enemy_1
+  m_Name: Enemy_1_SemiAuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
