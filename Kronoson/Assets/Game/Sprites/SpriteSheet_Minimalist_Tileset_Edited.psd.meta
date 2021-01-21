@@ -13,7 +13,7 @@ TextureImporter:
     second: circle_thin_topper
   - first:
       213: -2188727648268321703
-    second: gun
+    second: gun_semiauto
   - first:
       213: -4484064563768324399
     second: misc_star_simple
@@ -25,7 +25,7 @@ TextureImporter:
     second: entity_0
   - first:
       213: -4003692370787702321
-    second: bump_small
+    second: gun_auto
   - first:
       213: -6794221928876324121
     second: circle_top_left
@@ -73,7 +73,7 @@ TextureImporter:
     second: slope_top_right
   - first:
       213: 5743707822504561674
-    second: ball_big
+    second: gun_shotgun
   - first:
       213: 6335537596358563144
     second: circle_bottom_left
@@ -97,7 +97,7 @@ TextureImporter:
     second: slope_bottom_right
   - first:
       213: -2038621691722466542
-    second: pillar_big
+    second: gun_grenadelauncher
   - first:
       213: -437910358396302315
     second: player_foot_left
@@ -337,7 +337,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gun
+      name: gun_semiauto
       rect:
         serializedVersion: 2
         x: 54
@@ -421,13 +421,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bump_small
+      name: gun_auto
       rect:
         serializedVersion: 2
-        x: 112
-        y: 48
-        width: 16
-        height: 16
+        x: 118
+        y: 52
+        width: 3
+        height: 8
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -757,15 +757,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball_big
+      name: gun_shotgun
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 118
+        y: 19
+        width: 3
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -925,15 +925,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pillar_big
+      name: gun_grenadelauncher
       rect:
         serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 117
+        y: 4
+        width: 5
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

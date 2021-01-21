@@ -6,9 +6,10 @@ namespace Game.Levels.Combat.Shooting
     public class Gun : ScriptableObject
     {
         public Rigidbody2D Bullet;
-        public float Range = 15f;
-        public float FireRate = 0.2f;
-        public int Shots = 1;
+        [Range(0, 100)] public float Range = 15f;
+        [Range(0, 100)] public float FireRate = 0.2f;
+        [Range(0, 100)] public int Shots = 1;
+        [Range(0, 180)] public float Spread = 45f;
         public bool IsAutomatic = false;
     }
 }
