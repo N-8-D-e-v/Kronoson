@@ -42,8 +42,9 @@ namespace Game.Levels.Combat.Shooting
         protected virtual void Shoot()
         {
             animator.Play(SHOOT);
-            float[] _spread = ShootingSpread.GetSpreadFromShots
-                (gun.Shots, gun.Spread, transform.eulerAngles.z);
+            
+            float[] _spread = new float[gun.Shots];
+            _spread.GetBulletSpread(gun.Shots, gun.Spread, transform.eulerAngles.z);
 
             for (int _i = 0; _i < gun.Shots; _i++)
             {
@@ -57,49 +58,5 @@ namespace Game.Levels.Combat.Shooting
 
             fireRateTimer.Time = gun.FireRate;
         }
-    }
-
-    public static class ShootingSpread
-    {
-        public static float[] GetSpreadFromShots(int _shots, float _spreadAngle, float _lookAngle)
-        {
-            float[] _spread = new float[_shots];
-            float _centerAngle = GetCenterAngle(_spreadAngle);
-            float _incrementAngle = GetIncrementAngle(_spreadAngle, _shots - 1);
-
-            if (_shots == 1)
-            {
-                _spread[0] = _lookAngle;
-                return _spread;
-            }
-
-            for (int _i = 0; _i < _shots; _i++)
-            {
-                float _angle = GetAngleFromIncrement(_i, _incrementAngle);
-                float _offsetAngle = GetOffsetFromCenterAngle(_angle, _centerAngle);
-                _spread[_i] = ConvertToLocalAngle(_offsetAngle, _lookAngle);
-            }
-
-            return _spread;
-        }
-        
-        #region Getters
-        
-        private static float GetCenterAngle(float _spreadAngle) => 
-            _spreadAngle / 2;
-        
-        private static float GetIncrementAngle(float _spreadAngle, int _shots) => 
-            _spreadAngle / _shots;
-
-        private static float GetAngleFromIncrement(int _i, float _incrementAngle) => 
-            _i * _incrementAngle;
-
-        private static float GetOffsetFromCenterAngle(float _angle, float _centerAngle) => 
-            _angle - _centerAngle;
-
-        private static float ConvertToLocalAngle(float _offsetAngle, float _lookAngle) => 
-            _lookAngle + _offsetAngle;
-
-        #endregion
     }
 }

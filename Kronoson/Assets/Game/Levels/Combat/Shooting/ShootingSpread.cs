@@ -2,9 +2,8 @@
 {
     public static class ShootingSpread
     {
-        public static float[] GetSpreadFromShots(int _shots, float _spreadAngle, float _lookAngle)
+        public static float[] GetBulletSpread(this float[] _spread, int _shots, float _spreadAngle, float _lookAngle)
         {
-            float[] _spread = new float[_shots];
             float _centerAngle = GetCenterAngle(_spreadAngle);
             float _incrementAngle = GetIncrementAngle(_spreadAngle, _shots - 1);
 
