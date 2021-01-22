@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2038621691722466542, guid: b4a00a32327f4e549bd7b74587015fca, type: 3}
-  m_Color: {r: 0.6, g: 0.45882353, b: 0.46666667, a: 1}
+  m_Color: {r: 0.6, g: 0.4588235, b: 0.4666667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,11 +124,13 @@ GameObject:
   - component: {fileID: 1683540914787679831}
   - component: {fileID: 1683540914787679825}
   - component: {fileID: 1683540914787679824}
+  - component: {fileID: 3161342435073623431}
   - component: {fileID: 1683540914787679830}
   - component: {fileID: 1683540914787679828}
   - component: {fileID: 3161342435073623430}
-  - component: {fileID: 3161342435073623431}
-  m_Layer: 8
+  - component: {fileID: 931455351259611600}
+  - component: {fileID: 6548282018792209043}
+  m_Layer: 9
   m_Name: Gun_GrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,12 +213,36 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 15
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!233 &3161342435073623431
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683540914787679834}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: -0.1}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!114 &1683540914787679830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f25e2036e354a74981c72d6bf73e7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
+  IsEnabled: 0
 --- !u!114 &1683540914787679828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,27 +289,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: -90
   smoothing: 1
---- !u!233 &3161342435073623431
-HingeJoint2D:
+--- !u!114 &931455351259611600
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683540914787679834}
   m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.1}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6db8491afe5409f8e46f79a24e4e857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickedUpOffset: {x: 0, y: 0}
+  pickedUpLayer: 8
+  droppedLayer: 9
+--- !u!114 &6548282018792209043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683540914787679834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377c80396a3a47f7b01f249ba4f962a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

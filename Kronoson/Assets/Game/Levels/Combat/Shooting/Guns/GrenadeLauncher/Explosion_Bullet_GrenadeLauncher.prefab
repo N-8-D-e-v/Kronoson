@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 176510304782158935}
   - component: {fileID: 6120286457753316180}
   - component: {fileID: 6076912620830488381}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Particles_Bullet_GrenadeLauncher_Explosion_Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 6833751956587101855}
   - component: {fileID: 4111141961804790856}
   - component: {fileID: 3046493490542536718}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Explosion_Bullet_GrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9765,6 +9765,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 35
-  stunTime: 1.5
-  knockback: 300
+  stunTime: 2
+  knockback: 600
   explosionLength: 0.6

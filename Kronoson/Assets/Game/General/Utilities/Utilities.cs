@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Threading.Tasks;
 
 namespace Game.General.Utilities
 {
@@ -64,6 +66,20 @@ namespace Game.General.Utilities
                 Vector3 _dir = Camera.main.ScreenToWorldPoint(_mousePos) - _pos;
                 float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
                 return _angle;
+            }
+        }
+    }
+
+    namespace Delegatef
+    {
+        public delegate void VoidDelegate();
+
+        public static class Delegatef
+        {
+            public static async void Invoke(VoidDelegate _delegate, float _time)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(_time));
+                _delegate();
             }
         }
     }

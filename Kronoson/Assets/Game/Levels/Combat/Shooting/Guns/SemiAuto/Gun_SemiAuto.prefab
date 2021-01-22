@@ -42,11 +42,13 @@ GameObject:
   - component: {fileID: 5209288118273359662}
   - component: {fileID: 5209288118273359656}
   - component: {fileID: 5209288118273359657}
+  - component: {fileID: 285776860}
   - component: {fileID: 5209288118273359663}
   - component: {fileID: 5209288118273359661}
   - component: {fileID: 285776854}
-  - component: {fileID: 285776860}
-  m_Layer: 8
+  - component: {fileID: 3779849975716128822}
+  - component: {fileID: 285776861}
+  m_Layer: 9
   m_Name: Gun_SemiAuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,12 +131,36 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 15
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!233 &285776860
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209288118273359651}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: -0.1}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!114 &5209288118273359663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f25e2036e354a74981c72d6bf73e7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
+  IsEnabled: 0
 --- !u!114 &5209288118273359661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,30 +207,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: -90
   smoothing: 1
---- !u!233 &285776860
-HingeJoint2D:
+--- !u!114 &3779849975716128822
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5209288118273359651}
   m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.1}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6db8491afe5409f8e46f79a24e4e857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickedUpOffset: {x: 0, y: 0.1}
+  pickedUpLayer: 8
+  droppedLayer: 9
+--- !u!114 &285776861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209288118273359651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377c80396a3a47f7b01f249ba4f962a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5209288119180710280
 GameObject:
   m_ObjectHideFlags: 0

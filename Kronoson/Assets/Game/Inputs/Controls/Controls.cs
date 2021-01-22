@@ -5,11 +5,11 @@ namespace Game.Inputs.Controls
     public abstract class Controls : MonoBehaviour
     {
         //Public Fields
-        [SerializeField] private bool isEnabled = true;
+        public bool IsEnabled = true;
 
         private void Update()
         {
-            if (isEnabled)
+            if (IsEnabled)
                 Enabled();
             else
                 NotEnabled();
