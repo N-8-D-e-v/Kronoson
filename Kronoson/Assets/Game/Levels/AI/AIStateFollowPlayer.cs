@@ -44,9 +44,12 @@ namespace Game.Levels.AI
 
         public override void Behaviour()
         {
-            if (parent.position.x < PlayerData.GetPlayerPosition().x - stoppingDistance)
+            float _parentX = parent.position.x;
+            float _playerX = PlayerData.GetPlayerPosition().x;
+            
+            if (_parentX < _playerX - stoppingDistance)
                 direction = Vector2.right;
-            else if (parent.position.x > PlayerData.GetPlayerPosition().x + stoppingDistance)
+            else if (_parentX > _playerX + stoppingDistance)
                 direction = Vector2.left;
             else
                 direction = Vector2.zero;
@@ -55,6 +58,7 @@ namespace Game.Levels.AI
 
             bool _obstacle = obstacleCheck.CheckObstacle(direction);
             bool _floor = floorCheck.CheckObstacle(Vector2.down);
+            print(_obstacle + "&&" + _floor);
 
             if (_obstacle || !_floor)
                 jumping.InputUp = true;

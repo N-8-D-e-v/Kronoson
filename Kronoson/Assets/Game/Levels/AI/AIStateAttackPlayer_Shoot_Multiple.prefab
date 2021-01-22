@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6069115991861156326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 0, z: 0}
+  m_LocalPosition: {x: 0.817, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6230197709946511784}
@@ -39,12 +39,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6230197709946511784}
-  - component: {fileID: 8598368498705934001}
-  - component: {fileID: 4603538172994410480}
-  - component: {fileID: 2188907874102266766}
-  - component: {fileID: 8557392579035052281}
+  - component: {fileID: 3058324046949655077}
+  - component: {fileID: 1855652791227206349}
   m_Layer: 0
-  m_Name: AIStateAttackPlayer_Shoot
+  m_Name: AIStateAttackPlayer_Shoot_Multiple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,26 +64,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8598368498705934001
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6230197709946511789}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4603538172994410480
+--- !u!114 &3058324046949655077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +73,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6230197709946511789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d2087a5aab9c847bb7a9981eec3f30, type: 3}
+  m_Script: {fileID: 11500000, guid: 321238d09ef1496ea5c5ba0f121effd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleCheck:
@@ -111,21 +90,9 @@ MonoBehaviour:
     obstacleDistance: 2
   sightDistance: 10
   stoppingDistance: 3
---- !u!114 &2188907874102266766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6230197709946511789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd87176a4821d444b3cadedd4539bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 76da78e91f8aa7c4d8e617573baa21cc, type: 2}
-  gunTip: {fileID: 6230197709946511784}
---- !u!114 &8557392579035052281
+  attackIncrements: 0.2
+  attackRate: 1
+--- !u!114 &1855652791227206349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

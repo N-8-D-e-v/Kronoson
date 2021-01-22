@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Levels.Combat.Shooting
 {
-    public class CameraShakeShooting : Shooting
+    public class ShootingCameraShake : Shooting
     {
         //Assignables
         private CameraShake cameraShake;

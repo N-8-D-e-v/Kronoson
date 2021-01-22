@@ -49,7 +49,6 @@ namespace Game.Levels.Combat.Shooting
             for (int _i = 0; _i < gun.Shots; _i++)
             {
                 float _angle = _spread[_i];
-
                 Rigidbody2D _bullet = Instantiate(gun.Bullet, gunTip.position, Quaternion.identity);
                 Transform _bulletTransform = _bullet.transform;
                 _bulletTransform.eulerAngles = Vector3.forward * _angle;

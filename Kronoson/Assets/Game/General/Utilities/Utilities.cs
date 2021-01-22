@@ -34,14 +34,14 @@ namespace Game.General.Utilities
                 _transform.eulerAngles = _rot;
             }
 
-            public static void Flip(this Transform _transform, float _dir)
+            public static void Flip(this Transform _transform, float _dir, float _xScale)
             {
                 Vector3 _scale = _transform.localScale;
 
                 if (_dir > 0)
-                    _scale.x = 1f;
+                    _scale.x = _xScale;
                 else if (_dir < 0)
-                    _scale.x = -1f;
+                    _scale.x = -_xScale;
 
                 _transform.localScale = _scale;
             }

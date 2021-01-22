@@ -22,7 +22,7 @@ TextureImporter:
     second: ball
   - first:
       213: -2358577561830072477
-    second: entity_0
+    second: enemy_2
   - first:
       213: -4003692370787702321
     second: gun_auto
@@ -400,7 +400,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: entity_0
+      name: enemy_2
       rect:
         serializedVersion: 2
         x: 99

@@ -9,16 +9,20 @@ namespace Game.Levels.Movement
         //Assignables
         private new Transform transform;
         private IMovement movement;
+        
+        //Scale
+        private float xScale = 1f;
 
         private void Awake()
         {
             transform = GetComponent<Transform>();
             movement = GetComponent<IMovement>();
+            xScale = transform.localScale.x;
         }
 
         private void Update()
         {
-            transform.Flip(movement.InputAxis);
+            transform.Flip(movement.InputAxis, xScale);
         }
     }
 }
