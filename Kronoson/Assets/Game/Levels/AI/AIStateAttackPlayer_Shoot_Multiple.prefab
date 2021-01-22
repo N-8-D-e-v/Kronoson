@@ -89,7 +89,7 @@ MonoBehaviour:
     raycastCheck: {fileID: 2598931162078955167}
     obstacleDistance: 2
   sightDistance: 10
-  stoppingDistance: 3
+  stoppingDistance: 2.5
   attackIncrements: 0.2
   attackRate: 1
 --- !u!114 &1855652791227206349

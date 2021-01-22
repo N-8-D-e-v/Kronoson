@@ -58,7 +58,6 @@ namespace Game.Levels.AI
 
             bool _obstacle = obstacleCheck.CheckObstacle(direction);
             bool _floor = floorCheck.CheckObstacle(Vector2.down);
-            print(_obstacle + "&&" + _floor);
 
             if (_obstacle || !_floor)
                 jumping.InputUp = true;

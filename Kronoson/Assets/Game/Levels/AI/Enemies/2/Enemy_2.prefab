@@ -251,11 +251,11 @@ GameObject:
   - component: {fileID: 3575912425274975150}
   - component: {fileID: 3801178558800508275}
   - component: {fileID: 1082901375839469142}
-  - component: {fileID: 7833207587032785480}
   - component: {fileID: 3439561272651996860}
   - component: {fileID: 7304865924975567752}
   - component: {fileID: 3747687492043826912}
   - component: {fileID: 3937073608125964709}
+  - component: {fileID: 1648283325}
   m_Layer: 0
   m_Name: Enemy_2
   m_TagString: Untagged
@@ -453,18 +453,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 6
   jumpForgiveness: 0.2
---- !u!114 &7833207587032785480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2894234260864066799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bfd93eac32db64ba0c56dbcecaf183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3439561272651996860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +503,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7282d48af353a7144972ac05e73b86b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1648283325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894234260864066799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75ff83d943b49c8a925112a58546ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tolerance: 0.5
 --- !u!1 &2894234260935106772
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,10 +601,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2894234260864066798}
     m_Modifications:
-    - target: {fileID: 3058324046949655077, guid: e046d71d3058d4045a3c4653d6eb76bc, type: 3}
-      propertyPath: stoppingDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3058324046949655077, guid: e046d71d3058d4045a3c4653d6eb76bc, type: 3}
       propertyPath: floorCheck.obstacleDistance
       value: 200

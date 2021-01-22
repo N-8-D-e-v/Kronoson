@@ -99,11 +99,11 @@ GameObject:
   - component: {fileID: 4990074880933625833}
   - component: {fileID: 4990074880933625832}
   - component: {fileID: 4990074880933625835}
-  - component: {fileID: 4990074880933625838}
   - component: {fileID: 2607943120300620781}
   - component: {fileID: 4386143877975072697}
   - component: {fileID: 1893613603}
   - component: {fileID: 986258135}
+  - component: {fileID: 275969909}
   m_Layer: 7
   m_Name: Enemy_1_SemiAuto
   m_TagString: Untagged
@@ -304,18 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 6
   jumpForgiveness: 0.2
---- !u!114 &4990074880933625838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4990074880933625824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bfd93eac32db64ba0c56dbcecaf183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2607943120300620781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +354,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7282d48af353a7144972ac05e73b86b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &275969909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990074880933625824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75ff83d943b49c8a925112a58546ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tolerance: 0.5
 --- !u!1 &9086597271217005415
 GameObject:
   m_ObjectHideFlags: 0
