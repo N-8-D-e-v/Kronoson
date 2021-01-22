@@ -8,10 +8,7 @@ namespace Game.Levels.Player
         //Assignables
         private new Transform transform;
 
-        private void Awake()
-        {
-            transform = GetComponent<Transform>();
-        }
+        private void Awake() => transform = GetComponent<Transform>();
 
         private void LateUpdate()
         {

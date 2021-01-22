@@ -43,15 +43,6 @@ namespace Game.General.Utilities
 
                 _transform.localScale = _scale;
             }
-
-            public static float GetAngleToMouse(this Transform _transform, float _cameraZ)
-            {
-                Vector3 _mousePos = Input.mousePosition;
-                _mousePos.z = _cameraZ;
-                Vector3 _dir = Camera.main.ScreenToWorldPoint(_mousePos) - _transform.position;
-                float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
-                return _angle;
-            }
         }
     }
 
@@ -64,6 +55,15 @@ namespace Game.General.Utilities
                 Vector2 _dir = _targetPos - _pos;
                 _dir = _dir.normalized;
                 return _dir;
+            }
+            
+            public static float GetAngleToMouse(this Vector3 _pos, float _cameraZ)
+            {
+                Vector3 _mousePos = Input.mousePosition;
+                _mousePos.z = _cameraZ;
+                Vector3 _dir = Camera.main.ScreenToWorldPoint(_mousePos) - _pos;
+                float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+                return _angle;
             }
         }
     }

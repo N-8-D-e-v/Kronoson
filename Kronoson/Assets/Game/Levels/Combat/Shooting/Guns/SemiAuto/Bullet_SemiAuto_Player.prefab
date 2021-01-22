@@ -159,8 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
+  stunTime: 0.5
+  knockback: 25
   cameraShakeSettings:
     duration: 0.1
-    intensity: 0.03
+    intensity: 0.1
     damping: 1
     decay: 0.8

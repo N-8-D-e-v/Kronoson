@@ -5,7 +5,7 @@ using Game.General.TimeManagement;
 namespace Game.Levels.Combat.Shooting
 {
     [RequireComponent(typeof(Animator))]
-    public class Shooting : CollisionSensor, IAttack
+    public class Shooting : MonoBehaviour, IAttack
     {
         //Input
         public bool InputAttack { set; get; } = false;
@@ -37,7 +37,7 @@ namespace Game.Levels.Combat.Shooting
 
         public bool IsAutomatic() => gun.IsAutomatic;
 
-        private bool CanShoot() => InputAttack && !Colliding() && fireRateTimer.Time == 0;
+        private bool CanShoot() => InputAttack && fireRateTimer.Time == 0;
 
         protected virtual void Shoot()
         {

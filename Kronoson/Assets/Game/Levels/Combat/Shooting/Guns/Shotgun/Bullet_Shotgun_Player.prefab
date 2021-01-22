@@ -163,6 +163,6 @@ MonoBehaviour:
   knockback: 50
   cameraShakeSettings:
     duration: 0.1
-    intensity: 0.03
+    intensity: 0.15
     damping: 1
     decay: 0.8

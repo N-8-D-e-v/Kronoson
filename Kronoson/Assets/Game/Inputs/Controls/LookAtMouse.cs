@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.General.Utilities.Transformf;
+using Game.General.Utilities.Vector3f;
 
 namespace Game.Inputs.Controls
 {
@@ -19,7 +19,7 @@ namespace Game.Inputs.Controls
 
         private void Update()
         {
-            Quaternion _rot = Quaternion.AngleAxis(transform.GetAngleToMouse(-10) + offset, Vector3.forward);
+            Quaternion _rot = Quaternion.AngleAxis(transform.position.GetAngleToMouse(-10) + offset, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, _rot, smoothing * Time.deltaTime);
         }
     }

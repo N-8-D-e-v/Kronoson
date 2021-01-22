@@ -10,14 +10,8 @@ namespace Game.Levels.Player
         //Offset
         [SerializeField] private Vector3 offset;
 
-        private void Awake()
-        {
-            transform = GetComponent<Transform>();
-        }
+        private void Awake() => transform = GetComponent<Transform>();
 
-        private void LateUpdate()
-        {
-            transform.position = PlayerData.GetPlayerPosition() + offset;
-        }
+        private void LateUpdate() => transform.position = PlayerData.GetPlayerPosition() + offset;
     }
 }
