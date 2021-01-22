@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5209288118273359662}
   - component: {fileID: 5209288118273359656}
   - component: {fileID: 5209288118273359657}
-  - component: {fileID: 285776860}
+  - component: {fileID: 1171106254154573979}
   - component: {fileID: 5209288118273359663}
   - component: {fileID: 5209288118273359661}
   - component: {fileID: 285776854}
@@ -129,16 +129,16 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
-  m_LinearDrag: 15
-  m_AngularDrag: 0.05
+  m_LinearDrag: 10
+  m_AngularDrag: 0
   m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!233 &285776860
-HingeJoint2D:
+--- !u!254 &1171106254154573979
+RelativeJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,17 +150,12 @@ HingeJoint2D:
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.1}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+  m_MaxForce: 10000
+  m_MaxTorque: 0
+  m_CorrectionScale: 1
+  m_AutoConfigureOffset: 0
+  m_LinearOffset: {x: 0, y: 0.1}
+  m_AngularOffset: 0
 --- !u!114 &5209288118273359663
 MonoBehaviour:
   m_ObjectHideFlags: 0

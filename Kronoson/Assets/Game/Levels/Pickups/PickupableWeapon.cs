@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Game.Levels.Pickups
 {
-    [RequireComponent(typeof(HingeJoint2D), typeof(ILookAtMouse))]
+    [RequireComponent(typeof(RelativeJoint2D), typeof(ILookAtMouse))]
     [RequireComponent(typeof(Rigidbody2D), typeof(IOnMouseOverlap))]
     [RequireComponent(typeof(ControlsAttack))]
     public class PickupableWeapon : MonoBehaviour, IPickupable
     {
         //Assignables
-        private HingeJoint2D joint;
+        private RelativeJoint2D joint;
         private ILookAtMouse lookAtMouse;
         private Rigidbody2D rb;
         private IOnMouseOverlap onMouseOverlap;
@@ -31,7 +31,7 @@ namespace Game.Levels.Pickups
 
         private void Awake()
         {
-            joint = GetComponent<HingeJoint2D>();
+            joint = GetComponent<RelativeJoint2D>();
             lookAtMouse = GetComponent<ILookAtMouse>();
             rb = GetComponent<Rigidbody2D>();
             gravityScale = rb.gravityScale;

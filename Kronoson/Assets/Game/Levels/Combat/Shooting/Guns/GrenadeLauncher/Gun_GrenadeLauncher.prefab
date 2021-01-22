@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 1683540914787679831}
   - component: {fileID: 1683540914787679825}
   - component: {fileID: 1683540914787679824}
-  - component: {fileID: 3161342435073623431}
+  - component: {fileID: 9195113820994103323}
   - component: {fileID: 1683540914787679830}
   - component: {fileID: 1683540914787679828}
   - component: {fileID: 3161342435073623430}
@@ -219,8 +219,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!233 &3161342435073623431
-HingeJoint2D:
+--- !u!254 &9195113820994103323
+RelativeJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -232,17 +232,12 @@ HingeJoint2D:
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.1}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+  m_MaxForce: 10000
+  m_MaxTorque: 0
+  m_CorrectionScale: 1
+  m_AutoConfigureOffset: 0
+  m_LinearOffset: {x: 0, y: 0.1}
+  m_AngularOffset: 0
 --- !u!114 &1683540914787679830
 MonoBehaviour:
   m_ObjectHideFlags: 0

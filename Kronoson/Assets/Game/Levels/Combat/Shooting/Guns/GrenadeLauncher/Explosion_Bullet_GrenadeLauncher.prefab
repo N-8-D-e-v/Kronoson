@@ -9767,4 +9767,4 @@ MonoBehaviour:
   damage: 35
   stunTime: 2
   knockback: 600
-  explosionLength: 0.6
+  explosionLength: 0.25
