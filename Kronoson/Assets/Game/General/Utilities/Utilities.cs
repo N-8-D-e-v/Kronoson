@@ -59,7 +59,7 @@ namespace Game.General.Utilities
     {
         public static class Vector3f
         {
-            public static Vector2 GetDirectionToTarget(this Vector3 _pos, Vector3 _targetPos)
+            public static Vector3 GetDirectionToTarget(this Vector3 _pos, Vector3 _targetPos)
             {
                 Vector2 _dir = _targetPos - _pos;
                 _dir = _dir.normalized;

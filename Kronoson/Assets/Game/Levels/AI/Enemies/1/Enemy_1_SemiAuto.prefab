@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8985f350abb4ac2981c34dee4125618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 300
+  startHealth: 100
 --- !u!114 &1893613603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,9 +517,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4990074880933625829}
     m_Modifications:
+    - target: {fileID: 1938038334778105557, guid: 58f0945ba553d254a89d3d10aaf2f68a, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4804619840299194760, guid: 58f0945ba553d254a89d3d10aaf2f68a, type: 3}
       propertyPath: m_Name
       value: Particles_Kill
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804619840299194760, guid: 58f0945ba553d254a89d3d10aaf2f68a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6384553422068337301, guid: 58f0945ba553d254a89d3d10aaf2f68a, type: 3}
       propertyPath: m_RootOrder

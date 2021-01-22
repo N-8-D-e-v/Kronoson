@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gun_Auto_Player
   m_EditorClassIdentifier: 
   IsAutomatic: 1
-  Bullet: {fileID: 2464018874992180214, guid: 2fc5a8ae6e774cf44bac9d844abf707e, type: 3}
+  Bullet: {fileID: 2464018874992180214, guid: 8bc346c5fab994c42a47811a102adc7a, type: 3}
   Range: 8
   FireRate: 0.2
   Shots: 1

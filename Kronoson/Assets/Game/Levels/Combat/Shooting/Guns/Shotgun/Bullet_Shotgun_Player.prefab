@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4474528947422111507}
   - component: {fileID: 4843914933828615464}
   - component: {fileID: 2464018874992180214}
-  - component: {fileID: -2256715426995537208}
   - component: {fileID: 116217907895571820}
+  - component: {fileID: 4148422413481768655}
   m_Layer: 8
   m_Name: Bullet_Shotgun_Player
   m_TagString: Untagged
@@ -132,25 +132,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!114 &-2256715426995537208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6740578128082432668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290609dcb99b4b458df85b9c979c3ee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 100
-  cameraShakeSettings:
-    duration: 0.1
-    intensity: 0.2
-    damping: 1
-    decay: 0.8
+  m_Constraints: 0
 --- !u!114 &116217907895571820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +146,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 1
+--- !u!114 &4148422413481768655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740578128082432668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290609dcb99b4b458df85b9c979c3ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  stunTime: 1
+  knockback: 50
+  cameraShakeSettings:
+    duration: 0.1
+    intensity: 0.03
+    damping: 1
+    decay: 0.8

@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 8280491933836803300}
   - component: {fileID: 4474528947422111507}
   - component: {fileID: 4843914933828615464}
+  - component: {fileID: 696774498992014120}
   - component: {fileID: 2464018874992180214}
-  - component: {fileID: -3434609527993993767}
-  - component: {fileID: 8786035570845674713}
-  m_Layer: 7
-  m_Name: Bullet_SemiAuto_Enemy
+  - component: {fileID: -6080175748508731295}
+  - component: {fileID: 1795530672311523476}
+  m_Layer: 8
+  m_Name: Bullet_GrenadeLauncher_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6740578128082432668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.848, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.125, y: 0.125}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,7 +105,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.125, y: 0.125}
-    newSize: {x: 0.125, y: 0.125}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -112,6 +113,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.125, y: 0.125}
   m_EdgeRadius: 0
+--- !u!58 &696774498992014120
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740578128082432668}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!50 &2464018874992180214
 Rigidbody2D:
   serializedVersion: 4
@@ -124,16 +141,16 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &-3434609527993993767
+--- !u!114 &-6080175748508731295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d69168b2e81f5d4e8418ee942b3277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
---- !u!114 &8786035570845674713
+  time: 4
+--- !u!114 &1795530672311523476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,12 +172,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6740578128082432668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290609dcb99b4b458df85b9c979c3ee4, type: 3}
+  m_Script: {fileID: 11500000, guid: 794f949216574e7c9a24aa1df2fbf1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
+  stunTime: 0.5
+  knockback: 25
   cameraShakeSettings:
-    duration: 0.1
-    intensity: 0.05
+    duration: 0.2
+    intensity: 0.7
     damping: 1
-    decay: 0.8
+    decay: 0.9
+  explosion: {fileID: 3046493490542536718, guid: ed166562a7335e64880c88dbe01a6bbb, type: 3}

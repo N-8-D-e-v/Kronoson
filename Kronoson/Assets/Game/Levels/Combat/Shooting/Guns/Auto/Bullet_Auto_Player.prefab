@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4474528947422111507}
   - component: {fileID: 4843914933828615464}
   - component: {fileID: 2464018874992180214}
-  - component: {fileID: -3434609527993993767}
-  - component: {fileID: 8786035570845674713}
-  m_Layer: 7
-  m_Name: Bullet_SemiAuto_Enemy
+  - component: {fileID: 116217907895571820}
+  - component: {fileID: 2815228784144054587}
+  m_Layer: 8
+  m_Name: Bullet_Auto_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &-3434609527993993767
+--- !u!114 &116217907895571820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d69168b2e81f5d4e8418ee942b3277a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
---- !u!114 &8786035570845674713
+  time: 1
+--- !u!114 &2815228784144054587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290609dcb99b4b458df85b9c979c3ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 20
   cameraShakeSettings:
     duration: 0.1
-    intensity: 0.05
+    intensity: 0.025
     damping: 1
     decay: 0.8

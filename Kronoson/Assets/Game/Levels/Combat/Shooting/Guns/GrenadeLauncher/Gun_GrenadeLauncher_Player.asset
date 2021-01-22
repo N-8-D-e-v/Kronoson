@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b924257c4e8546b1ba984e9d01cda83c, type: 3}
-  m_Name: Gun_Shotgun_Player
+  m_Name: Gun_GrenadeLauncher_Player
   m_EditorClassIdentifier: 
   IsAutomatic: 0
-  Bullet: {fileID: 2464018874992180214, guid: 97831beac9dd32649800b34630eab05c, type: 3}
-  Range: 10
-  FireRate: 0.6
-  Shots: 3
+  Bullet: {fileID: 2464018874992180214, guid: 166600a93338a40499242bdb3987cea1, type: 3}
+  Range: 17
+  FireRate: 1
+  Shots: 1
   Spread: 45
