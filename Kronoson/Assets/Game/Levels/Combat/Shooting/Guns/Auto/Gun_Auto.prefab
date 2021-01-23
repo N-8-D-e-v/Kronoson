@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1880422646613957906}
   - component: {fileID: 2407975811712415015}
   - component: {fileID: 1976707088}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Gun_Auto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.1
   m_LinearDrag: 15
   m_AngularDrag: 0.05
   m_GravityScale: 2
@@ -186,8 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUpOffset: {x: 0, y: 0.1}
-  pickedUpLayer: 8
-  droppedLayer: 9
 --- !u!114 &2407975811712415015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +213,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.73}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
 --- !u!1 &3081174242898731060
 GameObject:
   m_ObjectHideFlags: 0

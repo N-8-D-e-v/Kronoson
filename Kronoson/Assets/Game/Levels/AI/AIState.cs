@@ -11,5 +11,9 @@ namespace Game.Levels.AI
         public abstract bool Condition();
 
         public abstract void Behaviour();
+        
+        public virtual void OnStateEnter() { }
+
+        public virtual void OnStateExit() { }
     }
 }

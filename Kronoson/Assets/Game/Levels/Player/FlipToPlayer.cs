@@ -3,8 +3,11 @@ using Game.General.Utilities.Transformf;
 
 namespace Game.Levels.Player
 {
-    public class FlipToPlayer : MonoBehaviour
+    public class FlipToPlayer : MonoBehaviour, IPlayerFlippable
     {
+        //Public Fields
+        public bool Enabled { get; set; }
+
         //Assignables
         private new Transform transform;
         
@@ -22,6 +25,9 @@ namespace Game.Levels.Player
 
         private void Update()
         {
+            if (!Enabled)
+                return;
+            
             float _playerPosX = PlayerData.GetPlayerPosition().x;
             float _posX = transform.position.x;
             float _dir = 0f;

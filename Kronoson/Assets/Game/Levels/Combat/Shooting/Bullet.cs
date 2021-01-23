@@ -4,11 +4,11 @@ using UnityEngine;
 namespace Game.Levels.Combat.Shooting
 {
     [RequireComponent(typeof(Collider2D))]
-    public class Bullet: Damage
+    public class Bullet : Damage
     {
         //Assignables
         private CameraShake cameraShake;
-        
+
         //Camera Shake
         [Header("Camera Shake")]
         [SerializeField] private CameraShakeSettings cameraShakeSettings;
@@ -19,9 +19,9 @@ namespace Game.Levels.Combat.Shooting
             cameraShake = CameraShake.GetMainCameraShake();
         }
 
-        protected virtual void OnCollisionEnter2D(Collision2D _col)
+        protected virtual void OnTriggerEnter2D(Collider2D _col)
         {
-            DealDamage(_col.collider);
+            DealDamage(_col);
             cameraShake.ShakeCamera(cameraShakeSettings);
             Destroy();
         }

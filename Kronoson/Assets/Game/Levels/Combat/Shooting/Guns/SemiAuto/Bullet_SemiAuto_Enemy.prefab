@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2464018874992180214}
   - component: {fileID: -3434609527993993767}
   - component: {fileID: 8786035570845674713}
-  m_Layer: 7
+  - component: {fileID: -3772367516719595393}
+  m_Layer: 8
   m_Name: Bullet_SemiAuto_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -159,10 +160,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  stunTime: 0.5
-  knockback: 25
+  stunTime: 0.75
+  knockback: 200
   cameraShakeSettings:
     duration: 0.1
     intensity: 0.05
     damping: 1
     decay: 0.8
+--- !u!114 &-3772367516719595393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740578128082432668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6083e5082db481eb892a173a19b3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 9
+  time: 0.4

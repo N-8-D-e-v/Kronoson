@@ -11,6 +11,7 @@ namespace Game.Levels.AI
 
         //States (DRAG THESE AS CHILDREN UNDER THE AI IN ORDER OF PRIORITY)
         private AIState[] states;
+        private AIState currentState;
 
         //Animation
         private static readonly int STATE = Animator.StringToHash("state");
@@ -33,6 +34,13 @@ namespace Game.Levels.AI
                     continue;
                 _state.Behaviour();
                 animator.SetInteger(STATE, _i);
+                
+                if (_state == currentState || !currentState) 
+                    return;
+                currentState.OnStateExit();
+                _state.OnStateEnter();
+                currentState = _state;
+                
                 return;
             }
         }

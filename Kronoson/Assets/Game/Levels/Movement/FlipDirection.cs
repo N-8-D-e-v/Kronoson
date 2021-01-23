@@ -4,8 +4,11 @@ using Game.General.Utilities.Transformf;
 namespace Game.Levels.Movement
 {
     [RequireComponent(typeof(IMovement))]
-    public class FlipDirection : MonoBehaviour
+    public class FlipDirection : MonoBehaviour, IFlippable
     {
+        //Public Fields
+        public bool Enabled { set; get; } = true;
+        
         //Assignables
         private new Transform transform;
         private IMovement movement;
@@ -22,7 +25,8 @@ namespace Game.Levels.Movement
 
         private void Update()
         {
-            transform.Flip(movement.InputAxis, xScale);
+            if (Enabled)
+                transform.Flip(movement.InputAxis, xScale);
         }
     }
 }

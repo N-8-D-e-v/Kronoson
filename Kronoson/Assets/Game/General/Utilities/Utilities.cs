@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using Object = UnityEngine.Object;
 
 namespace Game.General.Utilities
 {
@@ -76,10 +77,11 @@ namespace Game.General.Utilities
 
         public static class Delegatef
         {
-            public static async void Invoke(VoidDelegate _delegate, float _time)
+            public static async void Invoke(Object _caller, VoidDelegate _delegate, float _time)
             {
                 await Task.Delay(TimeSpan.FromSeconds(_time));
-                _delegate();
+                if (_caller)
+                    _delegate.Invoke();
             }
         }
     }

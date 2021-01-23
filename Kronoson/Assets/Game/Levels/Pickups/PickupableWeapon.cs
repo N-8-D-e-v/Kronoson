@@ -38,9 +38,9 @@ namespace Game.Levels.Pickups
 
         public bool CanPickUp() => onMouseOverlap.IsMouseDownAndOverlapping();
 
-        public void PickUp(Rigidbody2D _pickUp)
+        public void PickUp(Rigidbody2D _attachedRigidbody)
         {
-            AttatchToPickUp(_pickUp);
+            AttatchToPickUp(_attachedRigidbody);
             EnableControls();
             DisablePhysics();
         }
@@ -52,11 +52,11 @@ namespace Game.Levels.Pickups
             EnablePhysics();
         }
 
-        private void AttatchToPickUp(Rigidbody2D _pickUp)
+        private void AttatchToPickUp(Rigidbody2D _attachedRigidbody)
         {
-            rb.position = _pickUp.position + pickedUpOffset;
+            rb.position = _attachedRigidbody.position + pickedUpOffset;
             joint.enabled = true;
-            joint.connectedBody = _pickUp;
+            joint.connectedBody = _attachedRigidbody;
         }
 
         private void DetatchFromPickUp()

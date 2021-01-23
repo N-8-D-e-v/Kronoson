@@ -30,8 +30,6 @@ namespace Game.Levels.Combat
 
         private void Knockback(Rigidbody2D _rb)
         {
-            print(_rb);
-            Debug.Break();
             Vector2 _dir = transform.position.GetDirectionToTarget(_rb.position).normalized;
             _rb.AddForce(_dir * knockback);
         }

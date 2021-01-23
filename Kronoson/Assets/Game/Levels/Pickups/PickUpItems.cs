@@ -24,34 +24,31 @@ namespace Game.Levels.Pickups
             transform = GetComponent<Transform>();
         }
 
-        private void Update()
-        {
-            PickingUp();
-            Dropping();
-        }
+        private void Update() => PickingUp();
 
         private void PickingUp()
         {
+            if (Drop.CanDrop(itemHolding))
+                Drop.DropItemHolding(ref itemHolding);
+            
             PickUp.CheckForItems(transform.position, pickUpRadius, itemsInRadius, pickupableLayers);
             if (!PickUp.FoundItems(itemsInRadius))
                 return;
-
             foreach (Collider2D _item in itemsInRadius)
             {
-                if (PickUp.IsPickupableAndCanPickUp(_item, out IPickupable _pickupable))
+                //Non alloc circle check may not populate whole array
+                if (!_item)
+                    break;
+                
+                if (!PickUp.IsPickupableAndCanPickUp(_item, out IPickupable _pickupable))
                     continue;
                 if (Drop.IsHoldingItem(itemHolding))
                     Drop.DropItemHolding(ref itemHolding);
                 
                 PickUp.PickUpItem(_pickupable, attachedRigidbody, out itemHolding);
-                return;
+                break;
             }
-        }
-
-        private void Dropping()
-        {
-            if (Drop.CanDrop(itemHolding))
-                Drop.DropItemHolding(ref itemHolding);
+            
         }
     }
 }

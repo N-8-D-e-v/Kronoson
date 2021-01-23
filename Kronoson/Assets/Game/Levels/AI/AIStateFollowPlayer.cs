@@ -1,5 +1,4 @@
 using UnityEngine;
-using Game.General.Utilities.Vector3f;
 using Game.Levels.Movement;
 using Game.Levels.Player;
 using Game.Levels.Sensors;
@@ -12,6 +11,7 @@ namespace Game.Levels.AI
         private Transform parent;
         private IMovement movement;
         private IJumping jumping;
+        private IPlayerFlippable playerFlippable;
 
         //Raycasts
         [Header("Raycasts")] 
@@ -31,15 +31,20 @@ namespace Game.Levels.AI
             parent = GetComponentInParent<Transform>();
             movement = GetComponentInParent<SmoothMovement>();
             jumping = GetComponentInParent<IJumping>();
+            playerFlippable = GetComponentInParent<IPlayerFlippable>();
             direction.x = parent.localScale.x;
         }
 
         protected override void OnDisable() => movement.InputAxis = 0f;
 
+        public override void OnStateEnter() => playerFlippable.Enabled = true;
+
+        public override void OnStateExit() => playerFlippable.Enabled = false;
+
         public override bool Condition()
         {
-            Vector3 _dir = parent.position.GetDirectionToTarget(PlayerData.GetPlayerPosition());
-            return _dir.sqrMagnitude <= sightDistance * sightDistance;
+            Vector3 _distance = PlayerData.GetPlayerPosition() - parent.position;
+            return _distance.sqrMagnitude <= sightDistance * sightDistance;
         }
 
         public override void Behaviour()
