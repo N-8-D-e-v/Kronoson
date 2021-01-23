@@ -36,6 +36,7 @@ namespace Game.Levels.AI
             base.Behaviour();
             for (int _i = 0; _i < attackTimers.Length; _i++)
             {
+                attackTimers[_i].Tick(Time.deltaTime);
                 if (attackTimers[_i].Time != 0) 
                     continue;
                 attacks[_i].InputAttack = true;

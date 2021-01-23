@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 6833751956587101855}
   - component: {fileID: 4111141961804790856}
   - component: {fileID: 3046493490542536718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Explosion_Bullet_GrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2464018874992180214}
   - component: {fileID: 116217907895571820}
   - component: {fileID: 2815228784144054587}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Bullet_Auto_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  stunTime: 0.5
+  knockback: 25
   cameraShakeSettings:
     duration: 0.1
     intensity: 0.025

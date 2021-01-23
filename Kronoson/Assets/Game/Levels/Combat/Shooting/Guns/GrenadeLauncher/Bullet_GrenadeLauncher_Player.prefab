@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2464018874992180214}
   - component: {fileID: -6080175748508731295}
   - component: {fileID: 1795530672311523476}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Bullet_GrenadeLauncher_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

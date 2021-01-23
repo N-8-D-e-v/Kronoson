@@ -13,7 +13,7 @@ namespace Game.Inputs.Mic
         //Mic Info
         private AudioClip micRecord;
         private string device;
-        private float[] waveData = new float[SAMPLE_WINDOW];
+        private readonly float[] waveData = new float[SAMPLE_WINDOW];
         private bool initialized = false;
 
         //Constants
@@ -21,6 +21,7 @@ namespace Game.Inputs.Mic
 
         private void Awake()
         {
+            transform.parent = null;
             if (!instance)
                 instance = this;
             else if (instance != this)
@@ -46,6 +47,8 @@ namespace Game.Inputs.Mic
                     break;
             }
         }
+
+        private void OnApplicationQuit() => StopMic();
 
         private void InitMic()
         {

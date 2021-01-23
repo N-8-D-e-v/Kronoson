@@ -19,12 +19,7 @@ namespace Game.Levels.Pickups
         //Picked Up
         [Header("Picked Up")]
         [SerializeField] private Vector2 pickedUpOffset = new Vector2(0, 0.1f);
-        
-        //Layers
-        [Header("Layers")]
-        [SerializeField] private int pickedUpLayer = 0;
-        [SerializeField] private int droppedLayer = 0;
-        
+
         //Physics
         private float gravityScale = 2f;
         private float drag = 15f;
@@ -48,7 +43,6 @@ namespace Game.Levels.Pickups
             AttatchToPickUp(_pickUp);
             EnableControls();
             DisablePhysics();
-            UpdateLayer(pickedUpLayer);
         }
 
         public void Drop()
@@ -56,7 +50,6 @@ namespace Game.Levels.Pickups
             DetatchFromPickUp();
             DisableControls();
             EnablePhysics();
-            UpdateLayer(droppedLayer);
         }
 
         private void AttatchToPickUp(Rigidbody2D _pickUp)
@@ -97,7 +90,5 @@ namespace Game.Levels.Pickups
             rb.gravityScale = gravityScale;
             rb.drag = 0f;
         }
-
-        private void UpdateLayer(int _layer) => gameObject.layer = _layer;
     }
 }
