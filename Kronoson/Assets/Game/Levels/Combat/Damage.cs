@@ -6,7 +6,7 @@ namespace Game.Levels.Combat
     public class Damage : MonoBehaviour
     {
         //Assignables
-        protected new Transform Transform;
+        protected new Transform transform;
         
         //Damage
         [Header("Damage")]
@@ -14,18 +14,25 @@ namespace Game.Levels.Combat
         [SerializeField] private float stunTime = 0.5f;
         [SerializeField] private float knockback = 25f;
 
-        protected virtual void Awake() => Transform = GetComponent<Transform>();
+        protected virtual void Awake() => transform = GetComponent<Transform>();
 
-        protected void DealDamage(Component _col)
+        protected void DealDamage(Collider2D _col)
         {
-            if (!_col.TryGetComponent<IDamageable>(out IDamageable _damageable))
-                return;
-            _damageable.Damage(damage);
-            if (!_col.TryGetComponent<Rigidbody2D>(out Rigidbody2D _rb) || 
-                !_col.TryGetComponent<IStunnable>(out IStunnable _stunnable))
-                return;
-            _stunnable.Stun(stunTime);
-            Vector2 _dir = Transform.position.GetDirectionToTarget(_rb.position).normalized;
+            if (_col.TryGetComponent<IDamageable>(out IDamageable _damageable))
+                _damageable.Damage(damage);
+            
+            if (_col.TryGetComponent<Rigidbody2D>(out Rigidbody2D _rb))
+                Knockback(_rb);
+            
+            if (_col.TryGetComponent<IStunnable>(out IStunnable _stunnable))
+                _stunnable.Stun(stunTime);
+        }
+
+        private void Knockback(Rigidbody2D _rb)
+        {
+            print(_rb);
+            Debug.Break();
+            Vector2 _dir = transform.position.GetDirectionToTarget(_rb.position).normalized;
             _rb.AddForce(_dir * knockback);
         }
     }

@@ -18,7 +18,7 @@ namespace Game.Levels.Combat.Shooting
             base.Awake();
             cameraShake = CameraShake.GetMainCameraShake();
         }
-        
+
         protected virtual void OnCollisionEnter2D(Collision2D _col)
         {
             DealDamage(_col.collider);

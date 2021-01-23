@@ -2,67 +2,29 @@
 
 namespace Game.Levels.Pickups
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class PickUp : MonoBehaviour
+    public static class PickUp
     {
-        //Assignables
-        private Rigidbody2D rb;
-        private new Transform transform;
-        
-        //Picking Up
-        [Header("Picking Up")]
-        [SerializeField] private float pickUpRadius = 1f;
-        [SerializeField] private LayerMask pickupableLayers;
-        private Collider2D[] pickupables = new Collider2D[10];
-
-        //Holding
-        private IPickupable holding;
-
-        private void Awake()
+        public static void CheckForItems(Vector3 _pos, float _radius, Collider2D[] _results, LayerMask _layers)
         {
-            rb = GetComponent<Rigidbody2D>();
-            transform = GetComponent<Transform>();
+            Physics2D.OverlapCircleNonAlloc(_pos, _radius, _results, _layers);
         }
 
-        private void Update()
+        public static bool FoundItems(Collider2D[] _itemsInRadius)
         {
-            int _size = Physics2D.OverlapCircleNonAlloc
-                (transform.position, pickUpRadius, pickupables, pickupableLayers);
-
-            CheckDrop();
-            if (_size == 0)
-                return;
-
-            for (int _i = 0; _i < _size; _i++)
-            {
-                IPickupable _pickupable = IsPickUp(pickupables[_i]);
-                if (_pickupable == null) 
-                    continue;
-
-                if (holding != null)
-                {
-                    holding.Drop();
-                    holding = null;
-                }
-                _pickupable.PickUp(rb);
-                holding = _pickupable;
-                return;
-            }
+            return _itemsInRadius.Length > 0;
         }
 
-        private void CheckDrop()
+        public static bool IsPickupableAndCanPickUp(Collider2D _col, out IPickupable _result)
         {
-            if (holding == null || !Input.GetMouseButtonDown(1)) 
-                return;
-            holding.Drop();
-            holding = null;
+            bool _isPickupable = _col.TryGetComponent<IPickupable>(out IPickupable _pickupable);
+            _result = _isPickupable && _pickupable.CanPickUp() ? _pickupable : null;
+            return _isPickupable && _pickupable.CanPickUp();
         }
 
-        private static IPickupable IsPickUp(Collider2D _col)
+        public static void PickUpItem(IPickupable _pickupable, Rigidbody2D _attachedRigidbody, out IPickupable _itemHolding)
         {
-            if (!_col.TryGetComponent<IPickupable>(out IPickupable _pickupable))
-                return null;
-            return _pickupable.CanPickUp() ? _pickupable : null;
+            _pickupable.PickUp(_attachedRigidbody);
+            _itemHolding = _pickupable;
         }
     }
 }

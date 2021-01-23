@@ -1423,7 +1423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990074880933625824, guid: b6609528d2790204fbe65652a365c6a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4990074880933625829, guid: b6609528d2790204fbe65652a365c6a7, type: 3}
       propertyPath: m_RootOrder
@@ -2155,7 +2155,7 @@ MonoBehaviour:
   pickUpRadius: 15
   pickupableLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 128
 --- !u!1 &1841458082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,7 +2582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894234260864066799, guid: 5f1416d3466756f428e240716cd37717, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f1416d3466756f428e240716cd37717, type: 3}
@@ -2604,7 +2604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1683540914787679834, guid: 465755a4661f6524dbafdc3124881735, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1683540914787679835, guid: 465755a4661f6524dbafdc3124881735, type: 3}
       propertyPath: m_RootOrder

@@ -11,7 +11,7 @@ namespace Game.Levels.Combat.Shooting
 
         protected override void Destroy()
         {
-            Instantiate(explosion, Transform.position, Quaternion.identity);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
