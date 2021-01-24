@@ -24,7 +24,7 @@ namespace Game.Inputs.LookAtMouse
                 return;
             
             float _angle = ((Vector3) rb.position).GetAngleToMouse(-10) + offset;
-            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, _angle, smoothing));
+            rb.MoveRotation(_angle);
         }
     }
 }

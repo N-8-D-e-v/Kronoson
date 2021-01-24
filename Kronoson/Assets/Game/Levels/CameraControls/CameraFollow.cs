@@ -27,7 +27,7 @@ namespace Game.Levels.CameraControls
 
         private void Awake() => rb = GetComponent<Rigidbody2D>();
 
-            private void FixedUpdate()
+        private void FixedUpdate()
         {
             Vector3 _target = PlayerData.GetPlayerPosition();
             Vector3 _pos = rb.position;
