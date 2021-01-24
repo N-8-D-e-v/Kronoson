@@ -11,6 +11,5 @@ namespace Game.Levels.Combat.Shooting
         [Range(0, 100)] public float FireRate = 0.2f;
         [Range(0, 100)] public int Shots = 1;
         [HideInInspector] public float Spread = 45f;
-
     }
 }

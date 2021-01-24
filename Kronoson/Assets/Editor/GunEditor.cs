@@ -3,7 +3,8 @@ using UnityEditor;
 
 namespace Game.Editor
 {
-    [UnityEditor.CustomEditor(typeof(Gun))]
+    [CustomEditor(typeof(Gun))]
+    [CanEditMultipleObjects]
     public class GunEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
@@ -12,7 +13,7 @@ namespace Game.Editor
             
             Gun _gun = target as Gun;
             if (_gun.Shots > 1)
-                EditorGUILayout.Slider("Spread", _gun.Spread, 0f, 180f);
+                _gun.Spread = EditorGUILayout.Slider("Spread", _gun.Spread, 0f, 180f);
         }
     }
 }
