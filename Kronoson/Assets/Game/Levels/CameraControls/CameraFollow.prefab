@@ -66,9 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5efadceada3574c83d8bc0dd4b957c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTime: 0.06
-  xBounds: {x: -20, y: 20}
-  yBounds: {x: 0, y: 5}
+  followTime: 0.1
+  bounds: {fileID: 11400000, guid: a6194a1cfe1d6fd45bffa1d439d9411d, type: 2}
 --- !u!1 &4603007963961551093
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02af679c25984aa5b76d1c35b4a32483, type: 3}
   m_Name: Level1_Bounds
   m_EditorClassIdentifier: 
-  UseBounds: 0
+  UseBounds: 1
   MinX: 0
-  MaxX: 0
+  MaxX: 100000
   MinY: 0
-  MaxY: 0
+  MaxY: 1000000
