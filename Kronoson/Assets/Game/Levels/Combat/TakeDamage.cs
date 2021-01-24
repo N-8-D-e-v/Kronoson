@@ -12,8 +12,7 @@ namespace Game.Levels.Combat
         //Health
         [SerializeField] private int startHealth = 100;
         private int health = 0;
-        private bool isDead = false;
-        
+
         //Animation
         private static readonly int HURT = Animator.StringToHash("hurt");
 
@@ -28,19 +27,14 @@ namespace Game.Levels.Combat
 
         public void Damage(int _damage)
         {
-            if (isDead)
+            if (killable.IsDead())
                 return;
             
             health = Mathf.Max(0, health - _damage);
             if (health <= 0)
-            {
                 killable.Kill();
-                isDead = true;
-            }
             else
-            {
                 animator.Play(HURT);
-            }
         }
     }
 }

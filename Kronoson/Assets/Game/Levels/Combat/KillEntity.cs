@@ -8,11 +8,22 @@ namespace Game.Levels.Combat
         //Assignables
         private Animator animator;
         
+        //Death
+        private bool isDead = false;
+        
         //Animation
         private static readonly int KILL = Animator.StringToHash("kill");
 
         private void Awake() => animator = GetComponent<Animator>();
-        
-        public void Kill() => animator.Play(KILL);
+
+        public void Kill()
+        {
+            if (IsDead())
+                return;
+            isDead = true;
+            animator.Play(KILL);
+        }
+
+        public bool IsDead() => isDead;
     }
 }
