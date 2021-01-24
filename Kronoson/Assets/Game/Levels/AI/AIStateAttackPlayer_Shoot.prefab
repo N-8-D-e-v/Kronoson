@@ -100,7 +100,7 @@ MonoBehaviour:
   obstacleCheck:
     obstacleLayer:
       serializedVersion: 2
-      m_Bits: 64
+      m_Bits: 320
     raycastCheck: {fileID: 8910569983153128886}
     obstacleDistance: 2
   floorCheck:

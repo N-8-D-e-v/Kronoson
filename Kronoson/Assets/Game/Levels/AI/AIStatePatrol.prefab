@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4272113580919984742}
   - component: {fileID: 8120232325740653522}
   m_Layer: 0
-  m_Name: AI_State_Patrol
+  m_Name: AIStatePatrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   wallCheck:
     obstacleLayer:
       serializedVersion: 2
-      m_Bits: 64
+      m_Bits: 320
     raycastCheck: {fileID: 4272113580919984742}
     obstacleDistance: 2
   floorCheck:

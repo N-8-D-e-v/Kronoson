@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Levels.Combat
 {
@@ -9,6 +10,7 @@ namespace Game.Levels.Combat
         private Animator animator;
         
         //Death
+        [SerializeField] private UnityEvent onDeath;
         private bool isDead = false;
         
         //Animation
@@ -20,6 +22,7 @@ namespace Game.Levels.Combat
         {
             if (IsDead())
                 return;
+            onDeath?.Invoke();
             isDead = true;
             animator.Play(KILL);
         }

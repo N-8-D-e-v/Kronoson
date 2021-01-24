@@ -14,7 +14,7 @@ namespace Game.Inputs.LookAtMouse
 
         //Offset
         [SerializeField] private float offset = 0f;
-        [Range(0.1f, 1f)] [SerializeField] private float smoothing = 10f;
+        [Range(0.1f, 1f)] [SerializeField] private float smoothing = 1f;
 
         private void Awake() => rb = GetComponent<Rigidbody2D>();
 
