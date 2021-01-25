@@ -21,7 +21,6 @@ namespace Game.Inputs.Mic
 
         private void Awake()
         {
-            transform.parent = null;
             if (!instance)
                 instance = this;
             else if (instance != this)

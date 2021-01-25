@@ -5684,6 +5684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraFollow
       objectReference: {fileID: 0}
+    - target: {fileID: 4603007962264743990, guid: 5c21f22e5059d124db9ab7583ac06d75, type: 3}
+      propertyPath: bounds
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b0671796cdc9544396eaf91a32235f5, type: 2}
     - target: {fileID: 4603007962264743991, guid: 5c21f22e5059d124db9ab7583ac06d75, type: 3}
       propertyPath: m_RootOrder
       value: 0

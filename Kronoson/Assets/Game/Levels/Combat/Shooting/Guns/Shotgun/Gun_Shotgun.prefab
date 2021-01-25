@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377c80396a3a47f7b01f249ba4f962a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 4160081545099474081, guid: 0aa7fcea48fb6e24a8719f6bb83af0f4, type: 3}
+  collider: {fileID: -1085422511506694851}
 --- !u!61 &-1085422511506694851
 BoxCollider2D:
   m_ObjectHideFlags: 0
