@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Levels.Player;
+using Game.General.Utilities.Mouse;
 
 namespace Game.Levels.CameraControls
 {
@@ -22,16 +23,13 @@ namespace Game.Levels.CameraControls
         [Header("Bounds")]
         [SerializeField] private CameraBounds bounds;
 
-        //Constants
-        private const float Z_POS = -10f;
-
         private void Awake() => rb = GetComponent<Rigidbody2D>();
 
         private void FixedUpdate()
         {
             Vector3 _target = PlayerData.GetPlayerPosition();
             Vector3 _pos = rb.position;
-            _target.z = Z_POS;
+            _target.z = MouseF.MAINCAMERA_Z;
             if (bounds.UseBounds)
             {
                 _target.x = Mathf.Clamp(_target.x, bounds.MinX, bounds.MaxX);

@@ -1,4 +1,5 @@
-using Game.General.Utilities.Vector3f;
+using Game.General.Utilities.Mouse;
+using Game.General.Utilities.Vectors;
 using UnityEngine;
 
 namespace Game.Inputs.LookAtMouse
@@ -22,7 +23,7 @@ namespace Game.Inputs.LookAtMouse
             if (!Enabled)
                 return;
             
-            float _angle = transform.position.GetAngleToMouse(-10) + offset;
+            float _angle = transform.position.GetAngleToMouse(MouseF.MAINCAMERA_Z) + offset;
             Quaternion _rot = Quaternion.AngleAxis(_angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, _rot, smoothing * Time.deltaTime);
         }

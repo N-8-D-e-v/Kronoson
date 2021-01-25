@@ -1,4 +1,5 @@
-﻿using Game.General.Utilities.Vector3f;
+﻿using Game.General.Utilities.Vectors;
+using Game.General.Utilities.Mouse;
 using UnityEngine;
 
 namespace Game.Inputs.LookAtMouse
@@ -23,7 +24,7 @@ namespace Game.Inputs.LookAtMouse
             if (!Enabled)
                 return;
             
-            float _angle = ((Vector3) rb.position).GetAngleToMouse(-10) + offset;
+            float _angle = rb.position.GetAngleToMouse(MouseF.MAINCAMERA_Z) + offset;
             rb.MoveRotation(_angle);
         }
     }

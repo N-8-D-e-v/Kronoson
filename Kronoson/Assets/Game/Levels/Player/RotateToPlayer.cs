@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.General.Utilities.Vector3f;
+using Game.General.Utilities.Vectors;
 
 namespace Game.Levels.Player
 {

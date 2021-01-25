@@ -1,15 +1,16 @@
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using Game.General.Utilities.Mouse;
 using Object = UnityEngine.Object;
 
 namespace Game.General.Utilities
 {
-    namespace Transformf
+    namespace Transform
     {
-        public static class Transformf
+        public static class TransformF
         {
-            public static T[] InitializeHierarchy<T>(this Transform _root) where T : Component
+            public static T[] InitializeHierarchy<T>(this UnityEngine.Transform _root) where T : Component
             {
                 int _numberOfComponents = _root.GetComponentsInChildren<T>().Length;
                 T[] _components = new T[_numberOfComponents];
@@ -25,7 +26,7 @@ namespace Game.General.Utilities
                 return _components;
             }
 
-            public static void Flip(this Transform _transform, float _dir, bool _isLocal)
+            public static void Flip(this UnityEngine.Transform _transform, float _dir, bool _isLocal)
             {
                 Vector3 _rot = _isLocal ? _transform.localEulerAngles : _transform.eulerAngles;
                 if (_dir > 0)
@@ -35,7 +36,7 @@ namespace Game.General.Utilities
                 _transform.eulerAngles = _rot;
             }
 
-            public static void Flip(this Transform _transform, float _dir, float _xScale)
+            public static void Flip(this UnityEngine.Transform _transform, float _dir, float _xScale)
             {
                 Vector3 _scale = _transform.localScale;
 
@@ -49,9 +50,9 @@ namespace Game.General.Utilities
         }
     }
 
-    namespace Vector3f
+    namespace Vectors
     {
-        public static class Vector3f
+        public static class Vector3F
         {
             public static Vector3 GetDirectionToTarget(this Vector3 _pos, Vector3 _targetPos)
             {
@@ -62,20 +63,25 @@ namespace Game.General.Utilities
             
             public static float GetAngleToMouse(this Vector3 _pos, float _cameraZ)
             {
-                Vector3 _mousePos = Input.mousePosition;
-                _mousePos.z = _cameraZ;
-                Vector3 _dir = Camera.main.ScreenToWorldPoint(_mousePos) - _pos;
+                Vector3 _dir = Camera.main.ScreenToWorldPoint(MouseF.GetMousePosition()) - _pos;
+                float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+                return _angle;
+            }
+            
+            public static float GetAngleToMouse(this Vector2 _pos, float _cameraZ)
+            {
+                Vector3 _dir = Camera.main.ScreenToWorldPoint(MouseF.GetMousePosition()) - (Vector3) _pos;
                 float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
                 return _angle;
             }
         }
     }
 
-    namespace Delegatef
+    namespace Delegates
     {
         public delegate void VoidDelegate();
 
-        public static class Delegatef
+        public static class DelegateF
         {
             public static async void Invoke(Object _caller, VoidDelegate _delegate, float _time)
             {
@@ -83,6 +89,17 @@ namespace Game.General.Utilities
                 if (_caller)
                     _delegate.Invoke();
             }
+        }
+    }
+
+    namespace Mouse
+    {
+        public static class MouseF
+        {
+            public const int MAINCAMERA_Z = -10;
+
+            public static Vector3 GetMousePosition() => 
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, MAINCAMERA_Z);
         }
     }
 }
