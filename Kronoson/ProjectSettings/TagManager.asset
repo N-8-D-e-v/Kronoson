@@ -39,13 +39,16 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 3534078421
+    locked: 0
   - name: World
     uniqueID: 1670920091
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: NoShadow
+  - name: Weapon
     uniqueID: 792915187
     locked: 0
   - name: FG
