@@ -32,6 +32,7 @@ namespace Game.Levels.AI
             movement = GetComponentInParent<SmoothMovement>();
             jumping = GetComponentInParent<IJumping>();
             playerFlippable = GetComponentInParent<IPlayerFlippable>();
+            playerFlippable.Enabled = false;
             direction.x = parent.localScale.x;
         }
 
@@ -39,7 +40,13 @@ namespace Game.Levels.AI
 
         public override void OnStateEnter() => playerFlippable.Enabled = true;
 
-        public override void OnStateExit() => playerFlippable.Enabled = false;
+        public override void OnStateExit()
+        {
+            playerFlippable.Enabled = false;
+            direction = Vector2.zero;
+            movement.InputAxis = 0f;
+            jumping.InputUp = false;
+        }
 
         public override bool Condition()
         {

@@ -1,5 +1,6 @@
+using Game.General.Utilities.Delegates;
 using UnityEngine;
-using Game.General.Utilities.Transform;
+using Game.General.Utilities.Transforms;
 
 namespace Game.Levels.AI
 {
@@ -32,15 +33,18 @@ namespace Game.Levels.AI
                 AIState _state = states[_i];
                 if (!_state.Condition())
                     continue;
+                
                 _state.Behaviour();
                 animator.SetInteger(STATE, _i);
-                
-                if (_state == currentState || !currentState) 
+
+                if (_state == currentState)
                     return;
-                currentState.OnStateExit();
-                _state.OnStateEnter();
-                currentState = _state;
                 
+                if (currentState != null)
+                    currentState.OnStateExit();
+                
+                currentState = _state;
+                currentState.OnStateEnter();
                 return;
             }
         }

@@ -21,6 +21,12 @@ namespace Game.Levels.AI
             attack.InputAttack = false;
         }
 
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            attack.InputAttack = false;
+        }
+
         public override void Behaviour()
         {
             base.Behaviour();

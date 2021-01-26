@@ -1,12 +1,23 @@
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using Game.General.Utilities.Math;
 using Game.General.Utilities.Mouse;
 using Object = UnityEngine.Object;
 
 namespace Game.General.Utilities
 {
-    namespace Transform
+    namespace Math
+    {
+        public static class MathF
+        {
+            public static bool IsInRange(this float _float, float _min, float _max) => 
+                Mathf.Clamp(_float, _min, _max) == _float;
+        }
+        
+    }
+    
+    namespace Transforms
     {
         public static class TransformF
         {
@@ -26,7 +37,7 @@ namespace Game.General.Utilities
                 return _components;
             }
 
-            public static void Flip(this UnityEngine.Transform _transform, float _dir, bool _isLocal)
+            public static void Flip(this Transform _transform, float _dir, bool _isLocal)
             {
                 Vector3 _rot = _isLocal ? _transform.localEulerAngles : _transform.eulerAngles;
                 if (_dir > 0)
@@ -36,7 +47,7 @@ namespace Game.General.Utilities
                 _transform.eulerAngles = _rot;
             }
 
-            public static void Flip(this UnityEngine.Transform _transform, float _dir, float _xScale)
+            public static void Flip(this Transform _transform, float _dir, float _xScale)
             {
                 Vector3 _scale = _transform.localScale;
 
@@ -74,6 +85,13 @@ namespace Game.General.Utilities
                 float _angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
                 return _angle;
             }
+
+            public static bool IsInCameraViewPort(this Vector3 _pos)
+            {
+                Vector3 _screenPos = Camera.main.WorldToScreenPoint(_pos);
+                return _screenPos.x.IsInRange(0, 1) && _screenPos.y.IsInRange(0, 1);
+            }
+
         }
     }
 

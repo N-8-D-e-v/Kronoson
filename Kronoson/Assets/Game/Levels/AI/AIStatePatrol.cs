@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.General.Utilities.Transform;
+using Game.General.Utilities.Transforms;
 using Game.Levels.Movement;
 using Game.Levels.Sensors;
 
@@ -24,6 +24,7 @@ namespace Game.Levels.AI
         {
             movement = GetComponentInParent<SmoothMovement>();
             flippable = GetComponentInParent<IFlippable>();
+            flippable.Enabled = false;
             parent = transform.parent;
             direction.x = Mathf.Clamp(parent.localScale.x, -1f, 1f);
         }

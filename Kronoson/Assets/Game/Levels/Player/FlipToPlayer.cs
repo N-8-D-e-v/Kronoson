@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Game.General.Utilities.Transform;
+using Game.General.Utilities.Transforms;
 
 namespace Game.Levels.Player
 {

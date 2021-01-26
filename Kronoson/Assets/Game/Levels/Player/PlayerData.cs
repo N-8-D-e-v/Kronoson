@@ -5,16 +5,19 @@ namespace Game.Levels.Player
     public class PlayerData : MonoBehaviour
     {
         //Singleton
-        private static PlayerData Instance;
+        private static PlayerData instance;
 
         //Assignables
         private new static Transform transform;
+        
+        //Constants
+        public const string PLAYER_TAG = "Player";
 
         private void Awake()
         {
-            if (!Instance)
-                Instance = this;
-            else if (Instance != this)
+            if (!instance)
+                instance = this;
+            else if (instance != this)
                 Destroy(gameObject);
 
             transform = GetComponent<Transform>();
