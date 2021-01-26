@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2464018874992180214}
   - component: {fileID: 116217907895571820}
   - component: {fileID: 4148422413481768655}
-  m_Layer: 7
-  m_Name: Bullet_Shotgun_Player
+  m_Layer: 8
+  m_Name: Bullet_Shotgun_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290609dcb99b4b458df85b9c979c3ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
-  stunTime: 1
+  damage: 8
+  stunTime: 1.5
   knockback: 200
   cameraShakeSettings:
     duration: 0.1
