@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Inputs.Mic;
+using Game.Levels.Player;
 
 namespace Game.General.TimeManagement
 {
@@ -22,9 +23,10 @@ namespace Game.General.TimeManagement
         [SerializeField] private float timeScaleSmoothing = 0.2f;
         private float velocity = 0f;
 
-        //Mic Level
-        [Header("Mic Level")] 
+        //Microphone
+        [Header("Microphone")] 
         [SerializeField] private float slowMotionMicThreshold = -75f;
+        private bool useMicrophone = true;
 
         //Animations
         private static readonly int SLOW_MOTION = Animator.StringToHash("slow_motion");
@@ -39,19 +41,29 @@ namespace Game.General.TimeManagement
             DontDestroyOnLoad(gameObject);
 
             animator = GetComponentInChildren<Animator>();
+
+            PlayerData.OnPlayerDeath += StopMicrophone;
+            //TODO when the player starts the game, turn on the microphone
         }
 
         private void Update()
         {
+            //TODO uncomment the line below
             //Time.timeScale = Mathf.SmoothDamp(Time.timeScale, targetTimeScale, ref velocity, timeScaleSmoothing);
-            UpdateTimeScale();
+            if (useMicrophone)
+                UpdateTimeScale();
+            else
+                targetTimeScale = 1f;
         }
 
         private void UpdateTimeScale()
         {
             bool _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
+            //TODO also uncomment the line below this one
             //animator.SetBool(SLOW_MOTION, _slowMotion);
             targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
         }
+
+        private void StopMicrophone() => useMicrophone = false;
     }
 }

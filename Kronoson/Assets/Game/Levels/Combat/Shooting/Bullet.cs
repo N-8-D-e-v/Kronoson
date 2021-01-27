@@ -10,6 +10,7 @@ namespace Game.Levels.Combat.Shooting
         //Assignables
         private CameraShake cameraShake;
         private SpriteRenderer sprite;
+        private Rigidbody2D rb;
 
         //Camera Shake
         [Header("Camera Shake")]
@@ -24,6 +25,7 @@ namespace Game.Levels.Combat.Shooting
             base.Awake();
             cameraShake = CameraShake.GetMainCameraShake();
             sprite = GetComponent<SpriteRenderer>();
+            rb = GetComponent<Rigidbody2D>();
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D _col)
@@ -35,6 +37,7 @@ namespace Game.Levels.Combat.Shooting
 
         protected virtual void Destroy()
         {
+            rb.velocity = Vector2.zero;
             sprite.DOFade(0f, destroyTime);
             Destroy(gameObject, destroyTime);
         }
