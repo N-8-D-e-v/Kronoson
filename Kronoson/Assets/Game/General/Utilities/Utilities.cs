@@ -14,7 +14,6 @@ namespace Game.General.Utilities
             public static bool IsInRange(this float _float, float _min, float _max) => 
                 Mathf.Clamp(_float, _min, _max) == _float;
         }
-        
     }
     
     namespace Transforms
@@ -98,6 +97,8 @@ namespace Game.General.Utilities
     namespace Delegates
     {
         public delegate void VoidDelegate();
+        
+        public delegate void GameObjectDelegate(GameObject _obj);
 
         public static class DelegateF
         {
