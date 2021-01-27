@@ -15,7 +15,6 @@ namespace Game.Levels.World
                 return;
             isTriggered = true;
             SceneManager.LoadNextScene();
-            LevelData.NextLevel();
         }
     }
 }
