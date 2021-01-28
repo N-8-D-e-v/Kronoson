@@ -1,6 +1,7 @@
 using Game.General.Utilities.Delegates;
 using UnityEngine;
 using Game.General.Utilities.Transforms;
+using Game.Levels.Player;
 
 namespace Game.Levels.AI
 {
@@ -13,6 +14,7 @@ namespace Game.Levels.AI
         //States (DRAG THESE AS CHILDREN UNDER THE AI IN ORDER OF PRIORITY)
         private AIState[] states;
         private AIState currentState;
+        private bool isOn = true;
 
         //Animation
         private static readonly int STATE = Animator.StringToHash("state");
@@ -22,12 +24,23 @@ namespace Game.Levels.AI
             states = transform.InitializeHierarchy<AIState>();
             animator = GetComponent<Animator>();
 
+            PlayerData.OnPlayerDeath += TurnOff;
+
             foreach (AIState _state in states)
                 _state.LateAwake();
         }
 
         private void FixedUpdate()
         {
+            if (!isOn)
+            {
+                if (!currentState) 
+                    return;
+                currentState.OnStateExit();
+                currentState = null;
+                return;
+            }
+            
             for (int _i = 0; _i < states.Length; _i++)
             {
                 AIState _state = states[_i];
@@ -40,7 +53,7 @@ namespace Game.Levels.AI
                 if (_state == currentState)
                     return;
                 
-                if (currentState != null)
+                if (currentState)
                     currentState.OnStateExit();
                 
                 currentState = _state;
@@ -48,5 +61,7 @@ namespace Game.Levels.AI
                 return;
             }
         }
+
+        private void TurnOff() => isOn = false;
     }
 }

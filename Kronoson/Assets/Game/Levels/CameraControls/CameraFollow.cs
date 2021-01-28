@@ -12,6 +12,7 @@ namespace Game.Levels.CameraControls
         
         //Target
         private Vector3 target;
+        private bool isOn = true;
 
         //Follow Speed
         [Header("Follow Speed")] 
@@ -23,10 +24,17 @@ namespace Game.Levels.CameraControls
         [Header("Bounds")]
         [SerializeField] private CameraBounds bounds;
 
-        private void Awake() => rb = GetComponent<Rigidbody2D>();
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+            PlayerData.OnPlayerDeath += TurnOff;
+        }
 
         private void FixedUpdate()
         {
+            if (!isOn)
+                return;
+            
             Vector3 _target = PlayerData.GetPlayerPosition();
             Vector3 _pos = rb.position;
             _target.z = MouseF.MAINCAMERA_Z;
@@ -39,6 +47,8 @@ namespace Game.Levels.CameraControls
 
             rb.MovePosition(Vector3.SmoothDamp(_pos, target, ref velocity, followTime));
         }
+
+        private void TurnOff() => isOn = false;
     }
 
 
