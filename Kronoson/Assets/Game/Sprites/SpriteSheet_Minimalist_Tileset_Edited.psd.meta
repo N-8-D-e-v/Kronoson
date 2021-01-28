@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -316597992468068464
-    second: spike_small
+    second: spike
   - first:
       213: -919262393523860681
-    second: spike_big
+    second: spring
   - first:
       213: 5100545199791455237
-    second: circle_thin_topper
+    second: thin_middle
   - first:
       213: -2188727648268321703
     second: gun_semiauto
@@ -274,7 +274,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike_small
+      name: spike
       rect:
         serializedVersion: 2
         x: 4
@@ -295,13 +295,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spike_big
+      name: spring
       rect:
         serializedVersion: 2
-        x: 16
+        x: 18
         y: 48
-        width: 16
-        height: 16
+        width: 12
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,7 +316,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circle_thin_topper
+      name: thin_middle
       rect:
         serializedVersion: 2
         x: 32
