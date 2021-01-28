@@ -11,12 +11,10 @@ namespace Game.Levels.Pickups
 
         //Holding
         private IPickupable itemHolding;
-                
-        //Picking Up
-        [Header("Picking Up")]
-        [SerializeField] private float pickUpRadius = 1f;
-        [SerializeField] private LayerMask pickupableLayers;
-        private readonly Collider2D[] itemsInRadius = new Collider2D[10];
+        
+        //Picking up and dropping
+        [SerializeField] private PickUp pickUp;
+        private Drop drop = new Drop();
 
         private void Awake()
         {
@@ -28,24 +26,23 @@ namespace Game.Levels.Pickups
 
         private void PickingUp()
         {
-            if (Drop.CanDrop(itemHolding))
-                Drop.DropItemHolding(ref itemHolding);
-            
-            PickUp.CheckForItems(transform.position, pickUpRadius, itemsInRadius, pickupableLayers);
-            if (!PickUp.FoundItems(itemsInRadius))
+            if (drop.CanDrop(itemHolding))
+                drop.DropItemHolding(ref itemHolding);
+
+            pickUp.CheckForItems(transform.position);
+            if (pickUp.ItemsInRadius.Length == 0)
                 return;
-            foreach (Collider2D _item in itemsInRadius)
+            foreach (Collider2D _item in pickUp.ItemsInRadius)
             {
                 //Non alloc circle check may not populate whole array
                 if (!_item)
                     break;
-                
-                if (!PickUp.IsPickupableAndCanPickUp(_item, out IPickupable _pickupable))
+                if (!pickUp.IsPickupableAndCanPickUp(_item, out IPickupable _pickupable))
                     continue;
-                if (Drop.IsHoldingItem(itemHolding))
-                    Drop.DropItemHolding(ref itemHolding);
+                if (drop.IsHoldingItem(itemHolding))
+                    drop.DropItemHolding(ref itemHolding);
                 
-                PickUp.PickUpItem(_pickupable, attachedRigidbody, out itemHolding);
+                pickUp.PickUpItem(out itemHolding, _pickupable);
                 break;
             }
             

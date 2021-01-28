@@ -13,9 +13,9 @@ namespace Game.Inputs.LookAtMouse
         //Assignables
         private Rigidbody2D rb;
 
-        //Offset
+        //Values
         [SerializeField] private float offset = 0f;
-        [Range(0.1f, 1f)] [SerializeField] private float smoothing = 1f;
+        [Range(0.1f, 1f)] [SerializeField] private float smoothing = 0.3f;
 
         private void Awake() => rb = GetComponent<Rigidbody2D>();
 
@@ -25,7 +25,7 @@ namespace Game.Inputs.LookAtMouse
                 return;
             
             float _angle = rb.position.GetAngleToMouse(MouseF.MAINCAMERA_Z) + offset;
-            rb.MoveRotation(_angle);
+            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, _angle, smoothing));
         }
     }
 }

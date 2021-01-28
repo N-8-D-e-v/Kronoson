@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 3081174242779075010}
   - component: {fileID: 3081174242779075012}
   - component: {fileID: 3081174242779075013}
-  - component: {fileID: 319583899479505226}
   - component: {fileID: 3081174242779075011}
   - component: {fileID: 3081174242779075009}
   - component: {fileID: 2407975811712415012}
   - component: {fileID: 1880422646613957906}
   - component: {fileID: 2407975811712415015}
   - component: {fileID: 1468107103438064474}
+  - component: {fileID: -2950277409301600787}
+  - component: {fileID: 3868460578374743273}
   m_Layer: 9
   m_Name: Gun_Auto
   m_TagString: Untagged
@@ -100,7 +101,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.01
-  m_LinearDrag: 15
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
@@ -108,25 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!254 &319583899479505226
-RelativeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3081174242779075023}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_MaxForce: 10000
-  m_MaxTorque: 0
-  m_CorrectionScale: 0.8
-  m_AutoConfigureOffset: 0
-  m_LinearOffset: {x: 0, y: 0.1}
-  m_AngularOffset: 0
 --- !u!114 &3081174242779075011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -90
-  smoothing: 1
+  smoothing: 0.4
 --- !u!114 &1880422646613957906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +207,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-2950277409301600787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081174242779075023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdea2efa4a2c1fa419753e6cafef5dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -90
+  smoothing: 10
+--- !u!114 &3868460578374743273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081174242779075023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ae06f20fba4e5f98ae9d0e9de6fa75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0.1}
 --- !u!1 &3081174242898731060
 GameObject:
   m_ObjectHideFlags: 0

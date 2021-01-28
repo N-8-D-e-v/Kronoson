@@ -2,29 +2,31 @@
 
 namespace Game.Levels.Pickups
 {
-    public static class PickUp
+    [System.Serializable]
+    public class PickUp
     {
-        public static void CheckForItems(Vector3 _pos, float _radius, Collider2D[] _results, LayerMask _layers)
+        //Picking Up
+        [SerializeField] private float pickUpRadius = 1f;
+        [SerializeField] private LayerMask pickupableLayers;
+        public readonly Collider2D[] ItemsInRadius = new Collider2D[10];
+        
+        public bool CheckForItems(Vector3 _pos)
         {
-            Physics2D.OverlapCircleNonAlloc(_pos, _radius, _results, _layers);
+            Physics2D.OverlapCircleNonAlloc(_pos, pickUpRadius, ItemsInRadius, pickupableLayers);
+            return ItemsInRadius.Length > 0;
         }
 
-        public static bool FoundItems(Collider2D[] _itemsInRadius)
-        {
-            return _itemsInRadius.Length > 0;
-        }
-
-        public static bool IsPickupableAndCanPickUp(Collider2D _col, out IPickupable _result)
+        public bool IsPickupableAndCanPickUp(Collider2D _col, out IPickupable _result)
         {
             bool _isPickupable = _col.TryGetComponent<IPickupable>(out IPickupable _pickupable);
             _result = _isPickupable && _pickupable.CanPickUp() ? _pickupable : null;
             return _isPickupable && _pickupable.CanPickUp();
         }
 
-        public static void PickUpItem(IPickupable _pickupable, Rigidbody2D _attachedRigidbody, out IPickupable _itemHolding)
+        public void PickUpItem(out IPickupable _itemHolding, IPickupable _pickupable)
         {
-            _pickupable.PickUp(_attachedRigidbody);
             _itemHolding = _pickupable;
+            _itemHolding.PickUp();
         }
     }
 }

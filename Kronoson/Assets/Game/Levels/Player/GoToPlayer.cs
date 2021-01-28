@@ -2,8 +2,11 @@ using UnityEngine;
 
 namespace Game.Levels.Player
 {
-    public class GoToPlayer : MonoBehaviour
+    public class GoToPlayer : MonoBehaviour, IGoToPlayer
     {
+        //Public Fields
+        public bool Enabled { get; set; } = false;
+
         //Assignables
         private new Transform transform;
 
@@ -12,6 +15,11 @@ namespace Game.Levels.Player
 
         private void Awake() => transform = GetComponent<Transform>();
 
-        private void LateUpdate() => transform.position = PlayerData.GetPlayerPosition() + offset;
+        private void LateUpdate()
+        {
+            if (!Enabled)
+                return;
+            transform.position = PlayerData.GetPlayerPosition() + offset;
+        }
     }
 }

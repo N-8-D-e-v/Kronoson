@@ -6,7 +6,7 @@ namespace Game.Levels.Pickups
     {
         public bool CanPickUp();
         
-        public void PickUp(Rigidbody2D _pickUp);
+        public void PickUp();
         
         public void Drop();
     }

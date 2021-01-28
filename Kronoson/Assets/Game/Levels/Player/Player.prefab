@@ -311,10 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2212c3f47f432aaf9dd65d42ea0105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRadius: 15
-  pickupableLayers:
-    serializedVersion: 2
-    m_Bits: 512
+  pickUp:
+    pickUpRadius: 1
+    pickupableLayers:
+      serializedVersion: 2
+      m_Bits: 512
 --- !u!114 &2223765113377489182
 MonoBehaviour:
   m_ObjectHideFlags: 0

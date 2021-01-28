@@ -3,6 +3,7 @@ using Game.General.Utilities.Delegates;
 
 namespace Game.Levels.Player
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerData : MonoBehaviour
     {
         //Singleton
@@ -13,6 +14,7 @@ namespace Game.Levels.Player
 
         //Assignables
         private new static Transform transform;
+        private static Rigidbody2D rb;
 
         //Constants
         public const string PLAYER_TAG = "Player";
@@ -25,9 +27,12 @@ namespace Game.Levels.Player
                 Destroy(gameObject);
 
             transform = GetComponent<Transform>();
+            rb = GetComponent<Rigidbody2D>();
         }
 
         public static Vector3 GetPlayerPosition() => transform.position;
+
+        public static Vector3 GetPlayerPredictedPosition() => rb.position + (rb.velocity * Time.fixedDeltaTime);
 
         public void PlayerDeath() => OnPlayerDeath?.Invoke();
     }
