@@ -45,7 +45,7 @@ namespace Game.Levels.Pickups
             controlsAttack.IsEnabled = true;
             goToPlayer.Enabled = true;
             rb.gravityScale = 0f;
-            rb.centerOfMass = Vector2.zero;
+            rb.centerOfMass = pickedUpOffset;
         }
 
         public void Drop()
