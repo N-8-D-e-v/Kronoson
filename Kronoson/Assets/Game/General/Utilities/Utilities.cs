@@ -97,8 +97,6 @@ namespace Game.General.Utilities
     namespace Delegates
     {
         public delegate void VoidDelegate();
-        
-        public delegate void GameObjectDelegate(GameObject _obj);
 
         public static class DelegateF
         {

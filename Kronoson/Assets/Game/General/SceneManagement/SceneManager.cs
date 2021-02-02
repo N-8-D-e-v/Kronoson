@@ -24,11 +24,16 @@ namespace Game.General.SceneManagement
         private void Awake()
         {
             transform.parent = null;
-            
+
             if (!instance)
+            {
                 instance = this;
+            }
             else if (instance != this)
+            {
                 Destroy(gameObject);
+                return;
+            }
             DontDestroyOnLoad(gameObject);
 
             animator = GetComponent<Animator>();
