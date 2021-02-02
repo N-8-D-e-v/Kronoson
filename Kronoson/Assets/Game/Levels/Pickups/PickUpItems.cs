@@ -14,7 +14,7 @@ namespace Game.Levels.Pickups
         
         //Picking up and dropping
         [SerializeField] private PickUp pickUp;
-        private Drop drop = new Drop();
+        private readonly Drop drop = new Drop();
 
         private void Awake()
         {
@@ -45,7 +45,12 @@ namespace Game.Levels.Pickups
                 pickUp.PickUpItem(out itemHolding, _pickupable);
                 break;
             }
-            
+        }
+
+        public void Drop()
+        {
+            if (drop.IsHoldingItem(itemHolding))
+                drop.DropItemHolding(ref itemHolding);
         }
     }
 }

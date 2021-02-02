@@ -11,7 +11,6 @@ namespace Game.Levels.Combat
         //Damage
         [Header("Damage")]
         [SerializeField] private int damage = 5;
-        [SerializeField] private float stunTime = 0.5f;
         [SerializeField] private float knockback = 25f;
 
         protected virtual void Awake() => transform = GetComponent<Transform>();
@@ -23,9 +22,6 @@ namespace Game.Levels.Combat
             
             if (_col.TryGetComponent<Rigidbody2D>(out Rigidbody2D _rb))
                 Knockback(_rb);
-            
-            if (_col.TryGetComponent<IStunnable>(out IStunnable _stunnable))
-                _stunnable.Stun(stunTime);
         }
 
         private void Knockback(Rigidbody2D _rb)

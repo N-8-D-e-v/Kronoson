@@ -3,7 +3,6 @@ using System;
 using System.Threading.Tasks;
 using Game.General.Utilities.Math;
 using Game.General.Utilities.Mouse;
-using Object = UnityEngine.Object;
 
 namespace Game.General.Utilities
 {
@@ -27,11 +26,12 @@ namespace Game.General.Utilities
                 int _c = 0;
 
                 for (int _i = 0; _i < _root.childCount; _i++)
-                    if (_root.GetChild(_i).TryGetComponent<T>(out T _component))
-                    {
-                        _components[_c] = _component;
-                        _c++;
-                    }
+                {
+                    if (!_root.GetChild(_i).TryGetComponent(out T _component)) 
+                        continue;
+                    _components[_c] = _component;
+                    _c++;
+                }
 
                 return _components;
             }
@@ -100,7 +100,7 @@ namespace Game.General.Utilities
 
         public static class DelegateF
         {
-            public static async void Invoke(Object _caller, VoidDelegate _delegate, float _time)
+            public static async void Invoke(UnityEngine.Object _caller, VoidDelegate _delegate, float _time)
             {
                 await Task.Delay(TimeSpan.FromSeconds(_time));
                 if (_caller)
