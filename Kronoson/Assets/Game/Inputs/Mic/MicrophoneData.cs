@@ -13,59 +13,47 @@ namespace Game.Inputs.Mic
         //Mic Info
         private AudioClip micRecord;
         private string device;
-        private float[] waveData;
-        private bool initialized = false;
+        private readonly float[] waveData = new float[SAMPLE_WINDOW];
+
+        //Constants
+        private const int SAMPLE_WINDOW = 64;
 
         private void Awake()
         {
+            transform.parent = null;
             if (!instance)
+            {
                 instance = this;
+            }
             else if (instance != this)
+            {
                 Destroy(gameObject);
+                return;
+            }
+            DontDestroyOnLoad(gameObject);
 
             InitMic();
         }
 
         private void FixedUpdate() => UpdateMicLevel();
 
-            private void OnApplicationFocus(bool _focusStatus)
-        {
-            switch (_focusStatus)
-            {
-                case true when !initialized:
-                    InitMic();
-                    break;
-                case false:
-                    StopMic();
-                    break;
-            }
-        }
-
         private void OnApplicationQuit() => StopMic();
 
         private void InitMic()
         {
-            initialized = true;
             device ??= Microphone.devices[0];
             micRecord = Microphone.Start(device, true, 999, 44100);
         }
 
-        private void StopMic()
-        {
-            initialized = false;
-            Microphone.End(device);
-        }
+        private void StopMic() => Microphone.End(device);
 
         private float GetMicLevel()
         {
             float _levelMax = 0f;
-            const int _sampleWindow = 64;
-            int _micPos = Microphone.GetPosition(null) - (_sampleWindow + 1);
-            
-            waveData = new float[_sampleWindow];
+            int _micPos = Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);
             micRecord.GetData(waveData, _micPos);
 
-            for (int _i = 0; _i < _sampleWindow; _i++)
+            for (int _i = 0; _i < SAMPLE_WINDOW; _i++)
             {
                 float _peak = waveData[_i] * waveData[_i];
 
