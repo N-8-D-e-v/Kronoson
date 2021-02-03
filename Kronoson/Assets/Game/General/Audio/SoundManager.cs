@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Game.General.Audio
 {
@@ -9,7 +10,8 @@ namespace Game.General.Audio
             //Singleton
             private static SoundManager instance;
 
-            //Audio Sources
+            //Audio
+            [SerializeField] private AudioMixerGroup audioMixerGroup;
             [SerializeField] private int maxAudioSources = 20;
             private static Queue<AudioSource> audioSources;
 
@@ -22,11 +24,15 @@ namespace Game.General.Audio
             private void Awake()
             {
                 transform.parent = null;
-                
                 if (!instance)
+                {
                     instance = this;
+                }
                 else if (instance != this)
+                {
                     Destroy(gameObject);
+                    return;
+                }
                 DontDestroyOnLoad(gameObject);
 
                 InitAudioSources();
@@ -43,6 +49,7 @@ namespace Game.General.Audio
                     _audioSource.transform.parent = transform;
                     _audioSource.playOnAwake = false;
                     _audioSource.loop = false;
+                    _audioSource.outputAudioMixerGroup = audioMixerGroup;
                     audioSources.Enqueue(_audioSource);
                 }
             }

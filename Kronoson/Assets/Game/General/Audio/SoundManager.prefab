@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4cf9d3394dbe24f9cf151f53485661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixerGroup: {fileID: 24300002, guid: c2c7d7b11b151f345972a6f8438d0b0a, type: 2}
   maxAudioSources: 20
   sounds:
   - name: SemiAutoGunShoot

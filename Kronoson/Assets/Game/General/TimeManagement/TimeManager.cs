@@ -1,6 +1,6 @@
 using UnityEngine;
-using Game.Inputs.Mic;
 using Game.Levels.Player;
+using UnityEngine.Audio;
 
 namespace Game.General.TimeManagement
 {
@@ -17,6 +17,11 @@ namespace Game.General.TimeManagement
         [SerializeField] private float normalTimeScale = 1f;
         [SerializeField] private float slowMotionTimeScale = 0.2f;
         private float targetTimeScale = 1f;
+        private bool isSlowMotion = false;
+        
+        //Audio
+        [Header("Audio")]
+        [SerializeField] private AudioMixer audioMixer;
 
         //Smoothing
         [Header("Smoothing")] 
@@ -48,8 +53,7 @@ namespace Game.General.TimeManagement
 
         private void Update()
         {
-            //TODO uncomment the line below
-            //Time.timeScale = Mathf.SmoothDamp(Time.timeScale, targetTimeScale, ref velocity, timeScaleSmoothing);
+            Time.timeScale = Mathf.SmoothDamp(Time.timeScale, targetTimeScale, ref velocity, timeScaleSmoothing);
             if (useMicrophone)
                 UpdateTimeScale();
             else
@@ -58,10 +62,14 @@ namespace Game.General.TimeManagement
 
         private void UpdateTimeScale()
         {
-            bool _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
-            //TODO also uncomment the line below this one
-            //animator.SetBool(SLOW_MOTION, _slowMotion);
+            //bool _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
+            if (Input.GetKeyDown(KeyCode.Space))
+                isSlowMotion = !isSlowMotion;
+            bool _slowMotion = isSlowMotion;
+            
+            animator.SetBool(SLOW_MOTION, _slowMotion);
             targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
+            audioMixer.SetFloat("pitch", Time.timeScale);
         }
 
         private void StopMicrophone() => useMicrophone = false;

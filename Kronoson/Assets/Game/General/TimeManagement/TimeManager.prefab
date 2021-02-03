@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalTimeScale: 1
   slowMotionTimeScale: 0.1
+  audioMixer: {fileID: 24100000, guid: c2c7d7b11b151f345972a6f8438d0b0a, type: 2}
   timeScaleSmoothing: 0.1
   slowMotionMicThreshold: -50
 --- !u!1 &645508932887715845

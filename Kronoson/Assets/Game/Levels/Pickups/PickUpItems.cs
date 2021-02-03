@@ -42,9 +42,6 @@ namespace Game.Levels.Pickups
                     break;
                 if (!pickUp.IsPickupableAndCanPickUp(_item, out IPickupable _pickupable))
                     continue;
-                if (itemHolding != null)
-                    Pickups.Drop.DropItemHolding(ref itemHolding);
-
                 pickUp.PickUpItem(out itemHolding, _pickupable);
                 break;
             }

@@ -13,11 +13,8 @@ namespace Game.Inputs.Mic
         //Mic Info
         private AudioClip micRecord;
         private string device;
-        private readonly float[] waveData = new float[SAMPLE_WINDOW];
+        private float[] waveData;
         private bool initialized = false;
-
-        //Constants
-        private const int SAMPLE_WINDOW = 64;
 
         private void Awake()
         {
@@ -29,12 +26,9 @@ namespace Game.Inputs.Mic
             InitMic();
         }
 
-        private void FixedUpdate()
-        {
-            UpdateMicLevel();
-        }
+        private void FixedUpdate() => UpdateMicLevel();
 
-        private void OnApplicationFocus(bool _focusStatus)
+            private void OnApplicationFocus(bool _focusStatus)
         {
             switch (_focusStatus)
             {
@@ -65,11 +59,13 @@ namespace Game.Inputs.Mic
         private float GetMicLevel()
         {
             float _levelMax = 0f;
-            int _micPos = Microphone.GetPosition(null) - (SAMPLE_WINDOW + 1);
-
+            const int _sampleWindow = 64;
+            int _micPos = Microphone.GetPosition(null) - (_sampleWindow + 1);
+            
+            waveData = new float[_sampleWindow];
             micRecord.GetData(waveData, _micPos);
 
-            for (int _i = 0; _i < SAMPLE_WINDOW; _i++)
+            for (int _i = 0; _i < _sampleWindow; _i++)
             {
                 float _peak = waveData[_i] * waveData[_i];
 
