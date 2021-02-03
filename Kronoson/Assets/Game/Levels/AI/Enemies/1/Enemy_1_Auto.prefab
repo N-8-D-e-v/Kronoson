@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4990074880933625824, guid: b6609528d2790204fbe65652a365c6a7, type: 3}
       propertyPath: m_Name
-      value: Enemy_1_SemiAuto
+      value: Enemy_1_Auto
       objectReference: {fileID: 0}
     - target: {fileID: 4990074880933625824, guid: b6609528d2790204fbe65652a365c6a7, type: 3}
       propertyPath: m_IsActive

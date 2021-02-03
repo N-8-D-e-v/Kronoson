@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Game.General.Audio;
+using Game.General.Utilities.Delegates;
+using UnityEngine;
 
 namespace Game.Levels.Pickups
 {
@@ -26,6 +28,7 @@ namespace Game.Levels.Pickups
         public void PickUpItem(out IPickupable _itemHolding, IPickupable _pickupable)
         {
             _itemHolding = _pickupable;
+            SoundManager.PlaySound(SoundType.PickUp);
             _itemHolding.PickUp();
         }
     }

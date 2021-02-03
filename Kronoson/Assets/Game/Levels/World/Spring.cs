@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.General.Audio;
+using UnityEngine;
 
 namespace Game.Levels.World
 {
@@ -12,6 +13,7 @@ namespace Game.Levels.World
             if (!_col.TryGetComponent<Rigidbody2D>(out Rigidbody2D _rb))
                 return;
             _rb.velocity = new Vector2(_rb.velocity.x, bounce);
+            SoundManager.PlaySound(SoundType.Spring);
         }
     }
 }

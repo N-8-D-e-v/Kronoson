@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.General.Utilities.Delegates;
+using UnityEngine;
 
 namespace Game.Levels.Pickups
 {
@@ -14,7 +15,6 @@ namespace Game.Levels.Pickups
         
         //Picking up and dropping
         [SerializeField] private PickUp pickUp;
-        private readonly Drop drop = new Drop();
 
         private void Awake()
         {
@@ -26,8 +26,11 @@ namespace Game.Levels.Pickups
 
         private void PickingUp()
         {
-            if (drop.CanDrop(itemHolding))
-                drop.DropItemHolding(ref itemHolding);
+            if (Pickups.Drop.CanDrop(itemHolding))
+            {
+                Pickups.Drop.DropItemHolding(ref itemHolding);
+                return;
+            }
 
             pickUp.CheckForItems(transform.position);
             if (pickUp.ItemsInRadius.Length == 0)
@@ -39,9 +42,9 @@ namespace Game.Levels.Pickups
                     break;
                 if (!pickUp.IsPickupableAndCanPickUp(_item, out IPickupable _pickupable))
                     continue;
-                if (drop.IsHoldingItem(itemHolding))
-                    drop.DropItemHolding(ref itemHolding);
-                
+                if (itemHolding != null)
+                    Pickups.Drop.DropItemHolding(ref itemHolding);
+
                 pickUp.PickUpItem(out itemHolding, _pickupable);
                 break;
             }
@@ -49,8 +52,9 @@ namespace Game.Levels.Pickups
 
         public void Drop()
         {
-            if (drop.IsHoldingItem(itemHolding))
-                drop.DropItemHolding(ref itemHolding);
+            if (itemHolding == null) 
+                return;
+            Pickups.Drop.DropItemHolding(ref itemHolding);
         }
     }
 }

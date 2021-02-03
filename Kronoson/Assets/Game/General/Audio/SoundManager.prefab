@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3620396823269029940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6162052476830465139}
+  - component: {fileID: 9054291876291479016}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6162052476830465139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3620396823269029940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9054291876291479016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3620396823269029940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4cf9d3394dbe24f9cf151f53485661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAudioSources: 20
+  sounds:
+  - name: SemiAutoGunShoot
+    sounds:
+    - {fileID: 8300000, guid: 4cdb91c5a8208c54980d296e3b6003cc, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: ShotgunGunShoot
+    sounds:
+    - {fileID: 8300000, guid: 5e02af2fc25879a488aa883ad72f54c9, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: AutoGunShoot
+    sounds:
+    - {fileID: 8300000, guid: 75f50dce6c8ea6e42992ae158688195a, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: GrenadeLauncherGunShoot
+    sounds:
+    - {fileID: 8300000, guid: 37f9bad31bfa83c4a917ba1074599125, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: GrenadeLauncherGunExplode
+    sounds:
+    - {fileID: 8300000, guid: 56b52f6fdaa447644a5a790a4dc57c6a, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: PlayerHurt
+    sounds:
+    - {fileID: 8300000, guid: 52b9160b40be576479c86a57de10b54e, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: EnemyHurt
+    sounds:
+    - {fileID: 8300000, guid: f3f20e55933862b4cacb07bf8574181f, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: PlayerDeath
+    sounds:
+    - {fileID: 8300000, guid: c4fcd6f586d39374395a9d2fcce95d09, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: EnemyDeath
+    sounds:
+    - {fileID: 8300000, guid: a1061c4c70b1c6e49b96ecccad103f70, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: PickUp
+    sounds:
+    - {fileID: 8300000, guid: fcb97ee722d457c448243897fe1eb294, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: Drop
+    sounds:
+    - {fileID: 8300000, guid: b2c799680c58d134e8d60d8cb8af8d71, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: Portal
+    sounds:
+    - {fileID: 8300000, guid: ea85f7eaeea11264caf76a6b6c30cedc, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: Bullet
+    sounds:
+    - {fileID: 8300000, guid: 54f4813b091a3fa46b75c26542f4ed8d, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1
+  - name: Spring
+    sounds:
+    - {fileID: 8300000, guid: 721ea0338d92ffe41b7bf9f77e2ec5f9, type: 3}
+    minPitch: 0.6
+    maxPitch: 1.4
+    minVolume: 1
+    maxVolume: 1

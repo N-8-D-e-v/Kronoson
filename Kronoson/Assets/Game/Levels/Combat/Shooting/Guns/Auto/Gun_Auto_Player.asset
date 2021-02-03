@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 1
   Bullet: {fileID: 2464018874992180214, guid: 8bc346c5fab994c42a47811a102adc7a, type: 3}
+  Sound: 2
   Range: 8
   FireRate: 0.2
   Shots: 1

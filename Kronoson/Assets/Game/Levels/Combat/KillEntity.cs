@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.General.Audio;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Game.Levels.Combat
@@ -10,6 +11,7 @@ namespace Game.Levels.Combat
         private Animator animator;
         
         //Death
+        [SerializeField] private SoundType deathSound = SoundType.EnemyDeath;
         [SerializeField] private UnityEvent onDeath;
         private bool isDead = false;
         
@@ -22,6 +24,7 @@ namespace Game.Levels.Combat
         {
             if (IsDead())
                 return;
+            SoundManager.PlaySound(deathSound);
             onDeath?.Invoke();
             isDead = true;
             animator.Play(KILL);

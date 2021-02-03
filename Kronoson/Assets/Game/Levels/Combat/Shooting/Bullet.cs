@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Game.General.Audio;
 using Game.Levels.CameraControls;
 using UnityEngine;
 
@@ -37,6 +38,7 @@ namespace Game.Levels.Combat.Shooting
 
         protected virtual void Destroy()
         {
+            SoundManager.PlaySound(SoundType.Bullet);
             rb.velocity = Vector2.zero;
             sprite.DOFade(0f, destroyTime);
             Destroy(gameObject, destroyTime);

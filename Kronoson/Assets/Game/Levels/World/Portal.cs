@@ -1,4 +1,5 @@
-﻿using Game.General.SceneManagement;
+﻿using Game.General.Audio;
+using Game.General.SceneManagement;
 using Game.Levels.Player;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Game.Levels.World
         {
             if (isTriggered || !_col.CompareTag(PlayerData.PLAYER_TAG))
                 return;
+            SoundManager.PlaySound(SoundType.Portal);
             isTriggered = true;
             SceneManager.LoadNextScene();
             LevelData.NextLevel();

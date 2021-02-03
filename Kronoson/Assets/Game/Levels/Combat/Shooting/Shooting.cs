@@ -1,3 +1,4 @@
+using Game.General.Audio;
 using UnityEngine;
 using Game.Levels.Sensors;
 using Game.General.TimeManagement;
@@ -42,6 +43,7 @@ namespace Game.Levels.Combat.Shooting
         protected virtual void Shoot()
         {
             animator.Play(SHOOT);
+            SoundManager.PlaySound(gun.Sound);
             
             float[] _spread = new float[gun.Shots];
             _spread.GetBulletSpread(gun.Shots, gun.Spread, transform.eulerAngles.z);

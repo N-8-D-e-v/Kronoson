@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.General.Audio;
+using UnityEngine;
 
 namespace Game.Levels.Combat
 {
@@ -12,6 +13,9 @@ namespace Game.Levels.Combat
         //Health
         [SerializeField] private int startHealth = 100;
         private int health = 0;
+        
+        //Sound
+        [SerializeField] private SoundType hurtSound = SoundType.EnemyHurt;
 
         //Animation
         private static readonly int HURT = Animator.StringToHash("hurt");
@@ -32,9 +36,14 @@ namespace Game.Levels.Combat
             
             health = Mathf.Max(0, health - _damage);
             if (health <= 0)
+            {
                 killable.Kill();
+            }
             else
+            {
                 animator.Play(HURT);
+                SoundManager.PlaySound(hurtSound);
+            }
         }
     }
 }

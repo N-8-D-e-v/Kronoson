@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.General.Audio;
+using UnityEngine;
 
 namespace Game.Levels.Combat.Shooting
 {
@@ -7,6 +8,7 @@ namespace Game.Levels.Combat.Shooting
     {
         public bool IsAutomatic = false;
         public Rigidbody2D Bullet;
+        public SoundType Sound = SoundType.SemiAutoGunShoot;
         [Range(0, 100)] public float Range = 15f;
         [Range(0, 100)] public float FireRate = 0.2f;
         [Range(0, 100)] public int Shots = 1;

@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
+  hurtSound: 6
 --- !u!114 &1893613603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14e189811bb48598b884b9db2f8d808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: 8
   onDeath:
     m_PersistentCalls:
       m_Calls: []

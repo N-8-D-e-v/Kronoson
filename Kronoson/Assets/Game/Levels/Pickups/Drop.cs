@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using Game.General.Audio;
+using UnityEngine;
 
 namespace Game.Levels.Pickups
 {
-    public class Drop
+    public static class Drop
     {
-        public bool IsHoldingItem(IPickupable _itemHolding) => _itemHolding != null;
-        public bool CanDrop(IPickupable _itemHolding) => _itemHolding != null && Input.GetMouseButtonDown(1);
+        public static bool CanDrop(IPickupable _itemHolding) => _itemHolding != null && Input.GetMouseButtonDown(1);
 
-        public void DropItemHolding(ref IPickupable _itemHolding)
+        public static void DropItemHolding(ref IPickupable _itemHolding)
         {
             _itemHolding.Drop();
+            SoundManager.PlaySound(SoundType.Drop);
             _itemHolding = null;
         }
     }

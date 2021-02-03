@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Game.General.Audio;
 using UnityEngine;
 
 namespace Game.Levels.Combat.Shooting
@@ -21,6 +22,7 @@ namespace Game.Levels.Combat.Shooting
 
         private IEnumerator Start()
         {
+            SoundManager.PlaySound(SoundType.GrenadeLauncherGunExplode);
             yield return new WaitForSeconds(explosionLength);
             col.enabled = false;
         }
