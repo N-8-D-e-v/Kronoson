@@ -10,11 +10,7 @@ namespace Game.General.SceneManagement
         
         //Assignables
         private static Animator animator;
-        
-        //Scenes
-        [SerializeField] private string[] scenes;
-        private static string[] scenesStatic;
-        
+
         //Scene Transitions
         private static int targetScene;
 
@@ -37,40 +33,23 @@ namespace Game.General.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             animator = GetComponent<Animator>();
-            scenesStatic = scenes;
         }
 
-        public static void LoadScene(string _sceneName)
-        {
-            targetScene = GetSceneByName(_sceneName);
-            animator.SetTrigger(TRANSITION);
-        }
-        
-        public static void LoadScene(int _sceneIndex)
+        private static void LoadScene(int _sceneIndex)
         {
             targetScene = _sceneIndex;
             animator.SetTrigger(TRANSITION);
         }
 
-        public static void LoadNextScene()
-        {
-            int _currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-            int _nextScene = _currentScene + 1;
-            LoadScene(_nextScene);
-        }
+        public static void LoadCurrentScene() => LoadScene(GetCurrentScene());
 
-        private static int GetSceneByName(string _name)
-        {
-            for (int _i = 0; _i < scenesStatic.Length; _i++)
-            {
-                if (scenesStatic[_i] == _name)
-                    return _i;
-            }
+        public static void LoadNextScene() => LoadScene(GetCurrentScene() + 1);
 
-            return UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        }
+        public static void LoadPreviousScene() => LoadScene(GetCurrentScene() - 1);
 
         private void ChangeScene() => 
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+        
+        private static int GetCurrentScene() => UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     }
 }

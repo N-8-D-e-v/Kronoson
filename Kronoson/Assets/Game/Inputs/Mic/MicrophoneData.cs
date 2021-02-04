@@ -16,6 +16,8 @@ namespace Game.Inputs.Mic
         private readonly float[] waveData = new float[SAMPLE_WINDOW];
 
         //Constants
+        public const float MIC_LEVEL_FLOOR = -90f;
+        public const float MIC_LEVEL_CEILING = 0f;
         private const int SAMPLE_WINDOW = 64;
 
         private void Awake()
@@ -35,7 +37,7 @@ namespace Game.Inputs.Mic
             InitMic();
         }
 
-        private void FixedUpdate() => UpdateMicLevel();
+        private void FixedUpdate() => MicrophoneLevel = GetMicLevel();
 
         private void OnApplicationQuit() => StopMic();
 
@@ -62,9 +64,7 @@ namespace Game.Inputs.Mic
             }
 
             float _decibels = 20 * Mathf.Log10(Mathf.Sqrt(_levelMax));
-            return Mathf.Clamp(_decibels, -100f, 100f);
+            return Mathf.Clamp(_decibels, MIC_LEVEL_FLOOR,  MIC_LEVEL_CEILING);
         }
-
-        private void UpdateMicLevel() => MicrophoneLevel = GetMicLevel();
     }
 }

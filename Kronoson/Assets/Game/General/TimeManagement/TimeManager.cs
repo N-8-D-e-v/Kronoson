@@ -54,10 +54,7 @@ namespace Game.General.TimeManagement
         private void Update()
         {
             Time.timeScale = Mathf.SmoothDamp(Time.timeScale, targetTimeScale, ref velocity, timeScaleSmoothing);
-            if (useMicrophone)
-                UpdateTimeScale();
-            else
-                targetTimeScale = 1f;
+            UpdateTimeScale();
         }
 
         private void UpdateTimeScale()
@@ -66,9 +63,12 @@ namespace Game.General.TimeManagement
             if (Input.GetKeyDown(KeyCode.Space))
                 isSlowMotion = !isSlowMotion;
             bool _slowMotion = isSlowMotion;
+            if (useMicrophone)
+                targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
+            else
+                targetTimeScale = 1f;
             
             animator.SetBool(SLOW_MOTION, _slowMotion);
-            targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
             audioMixer.SetFloat("pitch", Time.timeScale);
         }
 

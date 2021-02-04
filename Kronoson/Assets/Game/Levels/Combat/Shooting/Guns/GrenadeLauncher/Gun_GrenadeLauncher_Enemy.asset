@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b924257c4e8546b1ba984e9d01cda83c, type: 3}
+  m_Name: Gun_GrenadeLauncher_Enemy
+  m_EditorClassIdentifier: 
+  IsAutomatic: 0
+  Bullet: {fileID: 2464018874992180214, guid: b7126d9062de1154980b72f89eb193d4, type: 3}
+  Sound: 3
+  Range: 17
+  FireRate: 1.5
+  Shots: 1
+  Spread: 45

@@ -31,6 +31,13 @@ namespace Game.Levels.AI
                 _attack.InputAttack = false;
         }
 
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            foreach (IAttack _attack in attacks)
+                _attack.InputAttack = false;
+        }
+
         public override void Behaviour()
         {
             base.Behaviour();

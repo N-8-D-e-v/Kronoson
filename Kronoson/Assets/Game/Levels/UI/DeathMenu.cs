@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
+using Game.General.SceneManagement;
 using Game.Levels.Player;
 
 namespace Game.Levels.UI
@@ -26,6 +28,8 @@ namespace Game.Levels.UI
             PlayerData.OnPlayerDeath += FadeIn;
         }
 
+        private void OnDestroy() => PlayerData.OnPlayerDeath -= FadeIn;
+
         private void FadeIn()
         {
             canvasGroup.DOFade(1f, animationTime);
@@ -37,7 +41,13 @@ namespace Game.Levels.UI
             (() => graphicsGroup.Scale,
             _x => graphicsGroup.Scale = _x, 
             1f, animationTime / 3f);
+            StartCoroutine(WaitForClick());
+        }
 
+        private static IEnumerator WaitForClick()
+        {
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+            SceneManager.LoadCurrentScene();
         }
     }
 }
