@@ -47,6 +47,8 @@ namespace Game.General.SceneManagement
 
         public static void LoadPreviousScene() => LoadScene(GetCurrentScene() - 1);
 
+        public static void LoadFirstScene() => LoadScene(0);
+
         private void ChangeScene() => 
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
         

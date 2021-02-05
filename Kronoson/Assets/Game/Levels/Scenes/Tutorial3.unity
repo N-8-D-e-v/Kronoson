@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 845923076}
   - component: {fileID: 845923075}
   m_Layer: 5
-  m_Name: Text_MicrophoneLevel
+  m_Name: Text_RightClickPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

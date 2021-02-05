@@ -1,3 +1,5 @@
+using Game.Inputs.Mic;
+using Game.Levels;
 using UnityEngine;
 using Game.Levels.Player;
 using UnityEngine.Audio;
@@ -31,7 +33,7 @@ namespace Game.General.TimeManagement
         //Microphone
         [Header("Microphone")] 
         [SerializeField] private float slowMotionMicThreshold = -75f;
-        private bool useMicrophone = true;
+        private bool useMicrophone = false;
 
         //Animations
         private static readonly int SLOW_MOTION = Animator.StringToHash("slow_motion");
@@ -47,8 +49,9 @@ namespace Game.General.TimeManagement
 
             animator = GetComponentInChildren<Animator>();
 
-            PlayerData.OnPlayerDeath += StopMicrophone;
-            //TODO when the player starts the game, turn on the microphone
+            PlayerData.OnPlayerDeath += () => useMicrophone = false;
+            LevelData.OnGameStart += () => useMicrophone = true;
+            LevelData.OnGameStop += () => useMicrophone = false;
         }
 
         private void Update()
@@ -59,19 +62,15 @@ namespace Game.General.TimeManagement
 
         private void UpdateTimeScale()
         {
-            //bool _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
-            if (Input.GetKeyDown(KeyCode.Space))
-                isSlowMotion = !isSlowMotion;
-            bool _slowMotion = isSlowMotion;
-            if (useMicrophone)
-                targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
+            bool _slowMotion;
+            if (useMicrophone) 
+                _slowMotion = MicrophoneData.MicrophoneLevel <= slowMotionMicThreshold;
             else
-                targetTimeScale = 1f;
+                _slowMotion = false;
             
+            targetTimeScale = _slowMotion ? slowMotionTimeScale : normalTimeScale;
             animator.SetBool(SLOW_MOTION, _slowMotion);
             audioMixer.SetFloat("pitch", Time.timeScale);
         }
-
-        private void StopMicrophone() => useMicrophone = false;
     }
 }

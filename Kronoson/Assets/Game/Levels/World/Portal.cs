@@ -2,11 +2,15 @@
 using Game.General.SceneManagement;
 using Game.Levels.Player;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Levels.World
 {
     public class Portal : MonoBehaviour
     {
+        //Event
+        [SerializeField] private UnityEvent onPortalReached;
+        
         //Triggered
         private bool isTriggered = false;
         
@@ -16,6 +20,7 @@ namespace Game.Levels.World
                 return;
             SoundManager.PlaySound(SoundType.Portal);
             isTriggered = true;
+            onPortalReached?.Invoke();
             SceneManager.LoadNextScene();
             LevelData.NextLevel();
         }

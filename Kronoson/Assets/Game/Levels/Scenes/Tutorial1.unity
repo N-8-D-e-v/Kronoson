@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 845923076}
   - component: {fileID: 845923075}
   m_Layer: 5
-  m_Name: Text_MicrophoneLevel
+  m_Name: Text_SlowMotionTalking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GENERAL
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6494048157799524409, guid: a3b9a45002f265049ad3161907c25cee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a3b9a45002f265049ad3161907c25cee, type: 3}
 --- !u!1001 &1362346443
 PrefabInstance:
