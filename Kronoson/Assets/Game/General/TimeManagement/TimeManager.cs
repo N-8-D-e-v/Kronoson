@@ -49,7 +49,6 @@ namespace Game.General.TimeManagement
 
             animator = GetComponentInChildren<Animator>();
 
-            PlayerData.OnPlayerDeath += () => useMicrophone = false;
             LevelData.OnGameStart += () => useMicrophone = true;
             LevelData.OnGameStop += () => useMicrophone = false;
         }
