@@ -1,6 +1,6 @@
 # Kronoson
 
-5 devs were challenged to make a game with weird mechanics, using this art kit 
+7 devs were challenged to make a game with weird mechanics, using this art kit 
 https://opengameart.org/content/1-bit-16x16-minimalist-art-pack (made by me)
 
 My interpretation of the theme was the player being able to control time with their voice
