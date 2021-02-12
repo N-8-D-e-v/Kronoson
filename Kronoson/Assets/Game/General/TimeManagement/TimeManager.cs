@@ -1,7 +1,6 @@
 using Game.Inputs.Mic;
 using Game.Levels;
 using UnityEngine;
-using Game.Levels.Player;
 using UnityEngine.Audio;
 
 namespace Game.General.TimeManagement
@@ -19,8 +18,7 @@ namespace Game.General.TimeManagement
         [SerializeField] private float normalTimeScale = 1f;
         [SerializeField] private float slowMotionTimeScale = 0.2f;
         private float targetTimeScale = 1f;
-        private bool isSlowMotion = false;
-        
+
         //Audio
         [Header("Audio")]
         [SerializeField] private AudioMixer audioMixer;

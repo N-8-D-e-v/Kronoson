@@ -18,7 +18,7 @@ namespace Game.Inputs.LookAtMouse
 
         private void Awake() => transform = GetComponent<Transform>();
 
-            private void Update()
+        private void Update()
         {
             if (!Enabled)
                 return;
