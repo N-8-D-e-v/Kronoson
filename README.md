@@ -8,5 +8,5 @@ My interpretation of the theme was the player being able to control time with th
 I was pretty inspired by this video
 https://www.youtube.com/watch?v=j8tgV5whH0w
 
-I will be uploading a devlog here on my channel 
-https://www.youtube.com/c/N8Dev
+Devlog here
+https://www.youtube.com/watch?v=eOKSxUKCb0s
